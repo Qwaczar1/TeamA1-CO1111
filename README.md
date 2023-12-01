@@ -8,3 +8,5 @@ The team members are:
 • Joyce Fazaa
 
 • Petr Zhukov
+
+•George Kurtkezof
