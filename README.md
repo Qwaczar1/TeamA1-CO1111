@@ -9,4 +9,4 @@ The team members are:
 
 • Petr Zhukov
 
-•George Kurtkezof
+• George Kurtkezof
