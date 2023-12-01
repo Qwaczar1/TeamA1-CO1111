@@ -5,6 +5,6 @@ A project to demonstrate collaboration features of Git and GitHub to CO1111 stud
 
 The team members are:
 
-Joyce Fazaa
+• Joyce Fazaa
 
-Petr Zhukov
+• Petr Zhukov
