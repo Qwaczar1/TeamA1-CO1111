@@ -6,6 +6,74 @@
 </head>
 <body>
 
+<ul id="options">
+
+</ul>
+
+<!-- Treasure hunting -->
+<script>
+
+  let thcJSONResponse = '{\n' +
+          ' "treasureHunts": [\n' +
+          ' {\n' +
+          ' "uuid": "f1a6332f-27a4-4522-b52e-4937d5d747c7",\n' +
+          ' "name": "name-0",\n' +
+          ' "description": "description-0",\n' +
+          ' "ownerEmail": "email-0@example.com",\n' +
+          ' "secretCode": "abc1234",\n' +
+          ' "visibility": "PRIVATE",\n' +
+          ' "startsOn": 1568883640616,\n' +
+          ' "endsOn": 1568887240616,\n' +
+          ' "maxDuration": 720000,\n' +
+          ' "shuffled": false,\n' +
+          ' "requiresAuthentication": false,\n' +
+          ' "emailResults": true,\n' +
+          ' "hasPrize": false\n' +
+          ' },\n' +
+          ' {\n' +
+          ' "uuid": "05de92a7-6f7c-442c-a6c3-bd97a810002f",\n' +
+          ' "name": "name-1",\n' +
+          ' "description": "description-1",\n' +
+          ' "ownerEmail": "email-1@example.com",\n' +
+          ' "secretCode": "abc1234",\n' +
+          ' "visibility": "PUBLIC",\n' +
+          ' "startsOn": 1568883640617,\n' +
+          ' "endsOn": 1568887240617,\n' +
+          ' "maxDuration": 360000,\n' +
+          ' "shuffled": false,\n' +
+          ' "requiresAuthentication": false,\n' +
+          ' "emailResults": true,\n' +
+          ' "hasPrize": true\n' +
+          ' }\n' +
+          ' ],\n' +
+          ' "status": "OK"\n' +
+          '}';
+
+  let thcResponce = JSON.parse(thcJSONResponse);
+  let status = thcResponce.status;
+  console.log(status);
+  let treasureHunts = thcResponce.treasureHunts;
+  console.log("treasureHunts Length: " + treasureHunts.length);
+
+  for (let i = 0; i < treasureHunts.length; i++) {
+    console.log(treasureHunts[i].name);
+  }
+
+  if(status !== "OK"){
+    alert("Somthing went wrong!!")
+  }else{
+
+    let optionsList = document.getElementById("options");
+    for (let i = 0; i < treasureHunts.length; i++) {
+      var listItem = document.createElement("li");
+      var treasureHunt = document.createElement("a");
+      treasureHunt.href = "start.html?uuid=" + treasureHunts[i].uuid;
+      treasureHunt.text = treasureHunts[i].name;
+      listItem.append(treasureHunt);
+      optionsList.append(listItem);
+    }
+  }
+</script>
 
 
 <!-- Google tag (gtag.js) -->
