@@ -14,14 +14,17 @@
         alert("Latitude: " + position.coords.latitude + ",  Longitude: " + position.coords.longitude);
     }
 
-    if(navigator.geolocation){
-        //TODO - Geolocation is supported by browser.
-        navigator.geolocation.getCurrentPosition(showPosition);
+    function getPosition() {
+        if (navigator.geolocation) {
+            //TODO - Geolocation is supported by browser.
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            //TODO - Geolocation is NOT supported by browser.
+            alert("Geolocation is not supported by your browser.");
+        }
     }
-    else {
-        //TODO - Geolocation is NOT supported by browser.
-        alert("Geolocation is not supported by your browser.");
-    }
+
+    getPosition();
 
 </script>
 
