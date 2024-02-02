@@ -8,6 +8,23 @@
 
 <script>
 
+    //Cookies stuff
+    //document.cookie = "firstname=John";
+    //document.cookie = "lastname=Smith";
+
+    let cookies = document.cookie;
+
+    let date = new Date();
+    let milliseconds = 365 * 24 * 60 * 60 * 1000;
+    let expirationDateTime = date.getTime() + milliseconds;
+    date.setTime(expirationDateTime);
+
+    //document.cookie = "username=jsmith;" + "expires=" + date.toUTCString();
+
+    alert(cookies);
+
+
+    //Geolocation stuff
     function showPosition(position) {
         position.coords.latitude //Get the latitude
         position.coords.longitude //Get the longitude
@@ -24,7 +41,7 @@
         }
     }
 
-    getPosition();
+    //setInterval(getPosition, 10000);
 
 </script>
 
