@@ -6,6 +6,9 @@
 body{
     font-family: sans-serif;
     background-color: #E8F0F7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #headerContent{
@@ -24,8 +27,8 @@ body{
 }
 
 #headerLogo{
-    width: 100px;
-    height: 70px;
+    width: 130px;
+    height: 50px;
     margin-right: 15px;
 }
 
@@ -122,4 +125,22 @@ body{
     #burgerMenu {
         display: block;
     }
+}
+
+#footer{
+    width: 100%;
+    margin-top: auto;
+    padding-top: 10px;
+    background-color: darkgray;
+}
+
+#socialMediaDiv{
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+#twitterLogo{
+    width: 140px;
+    height: 90px;
 }
