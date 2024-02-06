@@ -27,8 +27,8 @@ body{
 }
 
 #headerLogo{
-    width: 200px;
-    height: auto;
+    width: 130px;
+    height: 50px;
     margin-right: 15px;
 }
 
@@ -128,22 +128,19 @@ body{
 }
 
 #footer{
+    width: 100%;
     margin-top: auto;
-    background-color: #f2be1a;
+    padding-top: 10px;
+    background-color: darkgray;
 }
 
-#footerContents{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#socials{
+#socialMediaDiv{
     color: black;
     font-weight: bold;
     text-align: center;
 }
 
-.social a img{
-    width: 20%;
-    height: auto;
+#twitterLogo{
+    width: 140px;
+    height: 90px;
 }
