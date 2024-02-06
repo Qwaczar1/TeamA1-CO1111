@@ -33,9 +33,9 @@ body{
     align-items: center;
 }
 
-#headerContainer2{
-    color: white;
-}
+/*#headerContainer2{*/
+/*    color: black;*/
+/*}*/
 
 #navList{
     display: flex;
