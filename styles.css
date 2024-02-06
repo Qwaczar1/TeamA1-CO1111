@@ -4,7 +4,8 @@
 }
 
 body{
-    font-family: serif;
+    font-family: sans-serif;
+    background-color: #E8F0F7;
 }
 
 #headerContent{
@@ -17,7 +18,7 @@ body{
 }
 
 #header{
-    background-color: grey;
+    background-color: darkgray;
     top: 0;
     width: 100%;
 }
@@ -33,9 +34,10 @@ body{
     align-items: center;
 }
 
-/*#headerContainer2{*/
-/*    color: black;*/
-/*}*/
+#headerContainer2{
+    color: black;
+    font-weight: bold;
+}
 
 #navList{
     display: flex;
@@ -97,6 +99,7 @@ body{
         position: fixed;
         top: 90px;
         left: 0;
+        border-top: 2px solid #34516C;
         background-color: #ffffff;
         width: 100%;
         padding: 8px 0;
