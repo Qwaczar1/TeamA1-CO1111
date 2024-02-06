@@ -4,8 +4,7 @@
 }
 
 body{
-    font-family: sans-serif;
-    background-color: #E8F0F7;
+    font-family: serif;
 }
 
 #headerContent{
@@ -18,7 +17,7 @@ body{
 }
 
 #header{
-    background-color: darkgray;
+    background-color: grey;
     top: 0;
     width: 100%;
 }
@@ -35,8 +34,7 @@ body{
 }
 
 #headerContainer2{
-    color: black;
-    font-weight: bold;
+    color: white;
 }
 
 #navList{
