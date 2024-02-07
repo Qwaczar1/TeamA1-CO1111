@@ -127,7 +127,24 @@ body{
     }
 }
 
+#memberNamesDiv{
+    text-align: center;
+}
+
+.member{
+    list-style: none;
+    line-height: 1.5;
+}
+
+#projectAimsDiv{
+    text-align: center;
+    margin: auto 20vw;
+    line-height: 1.5;
+}
+
 #footer{
+    justify-content: space-between;
+    display: flex;
     width: 100%;
     margin-top: auto;
     padding-top: 10px;
