@@ -132,14 +132,25 @@ body{
 }
 
 .member{
+    font-weight: bold;
     list-style: none;
     line-height: 1.5;
 }
 
+#main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
 #projectAimsDiv{
-    text-align: center;
     margin: auto 20vw;
     line-height: 1.5;
+    display: flex;
+    align-items: center;
+}
+
+#projectAimsPar{
+    text-align: center;
 }
 
 #footer{
