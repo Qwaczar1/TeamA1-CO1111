@@ -26,9 +26,15 @@ body{
     width: 100%;
 }
 
-#headerLogo{
+#greenHeaderLogo{
     width: 130px;
     height: 50px;
+    margin-right: 15px;
+}
+
+#redHeaderLogo{
+    width: 100px;
+    height: 70px;
     margin-right: 15px;
 }
 
@@ -97,6 +103,77 @@ body{
     transform: translateY(-7px) rotate(-45deg);
 }
 
+#memberNamesDiv{
+    text-align: center;
+}
+
+.member{
+    font-weight: bold;
+    list-style: none;
+    line-height: 1.5;
+}
+
+#main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#projectAimsDiv{
+    margin: 80px 200px 80px 200px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#projectAimsPar{
+    text-align: center;
+}
+
+#startButtonDiv{
+    text-align: center;
+}
+
+#startButton{
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px 80px;
+    cursor: pointer;
+    background-color: darkgray;
+    border-radius: 4px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+}
+
+#footer{
+    width: 100%;
+    margin-top: 80px;
+    padding-top: 10px;
+    background-color: darkgray;
+}
+
+#footerContent{
+    justify-content: space-between;
+    display: flex;
+    margin: 0 20px;
+}
+
+#socialMediaDiv{
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+#twitterLogo{
+    width: 140px;
+    height: 90px;
+}
+
+.meeting{
+    margin: 10px;
+}
+
 @media (max-width: 750px) {
     #nav {
         position: fixed;
@@ -125,72 +202,8 @@ body{
     #burgerMenu {
         display: block;
     }
-}
 
-#memberNamesDiv{
-    text-align: center;
-}
-
-.member{
-    font-weight: bold;
-    list-style: none;
-    line-height: 1.5;
-}
-
-#main{
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-#projectAimsDiv{
-    margin: auto 20vw;
-    line-height: 1.5;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-#projectAimsPar{
-    text-align: center;
-}
-
-#startButtonDiv{
-    text-align: center;
-    margin-bottom: 100px;
-}
-
-#startButton{
-    font-weight: bold;
-    font-size: 15px;
-    padding: 5px 100px;
-    cursor: pointer;
-    background-color: darkgray;
-    letter-spacing: 5px;
-    border-radius: 4px;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
-}
-
-#footer{
-    width: 100%;
-    margin-top: auto;
-    padding-top: 10px;
-    background-color: darkgray;
-}
-
-#footerContent{
-    justify-content: space-between;
-    display: flex;
-    margin: 0 20px;
-}
-
-#socialMediaDiv{
-    color: black;
-    font-weight: bold;
-    text-align: center;
-}
-
-#twitterLogo{
-    width: 140px;
-    height: 90px;
+    #projectAimsPar{
+        line-height: 20px;
+    }
 }

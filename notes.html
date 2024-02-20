@@ -2,15 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Notes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
+    <header id="header">
+        <div id="headerContent">
+            <div id="align">
+                <div id="headerContainer1">
+                    <img src="media/Treasurehunt Lillguy BannerImg Transparent.png" id="headerLogo" alt="Treasure Hunt Logo">
+                </div>
+                <div id="headerContainer2">
+                    <h4>Treasure Hunt</h4>
+                </div>
+            </div>
+            <nav id="nav">
+                <ul id="navList">
+                    <li class="navItem">
+                        <a href="" class="navLink"></a>
+                    </li>
+                    <li class="navItem">
+                        <a href="" class="navLink"></a>
+                    </li>
+                    <li class="navItem">
+                        <a href="" class="navLink"></a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="burgerMenu" onclick="burgerMenuClick()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+    <div class="meeting">
         First meeting: 2/2/2024<br>
         Members: Petr, Joyce and Sofia<br>
         Notes: We created the index pages, connected the GitHub to Webstorm on members’ laptops to start working on the assignment.<br><br>
     </div>
-    <div>
+    <div class="meeting">
         Second meeting: 6/2/2024<br>
         Members: Petr, George, Joyce and Sofia<br>
         Notes: Tasks were divided among team members as following:<br>
@@ -19,7 +50,7 @@
         Sofia will write the project’s aims<br>
         George will add the start button which would allow the user to start playing the treasure hunt. (this does not have to be working).<br><br>
     </div>
-    <div>
+    <div class="meeting">
         Third meeting: 8/2/2024<br>
         Members: Petr, George, Joyce and Sofia<br>
         Notes: Tasks were done and team is ready to submit<br>
@@ -28,14 +59,30 @@
         Joyce and Peter designed the landing page<br>
         Sofia wrote the project’s aims<br><br>
     </div>
-    <div>
+    <div class="meeting">
         Fourth meeting: 16/2/2024<br>
         Members: Petr, Joyce and Sofia<br>
         Notes: We have viewed lecture 15’s screenshots for the Treasure Hunt App, and we decided to split the tasks as following to be done by 22/2/2024 and meet then.<br>
         Joyce to style the app.html page<br>
         Petr to make the start button function and to make each treasure hunt lead to filling the name<br>
         Sofia to style the list treasure hunts on the app.index/ get the expiry date from API<br>
-        George to display the list treasure hunts on the app.index<br><br>
+        George to display the list treasure hunts on the app.html<br><br>
     </div>
+    <footer id="footer">
+        <div id="footerContent">
+            <div id="memberNamesDiv">
+                <ul id="memberNames">
+                    <li class="member">Joyce Fazaa</li>
+                    <li class="member">Sofia Anastasiou</li>
+                    <li class="member">Petr Zhukov</li>
+                    <li class="member">Georgios Kurtkezof</li>
+                </ul>
+            </div>
+            <div id="socialMediaDiv">
+                <p>Press on me:</p>
+                <a href="https://twitter.com/TeamA1_JSPG"><img src="media/twitter_x_new_logo_x_rounded_icon_256078.png" id="twitterLogo" alt="Twitter Logo"></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
