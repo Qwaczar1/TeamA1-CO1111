@@ -211,3 +211,31 @@ body{
         line-height: 20px;
     }
 }
+#treasureHuntsDiv{
+    list-style-type: none;
+    border: none;
+    color: red;
+    font-size: 18px;
+
+}
+#treasureHuntsList li{
+    margin-bottom: 100px;
+
+
+}
+#firstplay{
+    color: green;
+    font-size: 30px;
+    margin-left: 200px;
+    top: -260px;
+}
+
+#secondplay {
+    color: green;
+    font-size: 30px;
+    margin-left: -30px;
+    top: -133px;
+}
+
+
+
