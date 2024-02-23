@@ -212,13 +212,6 @@ body{
     }
 }
 
-#treasureHuntsDiv{
-    list-style-type: none;
-    color: red;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 .treasureHuntsButtons{
     text-align: left;
     width: 100%;
@@ -227,6 +220,8 @@ body{
     border: none;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    font-size: 17px;
+    cursor: pointer;
 }
 
 #treasureHunts{
