@@ -7,7 +7,7 @@ async function getChallenges() {
         .then(jsonObject => {
             // Use the fetched data here
             for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
-                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button class='treasureHuntsButtons'>" + jsonObject.treasureHunts[i].name + "</button></a>" + "</li>";
+                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button class='treasureHuntsButtons'>" + jsonObject.treasureHunts[i].name + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'></button></a>" + "</li>";
             }
         });
 }

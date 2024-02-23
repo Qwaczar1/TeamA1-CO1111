@@ -12,7 +12,7 @@ body{
 }
 
 #appPage{
-    background-image: url("media/background-image.jpg");
+    /*background-image: url("media/background-image.jpg");*/
 }
 
 #headerContent{
@@ -222,31 +222,24 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     font-size: 17px;
     cursor: pointer;
+    font-weight: bold;
+    color: black
 }
 
 #treasureHunts{
-    margin: 10px 20px 0 20px;
+    margin: 30px 0 0 20px;
     font-weight: bold;
     font-size: 22px;
 }
 
 .treasureHunts{
-    margin: 50px 0;
+    margin: 40px 0;
 }
 
-/*#firstplay{*/
-/*    color: green;*/
-/*    font-size: 35px;*/
-/*    margin-left: 200px;*/
-/*    top: -260px;*/
-/*}*/
-
-/*#secondplay {*/
-/*    color: green;*/
-/*    font-size: 35px;*/
-/*    margin-left: -30px;*/
-/*    top: -133px;*/
-/*}*/
-
+.startLogo{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
 
 
