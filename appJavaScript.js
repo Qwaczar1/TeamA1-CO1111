@@ -6,7 +6,7 @@ async function getChallenges() {
         .then(response => response.json())
         .then(jsonObject => {
             // Use the fetched data here
-            for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
+            for (let i = 1; i < jsonObject.treasureHunts.length; i++) {
                 treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<button class='treasureHuntsButtons'>" + jsonObject.treasureHunts[i].name + "</button>" + "</li>";
             }
         });
