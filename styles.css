@@ -216,21 +216,27 @@ body{
     list-style-type: none;
     color: red;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .treasureHuntsButtons{
     text-align: left;
     width: 100%;
-    background-color: #000;
+    background-color: white;
     opacity: .6;
     border: none;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
+#treasureHunts{
+    margin: 10px 20px 0 20px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
 .treasureHunts{
-    margin: 60px 0;
+    margin: 50px 0;
 }
 
 #firstplay{
