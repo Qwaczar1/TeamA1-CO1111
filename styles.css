@@ -55,8 +55,8 @@ body{
 #navList{
     display: flex;
     column-gap: 37px;
-    color: #007FB0;
     list-style-type: none;
+    cursor: pointer;
 }
 
 .navLink{
@@ -69,7 +69,7 @@ body{
 
 .navLink:hover,
 .navLink:focus{
-    color: #34516C;
+    color: #E8F0F7;
 }
 
 .nav--open{
@@ -150,6 +150,11 @@ body{
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
+#startButton:hover,
+#startButton:focus{
+    color: #E8F0F7;
+}
+
 #footer{
     width: 100%;
     margin-top: 80px;
@@ -180,12 +185,8 @@ body{
 
 @media (max-width: 750px) {
     #nav {
-        position: fixed;
         top: 90px;
         left: 0;
-        border-top: 2px solid #34516C;
-        background-color: #ffffff;
-        width: 100%;
         padding: 8px 0;
         display: none;
     }
@@ -200,7 +201,7 @@ body{
 
     .navLink {
         font-size: 14px;
-        color: #007FB0;
+        font-weight: bold;
     }
 
     #burgerMenu {
@@ -212,11 +213,14 @@ body{
     }
 }
 
+#mainContent{
+    text-align: center;
+    margin: auto 0;
+}
+
 .treasureHuntsButtons{
-    text-align: left;
-    width: 100%;
+    width: 50%;
     background-color: white;
-    opacity: .6;
     border: none;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -226,8 +230,14 @@ body{
     color: black
 }
 
-#treasureHunts{
-    margin: 30px 0 0 20px;
+.treasureHuntsButtons:hover,
+.treasureHuntsButtons:focus{
+    color: black;
+    background-color: darkgray;
+}
+
+#treasureHuntsText{
+    margin-bottom: 80px;
     font-weight: bold;
     font-size: 22px;
 }
@@ -241,5 +251,4 @@ body{
     width: 20px;
     height: 20px;
 }
-
 
