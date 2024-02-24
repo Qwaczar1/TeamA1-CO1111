@@ -28,17 +28,12 @@ body{
     background-color: darkgray;
     top: 0;
     width: 100%;
+    margin-bottom: 70px;
 }
 
 #greenHeaderLogo{
     width: 130px;
     height: 50px;
-    margin-right: 15px;
-}
-
-#redHeaderLogo{
-    width: 100px;
-    height: 70px;
     margin-right: 15px;
 }
 
@@ -124,10 +119,8 @@ body{
 }
 
 #projectAimsDiv{
-    margin: 80px 200px 80px 200px;
+    margin: 0 auto;
     line-height: 1.5;
-    display: flex;
-    align-items: center;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -135,6 +128,13 @@ body{
 #projectAimsPar{
     text-align: center;
 }
+
+#redLogo{
+    margin: 25px auto;
+    width: 120px;
+    height: 100px;
+}
+
 
 #startButtonDiv{
     text-align: center;
