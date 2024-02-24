@@ -13,3 +13,7 @@ async function getChallenges() {
 }
 
 getChallenges();
+
+function refresh() {
+    window.location.reload();
+}
