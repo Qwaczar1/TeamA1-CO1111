@@ -232,27 +232,24 @@ body{
 }
 
 .treasureHuntsButtons{
-    width: 50%;
-    background-color: white;
-    border: none;
+    width: 60%;
+    background-color: darkgray;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     font-size: 17px;
     cursor: pointer;
     font-weight: bold;
-    color: black
+    border-radius: 4px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
 .treasureHuntsButtons:hover,
 .treasureHuntsButtons:focus{
-    color: black;
-    background-color: darkgray;
+    background-color: #E8F0F7;
 }
 
 #treasureHuntsText{
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     font-weight: bold;
-    font-size: 22px;
 }
 
 .treasureHunts{
