@@ -152,7 +152,7 @@ body{
 
 #startButton:hover,
 #startButton:focus{
-    color: #E8F0F7;
+    background-color: #E8F0F7;
 }
 
 #footer{
