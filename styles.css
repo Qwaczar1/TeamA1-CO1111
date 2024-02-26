@@ -231,13 +231,20 @@ body{
     text-align: center;
 }
 
+.treasureHuntName{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.endsInText{
+    margin-top: 3px;
+}
+
 .treasureHuntsButtons{
     width: 60%;
     background-color: darkgray;
     padding: 20px;
-    font-size: 17px;
     cursor: pointer;
-    font-weight: bold;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
