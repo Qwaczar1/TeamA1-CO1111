@@ -268,4 +268,58 @@ body{
     width: 20px;
     height: 20px;
 }
+.box {
+    position: fixed;
+    display: none;
+    padding-top: 150px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
 
+
+    .text {
+        width: 40%;
+        border: 1px solid grey;
+        margin: auto;
+        padding: 90px;
+        background-color: white;
+    }
+
+    .ToClose {
+        font-size: 30px;
+        top: 6px;
+        right: 13px;
+        position: absolute;
+        font-weight: bold;
+        color: black;
+    }
+
+    .ToClose:hover,
+    .ToClose:focus {
+        text-decoration: none;
+        cursor: pointer;
+        color: grey;
+    }
+
+}
+
+.ToClose2 {
+    font-size: 30px;
+    top: 6px;
+    right: 13px;
+    position: absolute;
+    font-weight: bold;
+    color: black;
+}
+
+.ToClose2:hover,
+.ToClose2:focus {
+    text-decoration: none;
+    cursor: pointer;
+    color: grey;
+}
