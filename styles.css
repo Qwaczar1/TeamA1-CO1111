@@ -281,45 +281,32 @@ body{
     width: 100%;
     background-color: black;
     background-color: rgba(0, 0, 0, 0.4);
-
-    .text {
-        width: 40%;
-        border: 1px solid grey;
-        margin: auto;
-        padding: 90px;
-        background-color: white;
-    }
-
-    #closeHelpBox {
-        font-size: 30px;
-        top: 6px;
-        right: 13px;
-        position: absolute;
-        font-weight: bold;
-        color: black;
-    }
-
-    #closeHelpBox:hover,
-    #closeHelpBox:focus {
-        text-decoration: none;
-        cursor: pointer;
-        color: grey;
-    }
-
 }
 
-#closeAboutBox {
-    font-size: 30px;
-    top: 6px;
-    right: 13px;
+.boxText{
+    text-align: center;
+    width: 40%;
+    border: 1px solid grey;
+    margin: auto;
+    padding: 90px;
+    background-color: white;
+}
+
+#closeHelpBox, #closeAboutBox{
+    font-size: 35px;
+    top: 4px;
+    right: 20px;
     position: absolute;
     font-weight: bold;
     color: black;
 }
 
+#closeHelpBox:hover,
+#closeHelpBox:focus{
+    color: #E8F0F7;
+}
+
 #closeAboutBox:hover,
 #closeAboutBox:focus {
-    text-decoration: none;
-    cursor: pointer;
-    color: grey;
+    color: #E8F0F7;
 }
