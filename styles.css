@@ -11,10 +11,6 @@ body{
     flex-direction: column;
 }
 
-#appPage{
-    /*background-image: url("media/background-image.jpg");*/
-}
-
 #headerContent{
     font-size: 18px;
     display: flex;

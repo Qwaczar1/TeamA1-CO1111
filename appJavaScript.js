@@ -2,7 +2,7 @@ let treasureHuntsElement = document.getElementById("treasureHuntsList");
 
 async function startTreasureHunt(treasureHuntName) {
     // Add your logic here to handle the start of the treasure hunt
-    alert("Starting treasure hunt " + treasureHuntName);
+    alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
 }
 
 async function getChallenges() {
