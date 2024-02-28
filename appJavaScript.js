@@ -3,12 +3,6 @@ let treasureHuntsElement = document.getElementById("treasureHuntsList");
 async function startTreasureHunt(treasureHuntName) {
     // Add your logic here to handle the start of the treasure hunt
     alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
-    // Fetch again inside the function if needed
-    fetch("https://codecyprus.org/th/api/start")
-        .then(response => response.json())
-        .then(jsonObject => {
-
-        })
 }
 
 async function getChallenges() {
