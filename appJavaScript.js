@@ -13,14 +13,21 @@ async function getChallenges() {
             const button = document.getElementsByClassName('treasureHuntsButtons');
             // Use the fetched data here
             for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
-                var milliseconds = jsonObject.treasureHunts[i].endsOn;
-                const weeks = millisecondsToWeeks(milliseconds);
-                const roundedWeeks = Math.round(weeks);
+                var treasureHuntStartTime = jsonObject.treasureHunts[i].startsOn;
+                var treasureHuntEndTime = jsonObject.treasureHunts[i].endsOn;
                 var nameOfTreasureHunt = jsonObject.treasureHunts[i].name;
-                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='endsInText'> Ends in: " + roundedWeeks + " weeks" + "</p>" + "</button></a>" + "</li>";
+                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='endsInText'> Ends in: " + treasureHuntStartTime + "</p>" + "</button></a>" + "</li>";
 
-                console.log(jsonObject.treasureHunts[0].endsOn);
+                let currentTimeStamp = Date.now();
+                console.log(currentTimeStamp);
 
+                if (treasureHuntStartTime < currentTimeStamp < treasureHuntEndTime) {
+
+                }
+
+                if (currentTimeStamp > treasureHuntEndTime) {
+
+                }
             }
         });
 }
