@@ -244,11 +244,11 @@ body{
     margin-top: 3px;
 }
 
+
 .treasureHuntsButtons{
     width: 60%;
     background-color: darkgray;
     padding: 20px;
-    cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }

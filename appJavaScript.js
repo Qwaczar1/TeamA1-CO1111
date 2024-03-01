@@ -16,17 +16,17 @@ async function getChallenges() {
                 var treasureHuntStartTime = jsonObject.treasureHunts[i].startsOn;
                 var treasureHuntEndTime = jsonObject.treasureHunts[i].endsOn;
                 var nameOfTreasureHunt = jsonObject.treasureHunts[i].name;
-                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='endsInText'> Ends in: " + treasureHuntStartTime + "</p>" + "</button></a>" + "</li>";
+                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='endsInText'> Ends in: " + treasureHuntStartTime + "</p>" + "</button></a>" + "</li>";
 
                 let currentTimeStamp = Date.now();
                 console.log(currentTimeStamp);
 
                 if (treasureHuntStartTime < currentTimeStamp < treasureHuntEndTime) {
-
+                    document.getElementById("treasureHunt"+i+"").style.cursor = "pointer";
                 }
 
                 if (currentTimeStamp > treasureHuntEndTime) {
-
+                    document.getElementById("treasureHunt"+i+"").style.cursor = "no-drop";
                 }
             }
         });
