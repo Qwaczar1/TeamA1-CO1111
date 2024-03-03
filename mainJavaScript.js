@@ -1,11 +1,3 @@
-let navElement = document.querySelector("#nav");
-let burgerMenuElement = document.querySelector("#burgerMenu");
-
-function burgerMenuClick() {
-    navElement.classList.toggle("nav--open");
-    burgerMenuElement.classList.toggle("burgerMenu--open");
-}
-
 let help = document.getElementById("help");
 let helpBox = document.getElementById("helpBox");
 let closeHelpBox = document.getElementById("closeHelpBox");

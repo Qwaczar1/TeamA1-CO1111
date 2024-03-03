@@ -67,41 +67,6 @@ body{
     color: #E8F0F7;
 }
 
-.nav--open{
-    display: block !important;
-}
-
-.bar{
-    height: 3px;
-    width: 22px;
-    background-color: black;
-    margin: 5px 0;
-    display: block;
-    transition: all 0.3s ease-in-out;
-}
-
-.bar:hover,
-.bar:focus{
-    color: black;
-}
-
-#burgerMenu{
-    display: none;
-    cursor: pointer;
-}
-
-.burgerMenu--open .bar:nth-child(1){
-    transform: translateY(7px) rotate(45deg);
-}
-
-.burgerMenu--open .bar:nth-child(2){
-    opacity: 0;
-}
-
-.burgerMenu--open .bar:nth-child(3){
-    transform: translateY(-7px) rotate(-45deg);
-}
-
 #memberNamesDiv{
     text-align: center;
 }
@@ -118,20 +83,21 @@ body{
     align-items: center;
 }
 
-#projectAimsDiv{
+#welcomeMessageDiv{
     margin: 0 auto;
     line-height: 1.5;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-#projectAimsPar{
+#welcomeMessagePar{
+    font-size: 16px;
     text-align: center;
 }
 
-#redLogo{
+#greenLogo{
     margin: 25px auto;
-    width: 200px;
+    width: 170px;
     height: auto;
 }
 
@@ -188,31 +154,8 @@ body{
 }
 
 @media (max-width: 750px) {
-    #nav {
-        top: 90px;
-        left: 0;
-        padding: 8px 0;
-        display: none;
-    }
-
-    #navList {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        column-gap: 20px;
-        justify-content: space-evenly;
-    }
-
-    .navLink {
+    #welcomeMessagePar{
         font-size: 14px;
-        font-weight: bold;
-    }
-
-    #burgerMenu {
-        display: block;
-    }
-
-    #projectAimsPar{
         line-height: 20px;
     }
 }
