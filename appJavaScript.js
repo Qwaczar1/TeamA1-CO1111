@@ -27,14 +27,6 @@ async function getChallenges() {
 
                 treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
 
-
-                if (treasureHuntStartTime < currentTimeStamp < treasureHuntEndTime) {
-                    document.getElementById("treasureHunt"+i+"").style.cursor = "pointer";
-                }
-
-                if (currentTimeStamp > treasureHuntEndTime) {
-                    document.getElementById("treasureHunt"+i+"").style.cursor = "no-drop";
-                }
             }
         });
 }
