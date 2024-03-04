@@ -13,13 +13,20 @@ async function getChallenges() {
             const button = document.getElementsByClassName('treasureHuntsButtons');
             // Use the fetched data here
             for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
-                var treasureHuntStartTime = jsonObject.treasureHunts[i].startsOn;
-                var treasureHuntEndTime = jsonObject.treasureHunts[i].endsOn;
-                var nameOfTreasureHunt = jsonObject.treasureHunts[i].name;
-                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='endsInText'> Ends in: " + treasureHuntStartTime + "</p>" + "</button></a>" + "</li>";
+                const treasureHuntStartTime = new Date(jsonObject.treasureHunts[i].startsOn).getTime();
+                const treasureHuntEndTime = new Date(jsonObject.treasureHunts[i].endsOn).getTime();
 
                 let currentTimeStamp = Date.now();
-                console.log(currentTimeStamp);
+
+                const goesLiveIn = Math.ceil(treasureHuntStartTime / (1000 * 60 * 60 * 24 * 7)); // Start time in weeks
+                const EndsOn = Math.ceil(treasureHuntEndTime / (1000 * 60 * 60 * 24 * 7)); // End time in weeks
+
+                const timeText = currentTimeStamp < treasureHuntStartTime ? "Going live in: " + goesLiveIn + " weeks" : "Ends in: " + EndsOn + " weeks";
+
+                const nameOfTreasureHunt = jsonObject.treasureHunts[i].name;
+
+                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
+
 
                 if (treasureHuntStartTime < currentTimeStamp < treasureHuntEndTime) {
                     document.getElementById("treasureHunt"+i+"").style.cursor = "pointer";
