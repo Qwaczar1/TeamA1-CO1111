@@ -254,11 +254,11 @@ body{
 }
 
 #closeAboutBox:hover,
-#closeAboutBox:focus {
+#closeAboutBox:focus{
     color: #E8F0F7;
 }
 
-#nameBoxDiv {
+#nameBoxDiv{
     position: fixed;
     display: none;
     top: 0;
@@ -272,7 +272,7 @@ body{
 }
 
 
-#nameBox {
+#nameBox{
     background-color: white;
     margin: 20% auto;
     padding: 20px;
@@ -280,17 +280,35 @@ body{
     width: 80%;
 }
 
-#closeButton {
+#closeButton{
     font-weight: bold;
-    font-size: 28px;
+    font-size: 30px;
     float: right;
-    color: grey;
-
+    color: black;
 }
 
 #closeButton:hover,
-#closeButton:focus {
+#closeButton:focus{
     text-decoration: none;
-    color: black;
+    color: darkgrey;
     cursor: pointer;
+}
+
+#submitButton{
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: darkgray;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+}
+
+#submitButton:hover,
+#submitButton:focus{
+    background-color: darkgrey;
+}
+
+#usernameBox{
+    padding: 5px 10px;
+    border-radius: 4px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
