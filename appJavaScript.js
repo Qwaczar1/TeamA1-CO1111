@@ -57,3 +57,18 @@ function millisecondsToWeeks(milliseconds) {
 function refresh() {
     window.location.reload();
 }
+let Modal = document.getElementById("nameModal");
+let button = document.getElementById("treasureHuntsList")
+let span = document.getElementsByClassName("closeBtn")[0];
+
+button.onclick = function() {
+    Modal.style.display = "block";
+}
+span.onclick = function() {
+    Modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target === Modal) {
+        Modal.style.display = "none";
+    }
+}

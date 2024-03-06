@@ -216,7 +216,7 @@ body{
     height: 20px;
 }
 
-.box {
+.box{
     position: fixed;
     display: none;
     padding-top: 150px;
@@ -256,4 +256,41 @@ body{
 #closeAboutBox:hover,
 #closeAboutBox:focus {
     color: #E8F0F7;
+}
+.nameBox {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: black;
+    background-color: rgba(0,0,0,0.4);
+
+
+
+.name-filling {
+    background-color: white;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid grey;
+    width: 80%;
+}
+
+.closeBtn {
+    font-weight: bold;
+    font-size: 28px;
+    float: right;
+    color: grey;
+
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
 }
