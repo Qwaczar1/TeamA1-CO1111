@@ -33,41 +33,26 @@ async function getChallenges() {
 
 getChallenges();
 
-function millisecondsToWeeks(milliseconds) {
-    return milliseconds / (1000 * 60 * 60 * 24 * 7);
-}
-
-// async function startTreasureHunt() {
-//     // Fetch again inside the function if needed
-//     fetch("https://codecyprus.org/th/api/start")
-//         .then(response => response.json())
-//         .then(jsonObject => {
-//             for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
-//                 alert("Starting treasure hunt " + jsonObject.treasureHunts[i].name);
-//             }
-//             // let treasureHuntsArray = JSON.parse(jsonObject);
-//             // for (let i = 0; i < treasureHuntsArray.length; i++) {
-//             //     console.log("TH name: " + treasureHuntsArray[0].name);
-//             //     console.log("TH name: " + treasureHuntsArray[1].name);
-//             // }
-//         });
-// }
-
 function refresh() {
     window.location.reload();
 }
-let Modal = document.getElementById("nameModal");
-let button = document.getElementById("treasureHuntsList")
-let span = document.getElementsByClassName("closeBtn")[0];
 
-button.onclick = function() {
-    Modal.style.display = "block";
+let nameBox = document.getElementById("nameBoxDiv");
+let button = document.getElementById("treasureHuntsList")
+let closeButton = document.getElementById("closeButton");
+
+button.onclick = function(event) {
+    event.preventDefault();
+
+    nameBox.style.display = "block";
 }
-span.onclick = function() {
-    Modal.style.display = "none";
+
+closeButton.onclick = function() {
+    nameBox.style.display = "none";
 }
+
 window.onclick = function(event) {
-    if (event.target === Modal) {
-        Modal.style.display = "none";
+    if (event.target === nameBox) {
+        nameBox.style.display = "none";
     }
 }
