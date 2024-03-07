@@ -1,8 +1,13 @@
 let treasureHuntsElement = document.getElementById("treasureHuntsList");
 
-async function startTreasureHunt(treasureHuntName) {
+async function startTreasureHunt(treasureHuntName, idOfTreasureHunt) {
     // Add your logic here to handle the start of the treasure hunt
     alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
+    // Set the values of hidden input fields
+    document.getElementById("appName").value = treasureHuntName;
+    document.getElementById("treasureHuntId").value = idOfTreasureHunt;
+
+    console.log(idOfTreasureHunt);
 }
 
 async function getChallenges() {
@@ -26,7 +31,7 @@ async function getChallenges() {
                 const nameOfTreasureHunt = jsonObject.treasureHunts[i].name;
                 const idOfTreasureHunt = jsonObject.treasureHunts[i].uuid;
 
-                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
+                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\"" + nameOfTreasureHunt + "\", \"" + idOfTreasureHunt + "\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
             }
         });
 }
@@ -56,15 +61,3 @@ window.onclick = function(event) {
         nameBox.style.display = "none";
     }
 }
-
-// document.getElementById("treasureHuntForm").addEventListener("submit", function (event) {
-//     event.preventDefault();
-//
-//     let treasureHuntDetails = {
-//         name: nameOfTreasureHunt,
-//         uuid: idOfTreasureHunt
-//     };
-//
-//     document.getElementById("appName").value = treasureHuntDetails.name;
-//     document.getElementById("treasureHuntId").value = treasureHuntDetails.uuid;
-// });
