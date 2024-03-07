@@ -6,8 +6,6 @@ async function startTreasureHunt(treasureHuntName, idOfTreasureHunt) {
     // Set the values of hidden input fields
     document.getElementById("appName").value = treasureHuntName;
     document.getElementById("treasureHuntId").value = idOfTreasureHunt;
-
-    console.log(idOfTreasureHunt);
 }
 
 async function getChallenges() {
@@ -15,7 +13,6 @@ async function getChallenges() {
     fetch("https://codecyprus.org/th/api/list")
         .then(response => response.json())
         .then(jsonObject => {
-            const button = document.getElementsByClassName('treasureHuntsButtons');
             // Use the fetched data here
             for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
                 const treasureHuntStartTime = new Date(jsonObject.treasureHunts[i].startsOn).getTime();
