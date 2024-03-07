@@ -24,9 +24,9 @@ async function getChallenges() {
                 const timeText = currentTimeStamp < treasureHuntStartTime ? "Going live in: " + goesLiveIn + " weeks" : "Ends in: " + EndsOn + " weeks";
 
                 const nameOfTreasureHunt = jsonObject.treasureHunts[i].name;
+                const idOfTreasureHunt = jsonObject.treasureHunts[i].uuid;
 
                 treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\""+nameOfTreasureHunt+"\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
-
             }
         });
 }
@@ -56,3 +56,15 @@ window.onclick = function(event) {
         nameBox.style.display = "none";
     }
 }
+
+// document.getElementById("treasureHuntForm").addEventListener("submit", function (event) {
+//     event.preventDefault();
+//
+//     let treasureHuntDetails = {
+//         name: nameOfTreasureHunt,
+//         uuid: idOfTreasureHunt
+//     };
+//
+//     document.getElementById("appName").value = treasureHuntDetails.name;
+//     document.getElementById("treasureHuntId").value = treasureHuntDetails.uuid;
+// });

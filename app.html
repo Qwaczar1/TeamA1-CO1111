@@ -31,12 +31,14 @@
             <div id="nameBoxDiv">
                 <div id="nameBox">
                     <div id="closeButton">&times;</div>
-                    <form action="#" method="get">
-                        <label>
-                            Name:
-                            <input id="usernameBox" type="text" name="name" required placeholder="Please enter your name" maxlength="50" pattern="[a-zA-Z0-9]+" title="These characters - > @, #, $, %, ^, &, * and spaces cannot be used!">
-                        </label>
+                    <form  id="treasureHuntForm" action="https://codecyprus.org/th/api/start" method="get">
+                        <label>Name:</label>
+                        <input id="usernameBox" type="text" name="name" required placeholder="Please enter your name" maxlength="50" pattern="[a-zA-Z0-9]+" title="These characters - > @, #, $, %, ^, &, * and spaces cannot be used!">
                         <br><br>
+                        <!-- Hidden input for App Name -->
+                        <input type="hidden" id="appName" name="appName">
+                        <!-- Hidden input for Treasure Hunt ID -->
+                        <input type="hidden" id="treasureHuntId" name="treasureHuntId">
                         <button id="submitButton" type="submit" value="submit">Submit</button>
                     </form>
                     <img src="media/Treasure Hunt Logo.png" id="redLogo" alt="Treasure Hunt Logo">
