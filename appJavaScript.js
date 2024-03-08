@@ -36,6 +36,7 @@ async function getChallenges() {
 
                 if (currentTimeStamp < treasureHuntStartTime) {
                     document.getElementById("treasureHunt" + i + "").style.cursor = "no-drop";
+                    document.getElementById("treasureHunt"+i+"").setAttribute("disabled", true);
                 }
             }
         });
