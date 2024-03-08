@@ -29,6 +29,14 @@ async function getChallenges() {
                 const idOfTreasureHunt = jsonObject.treasureHunts[i].uuid;
 
                 treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\"" + nameOfTreasureHunt + "\", \"" + idOfTreasureHunt + "\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
+
+                if (treasureHuntStartTime < currentTimeStamp < treasureHuntEndTime) {
+                    document.getElementById("treasureHunt"+i+"").style.cursor = "pointer";
+                }
+
+                if (currentTimeStamp < treasureHuntStartTime) {
+                    document.getElementById("treasureHunt" + i + "").style.cursor = "no-drop";
+                }
             }
         });
 }
