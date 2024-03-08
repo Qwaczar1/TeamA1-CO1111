@@ -4,7 +4,7 @@ async function startTreasureHunt(treasureHuntName, idOfTreasureHunt) {
     // Add your logic here to handle the start of the treasure hunt
     alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
     // Set the values of hidden input fields
-    document.getElementById("appName").value = treasureHuntName;
+    document.getElementById("appName").value = "Team-A1";
     document.getElementById("treasureHuntId").value = idOfTreasureHunt;
 }
 
