@@ -6,6 +6,8 @@ async function startTreasureHunt(treasureHuntName, idOfTreasureHunt) {
     // Set the values of hidden input fields
     document.getElementById("appName").value = "Team-A1";
     document.getElementById("treasureHuntId").value = idOfTreasureHunt;
+
+    // start();
 }
 
 async function getChallenges() {
