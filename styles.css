@@ -255,8 +255,13 @@ body{
     color: #E8F0F7;
 }
 
-#scoreboardHeader{
+#scoreboardResults {
+    width: 100%;
+    margin-bottom: 10px;
+}
 
+#scoreboardHeader {
+    margin-bottom: 12px;
 }
 
 #nameBoxDiv{

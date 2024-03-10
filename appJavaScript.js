@@ -85,6 +85,7 @@ closeScoreboardBox.onclick = function() {
 }
 
 const TH_API_URL = "https://codecyprus.org/th/test-api/"; // the API base url
+
 /*This is a function to access the /leaderboard at the specified URL*/
 function getLeaderBoard(url) {
     // create and invoke the http request
@@ -105,13 +106,11 @@ function handleLeaderboard(leaderboard) {
     for(const entry of leaderboardArray) {
         let date = new Date(entry['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
-        html += "<tr>" +
-            "<td>" + entry['player'] + "</td>" +
-            "<td>" + entry['score'] + "</td>" +
-            "<td>" + entry['completionTime'] + "</td>" +
+        html += "<tr class='tableRow'>" +
+            "<td class='tableData'>" + entry['player'] + "</td>" +
+            "<td class='tableData'>" + entry['score'] + "</td>" +
+            "<td class='tableData'>" + entry['completionTime'] + "</td>" +
             "</tr>";
     }
-
     document.getElementById('scoreboardResults').innerHTML += html;
-
 }
