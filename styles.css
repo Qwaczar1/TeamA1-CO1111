@@ -219,11 +219,11 @@ body{
 .box{
     position: fixed;
     display: none;
-    padding-top: 150px;
+    padding-top: 120px;
     z-index: 1;
     top: 0;
     left: 0;
-    overflow: auto;
+    overflow: scroll;
     height: 100%;
     width: 100%;
     background-color: black;
@@ -233,13 +233,14 @@ body{
 .boxText{
     text-align: center;
     width: 40%;
+    height: auto;
     border: 1px solid grey;
     margin: auto;
-    padding: 90px;
     background-color: white;
+    padding: 30px 100px 130px 100px;
 }
 
-#closeHelpBox, #closeAboutBox{
+#closeHelpBox, #closeAboutBox, #closeScoreboardBox{
     font-size: 35px;
     top: 4px;
     right: 20px;
@@ -248,14 +249,14 @@ body{
     color: black;
 }
 
-#closeHelpBox:hover,
-#closeHelpBox:focus{
+#closeHelpBox:hover, #closeHelpBox:focus,
+#closeAboutBox:hover, #closeAboutBox:focus,
+#closeScoreboardBox:hover, #closeScoreboardBox:focus{
     color: #E8F0F7;
 }
 
-#closeAboutBox:hover,
-#closeAboutBox:focus{
-    color: #E8F0F7;
+#scoreboardHeader{
+
 }
 
 #nameBoxDiv{
