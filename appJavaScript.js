@@ -6,8 +6,6 @@ async function startTreasureHunt(treasureHuntName, idOfTreasureHunt) {
     // Set the values of hidden input fields
     document.getElementById("appName").value = "Team-A1";
     document.getElementById("treasureHuntId").value = idOfTreasureHunt;
-
-    // start();
 }
 
 async function getChallenges() {
@@ -92,7 +90,7 @@ function getLeaderBoard(url) {
     fetch(url, { method: "GET" })
         .then(response => response.json())
         .then(json => {
-            console.log(json);
+            // console.log(json);
             handleLeaderboard(json);
         });
 }
@@ -106,10 +104,7 @@ let session = getSession();
 
 let url = TH_API_URL + "leaderboard?sorted&session=" + session;
 console.log(url);
-
 getLeaderBoard(url);
-
-console.log(url);
 
 function handleLeaderboard(leaderboard) {
     let html = ""; // used to include HTML code for the table rows
