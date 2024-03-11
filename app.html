@@ -15,15 +15,34 @@
                 </div>
                 <div id="headerContainer2">
                     <h4>Code Cyprus</h4>
-
                 </div>
             </div>
-            <div id="nav">
-                <a onclick="refresh()" id="refresh">REFRESH</a>
-            </div>
+            <nav id="nav">
+                <ul id="navList">
+                    <li class="navItem">
+                        <a class="navLink" id="scoreboard">SCOREBOARD</a>
+                        <div id="scoreboardBox" class="box">
+                            <div class="boxText">
+                                <h2 id="scoreboardHeader">Scoreboard</h2>
+                                <table id="scoreboardResults">
+                                    <tr class='tableRow'>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </table>
+                                <div id="closeScoreboardBox">&times;</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navItem">
+                        <a onclick="refresh()" id="refresh">REFRESH</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <div id="mainContent">
+    <div id="appMainContent">
         <h2 id="treasureHuntsText">First select a treasure to hunt!</h2>
         <div id="treasureHuntsDiv">
             <ul id="treasureHuntsList">
@@ -31,7 +50,7 @@
             <div id="nameBoxDiv">
                 <div id="nameBox">
                     <div id="closeButton">&times;</div>
-                    <form  id="treasureHuntForm" action="start.html" method="get">
+                    <form id="treasureHuntForm" action="https://codecyprus.org/th/api/start?" method="get">
                         <label>Name:</label>
                         <input id="usernameBox" type="text" name="player" required placeholder="Please enter your name" maxlength="50" pattern="[a-zA-Z0-9]+" title="These characters - > @, #, $, %, ^, &, * and spaces cannot be used!">
                         <br><br>

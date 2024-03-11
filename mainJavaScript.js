@@ -24,7 +24,3 @@ about.onclick = function() {
 closeAboutBox.onclick = function() {
     aboutBox.style.display = "none";
 }
-
-async function getTreasureHunts(){
-
-}
