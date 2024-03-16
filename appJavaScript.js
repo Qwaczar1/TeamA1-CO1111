@@ -1,5 +1,6 @@
-let treasureHuntsElement = document.getElementById("treasureHuntsList");
 let treasureHuntID;
+const sessionID = getCookie('sessionID');
+let treasureHuntsElement = document.getElementById("treasureHuntsList");
 
 function getStartParameters(treasureHuntName, id) {
     // Add your logic here to handle the start of the treasure hunt
@@ -16,12 +17,11 @@ async function startTreasureHunt() {
     fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}`)
         .then(response => response.json())
         .then(jsonObject => {
-            let sessionID = jsonObject.session;
             let status = jsonObject.status;
             if (status === "OK") {
-                // // setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
-                // getQuestions();
+                setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
                 alert("Hello");
+                getQuestions();
             }
             else if (status === "ERROR") {
                 let errorMessage = "";
@@ -66,19 +66,21 @@ async function getQuestions() {
     fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
-            alert(jsonObject.questionText);
-            if (jsonObject.status === "OK") {
-                if (jsonObject.completed === false) {
-                    alert(jsonObject.questionText);
-                }
+            for (let i = 0; i < jsonObject.questionText.length; i++) {
+                console.log(jsonObject.questionText);
             }
-            else {
-                let errorMessage = "";
-                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-                    errorMessage += jsonObject.errorMessages[i] + "\n";
-                }
-                alert(errorMessage);
-            }
+            // if (jsonObject.status === "OK") {
+            //     if (jsonObject.completed === false) {
+            //         alert(jsonObject.questionText);
+            //     }
+            // }
+            // else {
+            //     let errorMessage = "";
+            //     for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+            //         errorMessage += jsonObject.errorMessages[i] + "\n";
+            //     }
+            //     alert(errorMessage);
+            // }
         });
 }
 
