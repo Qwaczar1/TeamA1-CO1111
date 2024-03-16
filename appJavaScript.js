@@ -42,7 +42,9 @@ async function startQuestions() {
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
-
+                if (jsonObject.completed === false) {
+                    alert(jsonObject.questionText);
+                }
             }
             else {
                 let errorMessage = "";
@@ -53,6 +55,8 @@ async function startQuestions() {
             }
         });
 }
+
+startQuestions();
 
 function getCookie(cname) {
     let name = cname + "=";
