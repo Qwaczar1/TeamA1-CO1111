@@ -1,5 +1,5 @@
 let treasureHuntsElement = document.getElementById("treasureHuntsList");
-let treasureHuntId;
+let treasureHuntID;
 
 async function startTreasureHunt(treasureHuntName, id) {
     // Add your logic here to handle the start of the treasure hunt
@@ -7,17 +7,17 @@ async function startTreasureHunt(treasureHuntName, id) {
     // Set the values of hidden input fields
     document.getElementById("appName").value = "Team-A1";
     document.getElementById("treasureHuntId").value = id;
-    treasureHuntId = id;
+    treasureHuntID = id;
 }
 
 async function startQuestions() {
     let playerName = document.getElementById("usernameBox").value;
 
-    fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntId}"`)
+    fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}"`)
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
-
+                document.cookie = `sessionID = ${jsonObject.session}`; // saves sessionID as a cookie
             }
             else {
                 let errorMessage = "";
