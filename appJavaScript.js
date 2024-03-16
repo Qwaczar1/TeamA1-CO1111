@@ -67,54 +67,54 @@ window.onclick = function(event) {
     }
 }
 
-let scoreboard = document.getElementById("scoreboard");
-let scoreboardBox = document.getElementById("scoreboardBox");
-let closeScoreboardBox = document.getElementById("closeScoreboardBox");
-
-// Display scoreboard box when pressed
-scoreboard.onclick = function() {
-    scoreboardBox.style.display = "block";
-}
-
-// Close scoreboard box when pressed
-closeScoreboardBox.onclick = function() {
-    scoreboardBox.style.display = "none";
-}
-
-const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
-
-/*This is a function to access the /leaderboard at the specified URL*/
-function getLeaderBoard(url) {
-    // create and invoke the http request
-    fetch(url, { method: "GET" })
-        .then(response => response.json())
-        .then(json => {
-            // console.log(json);
-            handleLeaderboard(json);
-        });
-}
-
-function getSession() {
-    let url = new URL(window.location.href);
-    return url.searchParams.get("session");
-}
-
-let session = getSession();
-
-let url = TH_API_URL + "leaderboard?sorted&session=" + session;
-console.log(url);
-getLeaderBoard(url);
-
-function handleLeaderboard(leaderboard) {
-    let html = ""; // used to include HTML code for the table rows
-    let leaderboardArray = leaderboard['leaderboard'];
-    for(const entry of leaderboardArray) {
-        html += "<tr class='tableRow'>" +
-            "<td class='tableData'>" + entry['player'] + "</td>" +
-            "<td class='tableData'>" + entry['score'] + "</td>" +
-            "<td class='tableData'>" + entry['completionTime'] + "</td>" +
-            "</tr>";
-    }
-    let leaderboardElement = document.getElementById('scoreboardResults');
-    leaderboardElement.innerHTML += html;
-}
+// let scoreboard = document.getElementById("scoreboard");
+// let scoreboardBox = document.getElementById("scoreboardBox");
+// let closeScoreboardBox = document.getElementById("closeScoreboardBox");
+//
+// // Display scoreboard box when pressed
+// scoreboard.onclick = function() {
+//     scoreboardBox.style.display = "block";
+// }
+//
+// // Close scoreboard box when pressed
+// closeScoreboardBox.onclick = function() {
+//     scoreboardBox.style.display = "none";
+// }
+//
+// const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
+//
+// /*This is a function to access the /leaderboard at the specified URL*/
+// function getLeaderBoard(url) {
+//     // create and invoke the http request
+//     fetch(url, { method: "GET" })
+//         .then(response => response.json())
+//         .then(json => {
+//             // console.log(json);
+//             handleLeaderboard(json);
+//         });
+// }
+//
+// function getSession() {
+//     let url = new URL(window.location.href);
+//     return url.searchParams.get("session");
+// }
+//
+// let session = getSession();
+//
+// let url = TH_API_URL + "leaderboard?sorted&session=" + session;
+// console.log(url);
+// getLeaderBoard(url);
+//
+// function handleLeaderboard(leaderboard) {
+//     let html = ""; // used to include HTML code for the table rows
+//     let leaderboardArray = leaderboard['leaderboard'];
+//     for(const entry of leaderboardArray) {
+//         html += "<tr class='tableRow'>" +
+//             "<td class='tableData'>" + entry['player'] + "</td>" +
+//             "<td class='tableData'>" + entry['score'] + "</td>" +
+//             "<td class='tableData'>" + entry['completionTime'] + "</td>" +
+//             "</tr>";
+//     }
+//     let leaderboardElement = document.getElementById('scoreboardResults');
+//     leaderboardElement.innerHTML += html;
+// }
