@@ -21,6 +21,7 @@ async function startTreasureHunt() {
             if (status === "OK") {
                 setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
                 window.location.href = "questions.html";
+                getQuestions();
             }
             else if (status === "ERROR") {
                 let errorMessage = "";
@@ -61,22 +62,21 @@ function setCookie(cookieName, cookieValue, expireDays) {
 }
 
 async function getQuestions() {
-
     fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
-            // if (jsonObject.status === "OK") {
-            //     if (jsonObject.completed === false) {
-            //         alert(jsonObject.questionText);
-            //     }
-            // }
-            // else {
-            //     let errorMessage = "";
-            //     for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-            //         errorMessage += jsonObject.errorMessages[i] + "\n";
-            //     }
-            //     alert(errorMessage);
-            // }
+            if (jsonObject.status === "OK") {
+                if (jsonObject.completed === false) {
+                    alert(jsonObject.questionText);
+                }
+            }
+            else {
+                let errorMessage = "";
+                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+                    errorMessage += jsonObject.errorMessages[i] + "\n";
+                }
+                alert(errorMessage);
+            }
         });
 }
 
