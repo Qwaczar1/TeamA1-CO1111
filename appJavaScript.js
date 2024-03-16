@@ -1,11 +1,32 @@
 let treasureHuntsElement = document.getElementById("treasureHuntsList");
+let treasureHuntId;
 
-async function startTreasureHunt(treasureHuntName, idOfTreasureHunt) {
+async function startTreasureHunt(treasureHuntName, id) {
     // Add your logic here to handle the start of the treasure hunt
     alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
     // Set the values of hidden input fields
     document.getElementById("appName").value = "Team-A1";
-    document.getElementById("treasureHuntId").value = idOfTreasureHunt;
+    document.getElementById("treasureHuntId").value = id;
+    treasureHuntId = id;
+}
+
+async function startQuestions() {
+    let playerName = document.getElementById("usernameBox").value;
+
+    fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntId}"`)
+        .then(response => response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK") {
+
+            }
+            else {
+                let errorMessage = "";
+                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+                    errorMessage += jsonObject.errorMessages[i] + "\n";
+                }
+                alert(errorMessage);
+            }
+        });
 }
 
 async function getChallenges() {
