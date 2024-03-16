@@ -13,7 +13,7 @@ function getStartParameters(treasureHuntName, id) {
 async function startTreasureHunt() {
     let playerName = document.getElementById("usernameBox").value;
 
-    fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}"`)
+    fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}`)
         .then(response => response.json())
         .then(jsonObject => {
             let sessionID = jsonObject.session;
@@ -21,6 +21,7 @@ async function startTreasureHunt() {
             if (status === "OK") {
                 // // setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
                 // getQuestions();
+                alert("Hello");
             }
             else if (status === "ERROR") {
                 let errorMessage = "";
