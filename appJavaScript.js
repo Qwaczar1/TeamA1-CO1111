@@ -1,7 +1,7 @@
 let treasureHuntsElement = document.getElementById("treasureHuntsList");
 let treasureHuntID;
 
-async function startTreasureHunt(treasureHuntName, id) {
+async function getStartParameters(treasureHuntName, id) {
     // Add your logic here to handle the start of the treasure hunt
     alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
     // Set the values of hidden input fields
@@ -10,14 +10,14 @@ async function startTreasureHunt(treasureHuntName, id) {
     treasureHuntID = id;
 }
 
-async function startQuestions() {
+async function startTreasureHunt() {
     let playerName = document.getElementById("usernameBox").value;
 
     fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}"`)
         .then(response => response.json())
         .then(jsonObject => {
             if (jsonObject.status === "OK") {
-                document.cookie = `sessionID = ${jsonObject.session}`; // saves sessionID as a cookie
+                setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
             }
             else {
                 let errorMessage = "";
@@ -27,6 +27,47 @@ async function startQuestions() {
                 alert(errorMessage);
             }
         });
+}
+
+function setCookie(cookieName, cookieValue, expireDays) {
+    let date = new Date();
+    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
+
+async function startQuestions() {
+
+    fetch(`https://codecyprus.org/th/api/question?session=${getCookie("sessionID")}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK") {
+
+            }
+            else {
+                let errorMessage = "";
+                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+                    errorMessage += jsonObject.errorMessages[i] + "\n";
+                }
+                alert(errorMessage);
+            }
+        });
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
 async function getChallenges() {
@@ -49,7 +90,7 @@ async function getChallenges() {
                 const nameOfTreasureHunt = jsonObject.treasureHunts[i].name;
                 const idOfTreasureHunt = jsonObject.treasureHunts[i].uuid;
 
-                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='startTreasureHunt(\"" + nameOfTreasureHunt + "\", \"" + idOfTreasureHunt + "\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
+                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='getStartParameters(\"" + nameOfTreasureHunt + "\", \"" + idOfTreasureHunt + "\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
 
                 if (treasureHuntStartTime < currentTimeStamp < treasureHuntEndTime) {
                     document.getElementById("treasureHunt"+i+"").style.cursor = "pointer";
