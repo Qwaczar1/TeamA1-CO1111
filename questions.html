@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Treasure Hunt App</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body id="appPage">
+    <header id="header">
+        <div id="headerContent">
+            <div id="align">
+                <div id="headerContainer1">
+                    <img src="media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo">
+                </div>
+                <div id="headerContainer2">
+                    <h4>Code Cyprus</h4>
+                </div>
+            </div>
+            <nav id="nav">
+                <ul id="navList">
+                    <li class="navItem">
+                        <a class="navLink" id="scoreboard">SCOREBOARD</a>
+                        <div id="scoreboardBox" class="box">
+                            <div class="boxText">
+                                <h2 id="scoreboardHeader">Scoreboard</h2>
+                                <table id="scoreboardResults">
+                                    <tr class='tableRow'>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </table>
+                                <div id="closeScoreboardBox">&times;</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navItem">
+                        <a onclick="refresh()" id="refresh">REFRESH</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+<script src="mainJavaScript.js"></script>
+<script src="appJavaScript.js"></script>
+</html>

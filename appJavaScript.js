@@ -54,7 +54,6 @@ let closeButton = document.getElementById("closeButton");
 
 button.onclick = function(event) {
     event.preventDefault();
-
     nameBox.style.display = "block";
 }
 
