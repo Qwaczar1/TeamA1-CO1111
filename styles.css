@@ -160,20 +160,6 @@ body{
     }
 }
 
-#refresh{
-    font-size: 15px;
-    transition: all 0.4s;
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#refresh:hover,
-#refresh:focus{
-    color: #E8F0F7;
-}
-
 #appMainContent{
     text-align: center;
 }
