@@ -2,80 +2,6 @@ let treasureHuntID;
 const sessionID = getCookie('sessionID');
 let treasureHuntsElement = document.getElementById("treasureHuntsList");
 
-function getStartParameters(treasureHuntName, id) {
-    // Add your logic here to handle the start of the treasure hunt
-    alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
-    // Set the values of hidden input fields
-    document.getElementById("appName").value = "Team-A1";
-    document.getElementById("treasureHuntId").value = id;
-    treasureHuntID = id;
-}
-
-async function startTreasureHunt() {
-    let playerName = document.getElementById("usernameBox").value;
-
-    fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}`)
-        .then(response => response.json())
-        .then(jsonObject => {
-            let status = jsonObject.status;
-            if (status === "OK") {
-                setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
-                // window.location.href = "questions.html";
-                console.log(sessionID);
-
-                getQuestions();
-            }
-            else if (status === "ERROR") {
-                let errorMessage = "";
-                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-                    errorMessage += jsonObject.errorMessages[i] + "\n";
-                }
-                alert(errorMessage);
-            }
-        });
-}
-
-function setCookie(cookieName, cookieValue, expireDays) {
-    let date = new Date();
-    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + date.toUTCString();
-    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-}
-
-async function getQuestions() {
-    fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
-        .then(response => response.json())
-        .then(jsonObject => {
-            if (jsonObject.status === "OK") {
-                alert(jsonObject.questionText);
-                console.log('session ID successful');
-            }
-            else {
-                let errorMessage = "";
-                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-                    errorMessage += jsonObject.errorMessages[i] + "\n";
-                }
-                alert(errorMessage);
-            }
-        });
-}
-
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
 async function getChallenges() {
     // Fetch again inside the function if needed
     fetch("https://codecyprus.org/th/api/list")
@@ -112,6 +38,77 @@ async function getChallenges() {
 
 getChallenges();
 
+function getStartParameters(treasureHuntName, id) {
+    // Add your logic here to handle the start of the treasure hunt
+    alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
+    // Set the values of hidden input fields
+    document.getElementById("appName").value = "Team-A1";
+    document.getElementById("treasureHuntId").value = id;
+    treasureHuntID = id;
+}
+
+async function startTreasureHunt() {
+    let playerName = document.getElementById("usernameBox").value;
+
+    fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+            let status = jsonObject.status;
+            if (status === "OK") {
+                setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
+                // window.location.href = "questions.html";
+                getQuestions();
+            }
+            else if (status === "ERROR") {
+                let errorMessage = "";
+                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+                    errorMessage += jsonObject.errorMessages[i] + "\n";
+                }
+                alert(errorMessage);
+            }
+        });
+}
+
+function setCookie(cookieName, cookieValue, expireDays) {
+    let date = new Date();
+    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+async function getQuestions() {
+    fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+            if (jsonObject.status === "OK") {
+                alert(jsonObject.questionText);
+                console.log('session ID successful');
+            } else {
+                let errorMessage = "";
+                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
+                    errorMessage += jsonObject.errorMessages[i] + "\n";
+                }
+                alert(errorMessage);
+            }
+        });
+}
+
 function refresh() {
     window.location.reload();
 }
@@ -135,20 +132,20 @@ window.onclick = function(event) {
     }
 }
 
-// let scoreboard = document.getElementById("scoreboard");
-// let scoreboardBox = document.getElementById("scoreboardBox");
-// let closeScoreboardBox = document.getElementById("closeScoreboardBox");
-//
-// // Display scoreboard box when pressed
-// scoreboard.onclick = function() {
-//     scoreboardBox.style.display = "block";
-// }
-//
-// // Close scoreboard box when pressed
-// closeScoreboardBox.onclick = function() {
-//     scoreboardBox.style.display = "none";
-// }
-//
+let scoreboard = document.getElementById("scoreboard");
+let scoreboardBox = document.getElementById("scoreboardBox");
+let closeScoreboardBox = document.getElementById("closeScoreboardBox");
+
+// Display scoreboard box when pressed
+scoreboard.onclick = function() {
+    scoreboardBox.style.display = "block";
+}
+
+// Close scoreboard box when pressed
+closeScoreboardBox.onclick = function() {
+    scoreboardBox.style.display = "none";
+}
+
 // const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
 //
 // /*This is a function to access the /leaderboard at the specified URL*/
