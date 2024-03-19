@@ -239,7 +239,7 @@ body{
     padding: 90px
 }
 
-#closeHelpBox, #closeAboutBox, #closeScoreboardBox{
+#closeHelpBox, #closeAboutBox{
     font-size: 35px;
     top: 4px;
     right: 20px;
@@ -249,18 +249,8 @@ body{
 }
 
 #closeHelpBox:hover, #closeHelpBox:focus,
-#closeAboutBox:hover, #closeAboutBox:focus,
-#closeScoreboardBox:hover, #closeScoreboardBox:focus{
+#closeAboutBox:hover, #closeAboutBox:focus{
     color: #E8F0F7;
-}
-
-#scoreboardResults {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-#scoreboardHeader {
-    margin-bottom: 12px;
 }
 
 #nameBoxDiv{
@@ -321,4 +311,9 @@ body{
 #redLogo{
     margin-top: 10px;
     width: 150px;
+}
+
+#scoreboardHeading{
+    text-align: center;
+    margin-bottom: 30px;
 }
