@@ -56,7 +56,6 @@ async function startTreasureHunt() {
             let status = jsonObject.status;
             if (status === "OK") {
                 setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
-                // window.location.href = "questions.html";
                 getQuestions();
             }
             else if (status === "ERROR") {
@@ -93,19 +92,43 @@ function getCookie(cname) {
 }
 
 async function getQuestions() {
+    console.log(`Fetching questions with sessionID: ${sessionID}`);
     fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
-            if (jsonObject.status === "OK") {
-                alert(jsonObject.questionText);
-                console.log('session ID successful');
-            } else {
+            console.log('API response received:', jsonObject);
+
+            const errorMessages = jsonObject.errorMessages;
+            const completed = jsonObject.completed;
+            const questionText = jsonObject.questionText;
+            const questionType = jsonObject.questionType;
+            const canBeSkipped = jsonObject.canBeSkipped;
+            const requiresLocation = jsonObject.requiresLocation;
+            const numOfQuestions = jsonObject.numOfQuestions;
+            const currentQuestionIndex = jsonObject.currentQuestionIndex;
+            const correctScore = jsonObject.correctScore;
+            const wrongScore = jsonObject.wrongScore;
+            const skipScore = jsonObject.skipScore;
+            const status = jsonObject.status;
+
+            let questionsDiv = document.getElementById('questionsDiv');
+
+            if (status === "OK") {
+                for (let i = currentQuestionIndex; i < numOfQuestions; i++) {
+                    questionsDiv.innerHTML += "<p class='questionText'>" + questionText + "</p>";
+                }
+            }
+            else {
                 let errorMessage = "";
-                for (let i = 0; i < jsonObject.errorMessages.length; i++) {
-                    errorMessage += jsonObject.errorMessages[i] + "\n";
+                for (let i = 0; i < errorMessages.length; i++) {
+                    errorMessage += errorMessages[i] + "\n";
                 }
                 alert(errorMessage);
             }
+        })
+        .catch(error => {
+            console.error('Error fetching questions:', error);
+            alert('Failed to fetch questions. Please try again later.'); // Display error to the user
         });
 }
 
