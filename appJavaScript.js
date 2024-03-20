@@ -39,7 +39,7 @@ async function getChallenges() {
         });
 }
 
-getChallenges(); // Call function to fetch treasure hunts
+getChallenges();
 
 // Function to handle starting a treasure hunt
 function getStartParameters(treasureHuntName, id) {
@@ -163,22 +163,7 @@ closeButton.onclick = function() {
     nameBox.style.display = "none";
 }
 
-// Get references to scoreboard elements
-let scoreboard = document.getElementById("scoreboard");
-let scoreboardBox = document.getElementById("scoreboardBox");
-let closeScoreboardBox = document.getElementById("closeScoreboardBox");
-
-// Display scoreboard box when pressed
-scoreboard.onclick = function() {
-    scoreboardBox.style.display = "block";
-}
-
-// Close scoreboard box when pressed
-closeScoreboardBox.onclick = function() {
-    scoreboardBox.style.display = "none";
-}
-
-const TH_API_URL = "https://codecyprus.org/th/api/leaderboard?sorted"; // the API base url
+const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
 
 function getLeaderBoard(url) {
     // create and invoke the http request
@@ -190,13 +175,14 @@ function getLeaderBoard(url) {
         });
 }
 
-getLeaderBoard(TH_API_URL + getCookie('sessionID'));
+getLeaderBoard(TH_API_URL + "leaderboard?session=" + getCookie('sessionID') + "&sorted");
 
-console.log(TH_API_URL + getCookie('sessionID'));
+// console.log(TH_API_URL + "leaderboard?session=" + getCookie('sessionID') + "&sorted");
 
 function handleLeaderboard(leaderboard) {
     let html = ""; // used to include HTML code for the table rows
     let leaderboardArray = leaderboard['leaderboard'];
+    console.log(leaderboardArray);
     for(const entry of leaderboardArray) {
         html += "<tr>" +
             "<td class='tableData'>" + entry['player'] + "</td>" +
@@ -204,5 +190,5 @@ function handleLeaderboard(leaderboard) {
             "<td class='tableData'>" + entry['completionTime'] + "</td>" +
             "</tr>";
     }
-    document.getElementById('test-results-table').innerHTML += html;
+    document.getElementById('scoreboardTable').innerHTML += html;
 }
