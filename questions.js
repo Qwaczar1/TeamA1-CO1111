@@ -20,6 +20,7 @@ function hideAllForms() {
 
 // Function to fetch questions
 function getQuestion() {
+    console.log(`Fetching question with sessionID: ${sessionID}`);
     // Fetch questions API
     fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
         .then(response => response.json())
@@ -44,7 +45,7 @@ function getQuestion() {
             let questionDiv = document.getElementById('questionDiv');
 
             if (status === "OK") {
-                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"media/Treasure Hunt Logo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
+                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>";
                 if (questionType === "BOOLEAN") {
                     booleanInputElement.style.display = "block";
                 }
@@ -59,14 +60,6 @@ function getQuestion() {
                 }
                 else if (questionType === "TEXT") {
                     textInputElement.style.display = "block";
-                }
-                if (requiresLocation) {
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(updateLocation);
-                    }
-                    else {
-                        alert("This browser does not support geolocation.")
-                    }
                 }
             }
             else {
@@ -95,22 +88,18 @@ function answer(elementID) {
     fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answerText}`)
         .then(response => response.json())
         .then(jsonObject => {
-            const status = jsonObject.status;
-            const completed = jsonObject.completed;
-            const correct = jsonObject.correct;
-            const message = jsonObject.message;
             console.log(jsonObject);
             if (_questionType === "TEXT" || _questionType === "NUMERIC" || _questionType === "INTEGER") {
                 inputElement.value = "";
             }
-           if (status === "OK") {
-               if (completed) {
+           if (jsonObject.status === "OK") {
+               if (jsonObject.completed) {
                    location.href = "leaderboard.html";
                }
                else {
-                   alert(message);
+                   alert(jsonObject.message);
                    //TODO - Update the score.
-                   if (correct) {
+                   if (jsonObject.correct) {
                        getQuestion();
                    }
                    else {
@@ -120,46 +109,5 @@ function answer(elementID) {
            // else {
            //     //TODO - Handle and print errors...
            // }
-        });
-}
-
-// if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(location);
-// }
-// else {
-//     alert("This browser does not support geolocation.")
-// }
-
-function updateLocation(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-    fetch(`https://codecyprus.org/th/api/location?session=${sessionID}&latitude=${latitude}&longitude=${longitude}`)
-        .then(response => response.json())
-        .then(jsonObject => {
-            const status = jsonObject.status;
-            const message = jsonObject.message;
-            alert(message);
-            // if (status === "OK") {
-            //
-            // }
-            // else {
-            //
-            // }
-            });
-}
-
-function score() {
-    fetch(`https://codecyprus.org/th/api/score?session=${sessionID}`)
-        .then(response => response.json())
-        .then(jsonObject => {
-
-        });
-}
-
-function skip() {
-    fetch(`https://codecyprus.org/th/api/skip?session=${sessionID}`)
-        .then(response => response.json())
-        .then(jsonObject => {
-
         });
 }
