@@ -23,8 +23,9 @@ function handleLeaderboard(leaderboard) {
         let formattedDate = date.toLocaleDateString("en-UK", options);
 
         html += "<tr>" +
-            "<td class='tableData'>" + count + ". " + entry['player'] + "</td>" +
-            "<td class='tableData'>" + entry['score'] + "</td>" +
+            "<td class='tableData'>" + count + "</td>" +
+            "<td class='tableData'>" + entry['player'] + "</td>" +
+            "<td class='tableData'>" + entry['score'] + " Pts" + "</td>" +
             "<td class='tableData'>" + formattedDate + "</td>" +
             "</tr>";
         count++;
