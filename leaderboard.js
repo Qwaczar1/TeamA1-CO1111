@@ -6,19 +6,18 @@ function getLeaderBoard(url) {
     fetch(url, { method: "GET" })
         .then(response => response.json())
         .then(json => {
-            console.log(json);
+            // console.log(json);
             handleLeaderboard(json);
         });
 }
 
-// console.log(TH_API_URL + "leaderboard?session=" + getCookie('sessionID') + "&sorted");
 
 function handleLeaderboard(leaderboard) {
     let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',second: '2-digit' };
     let html = ""; // used to include HTML code for the table rows
     let count = 1;
     let leaderboardArray = leaderboard['leaderboard'];
-    console.log(leaderboardArray);
+    // console.log(leaderboardArray);
     for(const entry of leaderboardArray) {
         let date = new Date(entry['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
