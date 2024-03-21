@@ -3,40 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treasure Hunts</title>
+    <title>Treasure Hunt App - Testing</title>
 </head>
 <body>
-<div id="questList"></div>
-
-<script>
-    // Function for creating "Search Treasure" buttons and processing their click
-    function createButtons() {
-        // Your data with quests in JSON format
-        const treasureHuntsData = {
-            "treasureHunts": [
-                {
-                    "name": "treasure hunt",
-                    // There may be other quests from your JSON here
-                }
-            ]
-        };
-
-        const questListDiv = document.getElementById('questList');
-        treasureHuntsData.treasureHunts.forEach(quest => {
-            const questDiv = document.createElement('div');
-            const button = document.createElement('button');
-            button.textContent = 'Search Treasure';
-            button.addEventListener('click', function() {
-                alert("Starting treasure hunt " + quest.name);
-            });
-            questDiv.textContent = quest.name + ' ';
-            questDiv.appendChild(button);
-            questListDiv.appendChild(questDiv);
-        });
-    }
-
-    // Call the function to create buttons when the page loads
-    window.onload = createButtons;
-</script>
 </body>
 </html>

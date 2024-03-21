@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Treasure Hunt App</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive viewport settings -->
 </head>
 <body id="appPage">
+    <!-- Header section -->
     <header id="header">
         <div id="headerContent">
             <div id="align">
@@ -19,51 +20,49 @@
             </div>
             <nav id="nav">
                 <ul id="navList">
+                    <!-- Home button -->
                     <li class="navItem">
-                        <a class="navLink" id="scoreboard">SCOREBOARD</a>
-                        <div id="scoreboardBox" class="box">
-                            <div class="boxText">
-                                <h2 id="scoreboardHeader">Scoreboard</h2>
-                                <table id="scoreboardResults">
-                                    <tr class='tableRow'>
-                                        <th>Name</th>
-                                        <th>Score</th>
-                                        <th>Time</th>
-                                    </tr>
-                                </table>
-                                <div id="closeScoreboardBox">&times;</div>
-                            </div>
-                        </div>
+                        <a class="navLink" href="index.html">HOME</a>
                     </li>
+                    <!-- Refresh button -->
                     <li class="navItem">
-                        <a onclick="refresh()" id="refresh">REFRESH</a>
+                        <a onclick="refresh()" class="navLink">REFRESH</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
+    <!-- Main content section -->
     <div id="appMainContent">
+        <!-- Heading for treasure hunts -->
         <h2 id="treasureHuntsText">First select a treasure to hunt!</h2>
         <div id="treasureHuntsDiv">
+            <!-- List of treasure hunts -->
             <ul id="treasureHuntsList">
             </ul>
+            <!-- Form for entering player name -->
             <div id="nameBoxDiv">
                 <div id="nameBox">
+                    <!-- Close button -->
                     <div id="closeButton">&times;</div>
-                    <form id="treasureHuntForm" action="https://codecyprus.org/th/api/start?" method="get">
+                    <!-- Form for submitting player details -->
+                    <form id="treasureHuntForm">
+                        <!-- Input for entering player name -->
                         <label>Name:</label>
                         <input id="usernameBox" type="text" name="player" required placeholder="Please enter your name" maxlength="50" pattern="[a-zA-Z0-9]+" title="These characters - > @, #, $, %, ^, &, * and spaces cannot be used!">
                         <br><br>
+                        <!-- Hidden input fields for app name and treasure hunt id -->
                         <input type="hidden" id="appName" value="Team-A1" name="app">
                         <input type="hidden" id="treasureHuntId" name="treasure-hunt-id">
-                        <button id="submitButton" type="submit" value="submit">Submit</button>
+                        <!-- Submit button -->
+                        <button id="submitButton" type="button" onclick="startTreasureHunt()" value="submit">Submit</button>
                     </form>
                     <img src="media/Treasure Hunt Logo.png" id="redLogo" alt="Treasure Hunt Logo">
                 </div>
             </div>
         </div>
     </div>
-    </body>
-    <script src="mainJavaScript.js"></script>
-    <script src="appJavaScript.js"></script>
+</body>
+<script src="cookies.js"></script> <!-- External JavaScript file -->
+<script src="app.js"></script> <!-- External JavaScript file -->
 </html>

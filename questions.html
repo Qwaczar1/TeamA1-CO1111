@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Treasure Hunt App</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="cookies.js"></script> <!-- Responsive viewport settings -->
+</head>
+<body id="appPage">
+    <!-- Header section -->
+    <header id="header">
+        <div id="headerContent">
+            <div id="align">
+                <div id="headerContainer1">
+                    <img src="media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo">
+                </div>
+                <div id="headerContainer2">
+                    <h4>Code Cyprus</h4>
+                </div>
+            </div>
+            <nav id="nav">
+                <ul id="navList">
+                    <!-- Home button -->
+                    <li class="navItem">
+                        <a class="navLink" href="index.html">HOME</a>
+                    </li>
+                    <!-- Scoreboard item -->
+                    <li class="navItem">
+                        <a class="navLink" id="leaderboardID" href="leaderboard.html">SCOREBOARD</a>
+                        <!-- Scoreboard box -->
+                        <div id="scoreboardBox" class="box">
+                            <div class="boxText">
+                                <!-- Scoreboard header -->
+                                <h2 id="scoreboardHeader">Scoreboard</h2>
+                                <!-- Scoreboard results table -->
+                                <table id="scoreboardResults">
+                                    <tr class='tableRow'>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </table>
+                                <!-- Close button for scoreboard box -->
+                                <div id="closeScoreboardBox">&times;</div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Refresh button -->
+                    <li class="navItem">
+                        <a onclick="refresh()" class="navLink">REFRESH</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="questionsDiv">
+        <!-- Questions section -->
+        <div id="questionDiv">
+        </div>
+        <!-- Text input -->
+        <div id="textInput">
+            <input class="inputBox" id="answerInputText" type="text"/><br>
+            <input class="answerSubmit" type="button" value="Submit" onclick="answer('answerInputText')" />
+        </div>
+        <!-- Numeric input -->
+        <div id="numericInput">
+            <input class="inputBox" id="answerInputNumeric" type="number"/><br>
+            <input class="answerSubmit" type="button" value="Submit" onclick="answer('answerInputNumeric')" />
+        </div>
+        <!-- Boolean input -->
+        <div id="booleanInput">
+            <br><input class="answerSubmit" id="answerInputBooleanTrue" type="button" value="True" onclick="answer('answerInputBooleanTrue')"/>
+            <input class="answerSubmit" id="answerInputBooleanFalse" type="button" value="False" onclick="answer('answerInputBooleanFalse')"/>
+        </div>
+        <!-- Multiple Choice Question (MCQ) input -->
+        <div id="mcqInput">
+            <br><input class="answerSubmit" id="answerInputMCQA" type="button" value="A" onclick="answer('answerInputMCQA')"/><br>
+            <input class="answerSubmit" id="answerInputMCQB" type="button" value="B" onclick="answer('answerInputMCQB')"/><br>
+            <input class="answerSubmit" id="answerInputMCQC" type="button" value="C" onclick="answer('answerInputMCQC')"/><br>
+            <input class="answerSubmit" id="answerInputMCQD" type="button" value="D" onclick="answer('answerInputMCQD')"/>
+        </div>
+        <!-- Integer input -->
+        <div id="integerInput">
+            <input class="inputBox" id="answerInputInteger" type="number"/><br>
+            <input class="answerSubmit" type="button" value="Submit" onclick="answer('answerInputInteger')" />
+        </div>
+    </main>
+</body>
+<script src="questions.js"></script> <!-- External JavaScript file -->
+<script>
+    getQuestion();
+</script>
+</html>

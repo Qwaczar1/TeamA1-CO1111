@@ -160,20 +160,6 @@ body{
     }
 }
 
-#refresh{
-    font-size: 15px;
-    transition: all 0.4s;
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#refresh:hover,
-#refresh:focus{
-    color: #E8F0F7;
-}
-
 #appMainContent{
     text-align: center;
 }
@@ -186,7 +172,6 @@ body{
 .endsInText{
     margin-top: 3px;
 }
-
 
 .treasureHuntsButtons{
     width: 60%;
@@ -223,7 +208,6 @@ body{
     z-index: 1;
     top: 0;
     left: 0;
-    overflow: scroll;
     height: 100%;
     width: 100%;
     background-color: black;
@@ -237,10 +221,10 @@ body{
     border: 1px solid grey;
     margin: auto;
     background-color: white;
-    padding: 30px 100px 130px 100px;
+    padding: 90px
 }
 
-#closeHelpBox, #closeAboutBox, #closeScoreboardBox{
+#closeHelpBox, #closeAboutBox{
     font-size: 35px;
     top: 4px;
     right: 20px;
@@ -250,18 +234,8 @@ body{
 }
 
 #closeHelpBox:hover, #closeHelpBox:focus,
-#closeAboutBox:hover, #closeAboutBox:focus,
-#closeScoreboardBox:hover, #closeScoreboardBox:focus{
+#closeAboutBox:hover, #closeAboutBox:focus{
     color: #E8F0F7;
-}
-
-#scoreboardResults {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-#scoreboardHeader {
-    margin-bottom: 12px;
 }
 
 #nameBoxDiv{
@@ -308,12 +282,12 @@ body{
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
-#submitButton:hover,
-#submitButton:focus{
-    background-color: darkgrey;
+#submitButton:hover, #submitButton:focus,
+.answerSubmit:hover, .answerSubmit:focus{
+    background-color: #E8F0F7;
 }
 
-#usernameBox{
+#usernameBox, .inputBox{
     padding: 5px 10px;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
@@ -322,4 +296,61 @@ body{
 #redLogo{
     margin-top: 10px;
     width: 150px;
+}
+
+#scoreboardHeading{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tableHeader{
+    background-color: darkgray;
+}
+
+.tableHeader, .tableData {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+#scoreboardTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 80%;
+    margin: 0 auto 70px auto;
+}
+
+.inputBox{
+    padding: 8px 20px;
+    margin: 20px 0;
+}
+
+#questionsDiv{
+    text-align: center;
+    margin-top: 130px;
+}
+
+#answerInputBooleanTrue{
+    margin-right: 10px;
+}
+
+#answerInputBooleanFalse{
+    margin-left: 10px;
+}
+
+#answerInputMCQA, #answerInputMCQB,
+#answerInputMCQC, #answerInputMCQD{
+    margin-bottom: 10px;
+    padding: 7px 20px;
+}
+
+.answerSubmit{
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: darkgray;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
