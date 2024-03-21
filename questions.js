@@ -20,12 +20,12 @@ function hideAllForms() {
 
 // Function to fetch questions
 function getQuestion() {
-    console.log(`Fetching question with sessionID: ${sessionID}`);
+    // console.log(`Fetching question with sessionID: ${sessionID}`);
     // Fetch questions API
     fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
-            console.log('API response received:', jsonObject);
+            // console.log('API response received:', jsonObject);
             hideAllForms();
             // Handle API response
             const errorMessages = jsonObject.errorMessages;
