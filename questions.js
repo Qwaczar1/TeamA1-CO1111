@@ -42,10 +42,10 @@ function getQuestion() {
             const skipScore = jsonObject.skipScore;
             const status = jsonObject.status;
 
-            let questionsDiv = document.getElementById('questionsDiv');
+            let questionDiv = document.getElementById('questionDiv');
 
             if (status === "OK") {
-                questionsDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>";
+                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>";
                 if (questionType === "BOOLEAN") {
                     booleanInputElement.style.display = "block";
                 }

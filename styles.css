@@ -275,7 +275,7 @@ body{
     cursor: pointer;
 }
 
-#submitButton{
+#submitButton, .answerSubmit{
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 4px;
@@ -283,12 +283,12 @@ body{
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
-#submitButton:hover,
-#submitButton:focus{
+#submitButton:hover, #submitButton:focus,
+.answerSubmit:hover, .answerSubmit:focus{
     background-color: darkgrey;
 }
 
-#usernameBox{
+#usernameBox, .inputBox{
     padding: 5px 10px;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
@@ -304,12 +304,16 @@ body{
     margin-bottom: 30px;
 }
 
+.tableHeader{
+    background-color: darkgray;
+}
+
 .tableHeader, .tableData {
     border-top: 1px solid black;
     border-right: 1px solid black;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -318,4 +322,14 @@ body{
     border-spacing: 0;
     width: 80%;
     margin: 0 auto 70px auto;
+}
+
+.inputBox{
+    padding: 8px 20px;
+    margin: 20px 0;
+}
+
+#questionsDiv{
+    text-align: center;
+    margin-top: 130px;
 }
