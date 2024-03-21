@@ -44,7 +44,7 @@
                     </li>
                     <!-- Refresh button -->
                     <li class="navItem">
-                        <a onclick="refresh()" id="refresh">REFRESH</a>
+                        <a onclick="refresh()" class="navLink">REFRESH</a>
                     </li>
                 </ul>
             </nav>
@@ -70,7 +70,10 @@
     </div>
 
     <div id="mcqInput">
-
+        <input id="answerInputMCQA" type="button" value="A" onclick="answer('answerInputMCQA')" />
+        <input id="answerInputMCQB" type="button" value="B" onclick="answer('answerInputMCQB')" />
+        <input id="answerInputMCQC" type="button" value="C" onclick="answer('answerInputMCQC')" />
+        <input id="answerInputMCQD" type="button" value="D" onclick="answer('answerInputMCQD')" />
     </div>
 
     <div id="integerInput">

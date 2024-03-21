@@ -1,7 +1,7 @@
 const sessionID = getCookie("sessionID"); // Get session ID from cookie
 
 const textInputElement = document.getElementById("textInput");
-const numberInputElement = document.getElementById("numericInput");
+const numericInputElement = document.getElementById("numericInput");
 const mcqInputElement = document.getElementById("mcqInput");
 const integerInputElement = document.getElementById("integerInput");
 const booleanInputElement = document.getElementById("booleanInput");
@@ -11,7 +11,7 @@ let _questionType = "INTEGER";
 
 function hideAllForms() {
     textInputElement.style.display = "none";
-    numberInputElement.style.display = "none";
+    numericInputElement.style.display = "none";
     mcqInputElement.style.display = "none";
     integerInputElement.style.display = "none";
     booleanInputElement.style.display = "none";
@@ -52,7 +52,7 @@ function getQuestion() {
                     integerInputElement.style.display = "block";
                 }
                 else if (questionType === "NUMERIC") {
-                    numberInputElement.style.display = "block";
+                    numericInputElement.style.display = "block";
                 }
                 else if (questionType === "MCQ") {
                     mcqInputElement.style.display = "block";
