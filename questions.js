@@ -62,6 +62,14 @@ function getQuestion() {
                     textInputElement.style.display = "block";
                 }
             }
+            if (requiresLocation) {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(updateLocation);
+                }
+                else {
+                    alert("This browser does not support geolocation.")
+                }
+            }
             else {
                 let errorMessage = "";
                 for (let i = 0; i < errorMessages.length; i++) {
@@ -111,3 +119,50 @@ function answer(elementID) {
            // }
         });
 }
+
+function updateLocation(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    fetch(`https://codecyprus.org/th/api/location?session=${sessionID}&latitude=${latitude}&longitude=${longitude}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+            const status = jsonObject.status;
+            const message = jsonObject.message;
+            alert(message);
+            // if (status === "OK") {
+            //
+            // }
+            // else {
+            //
+            // }
+        });
+}
+
+function score() {
+
+}
+
+const skip = document.getElementById("skipButton");
+const skipScore = jsonObject.skipScore;
+const status = jsonObject.status;
+
+function skipBtn(){
+    const skipCounter= 1;
+    fetch (`https://codecyprus.org/th/api/skip?session=${sessionID}&count=${skipCounter}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+
+            if (jsonObject.status === 'OK'){
+                alert('You skipped the question')
+                location.reload();
+                getQuestion();
+            }
+            else {
+                alert('You cant skip the question')
+            }
+        })
+}
+skip.addEventListener("click",function (event){
+    event.preventDefault();
+    skipBtn();
+});
