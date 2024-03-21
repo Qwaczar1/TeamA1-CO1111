@@ -44,6 +44,8 @@ function getQuestion() {
 
             let questionDiv = document.getElementById('questionDiv');
 
+            document.getElementById("loader").style.display = "none";
+
             if (status === "OK") {
                 questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"media/Treasure Hunt Logo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
                 if (questionType === "BOOLEAN") {
@@ -160,3 +162,4 @@ skipButton.addEventListener("click",function (event){
     event.preventDefault();
     skip();
 });
+

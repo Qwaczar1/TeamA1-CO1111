@@ -31,6 +31,8 @@ function getChallenges() {
                 // Display treasure hunt information
                 treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='getStartParameters(\"" + nameOfTreasureHunt + "\", \"" + idOfTreasureHunt + "\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
 
+                document.getElementById("loader").style.display = "none";
+
                 // Adjust button appearance based on time
                 if (treasureHuntStartTime < currentTimeStamp < treasureHuntEndTime) {
                     document.getElementById("treasureHunt"+i+"").style.cursor = "pointer";
@@ -74,7 +76,6 @@ function getStartParameters(treasureHuntName, id) {
 // Function to start a treasure hunt
 function startTreasureHunt() {
     let playerName = document.getElementById("usernameBox").value;
-
     // Fetch start treasure hunt API
     fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}`)
         .then(response => response.json())
