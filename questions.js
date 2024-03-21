@@ -112,7 +112,16 @@ function answer(elementID) {
         });
 }
 
-function location() {
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(location);
+}
+else {
+    alert("This browser does not support geolocation.")
+}
+
+function location(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
     fetch(`https://codecyprus.org/th/api/location?session=${sessionID}&latitude=${latitude}&longitude=${longitude}`)
         .then(response => response.json())
         .then(jsonObject => {
