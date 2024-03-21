@@ -5,6 +5,7 @@ const numericInputElement = document.getElementById("numericInput");
 const mcqInputElement = document.getElementById("mcqInput");
 const integerInputElement = document.getElementById("integerInput");
 const booleanInputElement = document.getElementById("booleanInput");
+const skip = document.getElementById("skipButton");
 hideAllForms();
 
 let _questionType = "INTEGER";
@@ -41,6 +42,7 @@ function getQuestion() {
             const wrongScore = jsonObject.wrongScore;
             const skipScore = jsonObject.skipScore;
             const status = jsonObject.status;
+
 
             let questionDiv = document.getElementById('questionDiv');
 
@@ -111,3 +113,23 @@ function answer(elementID) {
            // }
         });
 }
+function skipBtn(){
+    const skipCounter= 1;
+    fetch (`https://codecyprus.org/th/api/skip?session=${sessionID}&count=${skipCounter}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+
+    if (jsonObject.status === 'OK'){
+        alert('You skipped the question')
+        location.reload();
+        getQuestion();
+    }
+    else {
+        alert('You cant skip the question')
+    }
+        })
+}
+skip.addEventListener("click",function (event){
+    event.preventDefault();
+    skipBtn();
+});

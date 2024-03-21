@@ -354,3 +354,36 @@ body{
     background-color: darkgray;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
+
+#score{
+    font-size: 20px;
+    color: black;
+    padding: 14px 25px;
+    margin-top: -15px;
+    display: inline-block;
+
+}
+#skipButton{
+    text-align: right;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display:inline ;
+    padding: 14px 25px;
+    background-color: grey;
+    margin-left: auto;
+    margin-right: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+#skipButton:hover{
+    color: black;
+    background-color: darkgrey;
+
+
+}
+.toSkip{
+    justify-content: space-between;
+    display: flex;
+}
