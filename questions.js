@@ -45,7 +45,7 @@ function getQuestion() {
             let questionDiv = document.getElementById('questionDiv');
 
             if (status === "OK") {
-                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>";
+                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"media/Treasure Hunt Logo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
                 if (questionType === "BOOLEAN") {
                     booleanInputElement.style.display = "block";
                 }
