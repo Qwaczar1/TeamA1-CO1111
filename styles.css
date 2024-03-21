@@ -388,6 +388,9 @@ body{
 }
 
 #skipDiv{
+    border: 2px solid #ccc;
+    width: 100%;
+    padding: 20px 0;
     justify-content: space-between;
     display: flex;
 }
