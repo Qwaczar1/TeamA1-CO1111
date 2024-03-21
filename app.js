@@ -3,11 +3,17 @@ const sessionID = getCookie("sessionID"); // Get session ID from cookie
 let treasureHuntsElement = document.getElementById("treasureHuntsList");
 
 // Function to fetch treasure hunt challenges
-async function getChallenges() {
+function getChallenges() {
     // Fetch treasure hunts data
     fetch("https://codecyprus.org/th/api/list")
         .then(response => response.json())
         .then(jsonObject => {
+
+            // Get references to name filling box elements
+            let nameBox = document.getElementById("nameBoxDiv");
+            let closeButton = document.getElementById("closeButton");
+
+
             // Loop through treasure hunts data
             for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
 
@@ -35,6 +41,21 @@ async function getChallenges() {
                     document.getElementById("treasureHunt" + i + "").style.cursor = "no-drop";
                     document.getElementById("treasureHunt"+i+"").setAttribute("disabled", true);
                 }
+
+                let buttons = document.querySelectorAll('.treasureHuntsButtons');
+
+                // Add click event listeners to buttons
+                buttons.forEach((button) => {
+                    button.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        nameBox.style.display = "block";
+                    });
+                });
+
+                // Add click event listener to close button
+                closeButton.onclick = function() {
+                    nameBox.style.display = "none";
+                };
             }
         });
 }
@@ -51,7 +72,7 @@ function getStartParameters(treasureHuntName, id) {
 }
 
 // Function to start a treasure hunt
-async function startTreasureHunt() {
+function startTreasureHunt() {
     let playerName = document.getElementById("usernameBox").value;
 
     // Fetch start treasure hunt API
@@ -80,18 +101,4 @@ function refresh() {
     window.location.reload();
 }
 
-// Get references to name filling box elements
-let nameBox = document.getElementById("nameBoxDiv");
-let button = document.getElementById("treasureHuntsList")
-let closeButton = document.getElementById("closeButton");
 
-// Function to handle button click event
-button.onclick = function(event) {
-    event.preventDefault();
-    nameBox.style.display = "block";
-}
-
-// Function to handle close button click event
-closeButton.onclick = function() {
-    nameBox.style.display = "none";
-}
