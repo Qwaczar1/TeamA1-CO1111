@@ -78,10 +78,6 @@ function getQuestion() {
                 alert(errorMessage);
             }
         })
-        .catch(error => {
-            console.error('Error fetching questions:', error);
-            alert('Failed to fetch questions. Please try again later.'); // Display error to the user
-        });
 }
 
 // Function to refresh the page
@@ -142,27 +138,32 @@ function score() {
 
 }
 
-const skip = document.getElementById("skipButton");
-const skipScore = jsonObject.skipScore;
-const status = jsonObject.status;
+const skipButton = document.getElementById("skipButton");
 
-function skipBtn(){
-    const skipCounter= 1;
-    fetch (`https://codecyprus.org/th/api/skip?session=${sessionID}&count=${skipCounter}`)
+
+function skip(){
+    fetch (`https://codecyprus.org/th/api/skip?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
-
-            if (jsonObject.status === 'OK'){
-                alert('You skipped the question')
+            const errorMessages = jsonObject.errorMessages;
+            const scoreAdjustment = jsonObject.scoreAdjustment;
+            const status = jsonObject.status;
+            if (status === 'OK'){
+                alert('You skipped the question.')
                 location.reload();
                 getQuestion();
             }
             else {
-                alert('You cant skip the question')
+                let errorMessage = "";
+                for (let i = 0; i < errorMessages.length; i++) {
+                    errorMessage += errorMessages[i] + "\n";
+                }
+                alert(errorMessage);
             }
         })
 }
-skip.addEventListener("click",function (event){
+
+skipButton.addEventListener("click",function (event){
     event.preventDefault();
-    skipBtn();
+    skip();
 });
