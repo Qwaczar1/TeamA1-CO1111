@@ -45,7 +45,7 @@ function getQuestion() {
             let questionDiv = document.getElementById('questionDiv');
 
             if (status === "OK") {
-                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>";
+                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"media/Treasure Hunt Logo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
                 if (questionType === "BOOLEAN") {
                     booleanInputElement.style.display = "block";
                 }
@@ -125,12 +125,6 @@ function updateLocation(position) {
             const status = jsonObject.status;
             const message = jsonObject.message;
             alert(message);
-            // if (status === "OK") {
-            //
-            // }
-            // else {
-            //
-            // }
         });
 }
 
@@ -139,7 +133,6 @@ function score() {
 }
 
 const skipButton = document.getElementById("skipButton");
-
 
 function skip(){
     fetch (`https://codecyprus.org/th/api/skip?session=${sessionID}`)
