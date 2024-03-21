@@ -173,7 +173,6 @@ body{
     margin-top: 3px;
 }
 
-
 .treasureHuntsButtons{
     width: 60%;
     background-color: darkgray;
@@ -275,7 +274,7 @@ body{
     cursor: pointer;
 }
 
-#submitButton, .answerSubmit{
+#submitButton{
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 4px;
@@ -285,7 +284,7 @@ body{
 
 #submitButton:hover, #submitButton:focus,
 .answerSubmit:hover, .answerSubmit:focus{
-    background-color: darkgrey;
+    background-color: #E8F0F7;
 }
 
 #usernameBox, .inputBox{
@@ -332,4 +331,26 @@ body{
 #questionsDiv{
     text-align: center;
     margin-top: 130px;
+}
+
+#answerInputBooleanTrue{
+    margin-right: 10px;
+}
+
+#answerInputBooleanFalse{
+    margin-left: 10px;
+}
+
+#answerInputMCQA, #answerInputMCQB,
+#answerInputMCQC, #answerInputMCQD{
+    margin-bottom: 10px;
+    padding: 7px 20px;
+}
+
+.answerSubmit{
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: darkgray;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
