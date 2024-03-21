@@ -328,6 +328,10 @@ body{
     margin: 20px 0;
 }
 
+#questionDiv{
+    font-size: 18px;
+}
+
 #questionsDiv{
     text-align: center;
     margin-top: 130px;
