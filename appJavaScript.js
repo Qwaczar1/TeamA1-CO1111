@@ -62,7 +62,7 @@ async function startTreasureHunt() {
             // Handle response
             if (status === "OK") {
                 setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
-                getQuestions();
+                location.href = "questions.html";
             }
             else if (status === "ERROR") {
                 let errorMessage = "";

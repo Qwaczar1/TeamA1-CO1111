@@ -1,4 +1,5 @@
 const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
+const sessionID = getCookie("sessionID"); // Get session ID from cookie
 
 function getLeaderBoard(url) {
     // create and invoke the http request
@@ -31,22 +32,22 @@ function handleLeaderboard(leaderboard) {
     scoreboardTable.innerHTML += html;
 }
 
-var identifier = "leaderboard.html"; // Identifier for this HTML file
+// var identifier = "leaderboard.html"; // Identifier for this HTML file
 
 // Execute the script only if the identifier matches
-if (window.location.pathname.includes(identifier)) {
-    var urlParams = new URLSearchParams(window.location.search);
+// if (window.location.pathname.includes(identifier)) {
+    // var urlParams = new URLSearchParams(window.location.search);
 
     // Check if the 'session' parameter exists
-    if (!urlParams.has('session')) {
+    // if (!urlParams.has('session')) {
         // Set the 'session' parameter with a value (sessionID variable assumed to be defined)
-        urlParams.set('session', sessionID);
-    }
+        // urlParams.set('session', sessionID);
+    // }
 
     // Update the URL with the modified parameters
-    var updatedUrl = window.location.pathname + '?' + urlParams.toString();
-    document.getElementById('leaderboardID').setAttribute('href', updatedUrl);
-}
+    // var updatedUrl = window.location.pathname + '?' + urlParams.toString();
+    // document.getElementById('leaderboardID').setAttribute('href', updatedUrl);
+// }
 
-let url = TH_API_URL + "leaderboard?sorted&session=" + getCookie("sessionID");
+let url = TH_API_URL + "leaderboard?sorted&limit=20&session=" + getCookie("sessionID");
 getLeaderBoard(url);

@@ -53,7 +53,34 @@
     <!-- Questions section -->
     <div id="questionsDiv">
     </div>
+
+    <div id="textInput">
+        <input id="answerInputText" type="text" />
+        <input type="button" value="Submit" onclick="answer('answerInputText')" />
+    </div>
+
+    <div id="numericInput">
+        <input id="answerInputNumeric" type="number" />
+        <input type="button" value="Submit" onclick="answer('answerInputNumeric')" />
+    </div>
+
+    <div id="booleanInput">
+        <input id="answerInputBooleanTrue" type="button" value="True" onclick="answer('answerInputBooleanTrue')" />
+        <input id="answerInputBooleanFalse" type="button" value="False" onclick="answer('answerInputBooleanFalse')" />
+    </div>
+
+    <div id="mcqInput">
+
+    </div>
+
+    <div id="integerInput">
+        <input id="answerInputInteger" type="number" />
+        <input type="button" value="Submit" onclick="answer('answerInputInteger')" />
+    </div>
+
 </body>
-<script src="cookies.js"></script> <!-- External JavaScript file -->
 <script src="questions.js"></script> <!-- External JavaScript file -->
+<script>
+    getQuestion();
+</script>
 </html>
