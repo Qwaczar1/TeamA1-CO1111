@@ -111,3 +111,27 @@ function answer(elementID) {
            // }
         });
 }
+
+function location() {
+    fetch(`https://codecyprus.org/th/api/location?session=${sessionID}&latitude=${latitude}&longitude=${longitude}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+
+        });
+}
+
+function score() {
+    fetch(`https://codecyprus.org/th/api/score?session=${sessionID}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+
+        });
+}
+
+function skip() {
+    fetch(`https://codecyprus.org/th/api/skip?session=${sessionID}`)
+        .then(response => response.json())
+        .then(jsonObject => {
+
+        });
+}
