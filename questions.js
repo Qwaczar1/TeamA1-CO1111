@@ -8,6 +8,7 @@ const booleanInputElement = document.getElementById("booleanInput");
 hideAllForms();
 
 let _questionType = "INTEGER";
+let _initialScore = 0;
 
 function hideAllForms() {
     textInputElement.style.display = "none";
@@ -98,14 +99,15 @@ function answer(elementID) {
                else {
                    alert(jsonObject.message);
                    //TODO - Update the score.
-
                    if (jsonObject.correct) {
                        getQuestion();
                    }
+                   else {
+                   }
                }
            }
-           else {
-               //TODO - Handle and print errors...
-           }
+           // else {
+           //     //TODO - Handle and print errors...
+           // }
         });
 }
