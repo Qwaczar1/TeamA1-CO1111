@@ -43,6 +43,9 @@ function getQuestion() {
             const status = jsonObject.status;
 
             let questionDiv = document.getElementById('questionDiv');
+            let questionNumber = document.getElementById('questionNumber');
+
+            questionNumber.innerHTML += "Question " + currentQuestionIndex + "/" + numOfQuestions;
 
             document.getElementById("loader").style.display = "none";
 
@@ -127,9 +130,9 @@ function updateLocation(position) {
     fetch(`https://codecyprus.org/th/api/location?session=${sessionID}&latitude=${latitude}&longitude=${longitude}`)
         .then(response => response.json())
         .then(jsonObject => {
+            const errorMessages = jsonObject.errorMessages;
             const status = jsonObject.status;
             const message = jsonObject.message;
-            const errorMessages = jsonObject.errorMessages;
             if (status === "OK") {
                 alert(message);
             }
