@@ -131,8 +131,16 @@ function updateLocation(position) {
 }
 
 function score() {
-
+    fetch(`https://codecyprus.org/th/api/score?session=${sessionID}`)
+        .then(response => response.json())
+        .then(jsonObject =>{
+            console.log('Testing');
+            console.log(jsonObject);
+            let score = document.getElementById("score");
+            score.innerHTML += jsonObject.score;
+        })
 }
+
 
 const skipButton = document.getElementById("skipButton");
 
