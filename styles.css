@@ -308,7 +308,8 @@ body{
 
 #submitButton:hover, #submitButton:focus,
 .answerSubmit:hover, .answerSubmit:focus,
-#skipButton:hover, #skipButton:focus{
+#skipButton:hover, #skipButton:focus,
+.testingButton:hover, .testingButton:focus{
     background-color: #E8F0F7;
 }
 
@@ -413,4 +414,21 @@ body{
     padding: 20px 0;
     justify-content: space-between;
     display: flex;
+}
+
+#testingButtonsDiv{
+    margin: 50px auto;
+    text-align: center;
+}
+
+.testingButton{
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    display: inline;
+    padding: 14px 25px;
+    border-radius: 20px;
+    background-color: darkgray;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+    margin-bottom: 100px;
 }
