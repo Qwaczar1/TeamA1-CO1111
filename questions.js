@@ -94,18 +94,21 @@ function answer(elementID) {
     fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answerText}`)
         .then(response => response.json())
         .then(jsonObject => {
+            const status = jsonObject.status;
+            const correct = jsonObject.correct;
+            const completed = jsonObject.completed;
             console.log(jsonObject);
             if (_questionType === "TEXT" || _questionType === "NUMERIC" || _questionType === "INTEGER") {
                 inputElement.value = "";
             }
-           if (jsonObject.status === "OK") {
-               if (jsonObject.completed) {
+           if (status === "OK") {
+               if (completed) {
                    location.href = "leaderboard.html";
                }
                else {
                    alert(jsonObject.message);
                    //TODO - Update the score.
-                   if (jsonObject.correct) {
+                   if (correct) {
                        getQuestion();
                    }
                    else {
@@ -148,13 +151,19 @@ function skip(){
     fetch (`https://codecyprus.org/th/api/skip?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
+            const completed = jsonObject.completed;
             const errorMessages = jsonObject.errorMessages;
             const scoreAdjustment = jsonObject.scoreAdjustment;
             const status = jsonObject.status;
             if (status === 'OK'){
-                alert('You skipped the question.')
-                location.reload();
-                getQuestion();
+                if (completed) {
+                    location.href = "leaderboard.html";
+                }
+                else {
+                    alert('You skipped the question.')
+                    location.reload();
+                    getQuestion();
+                }
             }
             else {
                 let errorMessage = "";
