@@ -129,7 +129,17 @@ function updateLocation(position) {
         .then(jsonObject => {
             const status = jsonObject.status;
             const message = jsonObject.message;
-            alert(message);
+            const errorMessages = jsonObject.errorMessages;
+            if (status === "OK") {
+                alert(message);
+            }
+            else {
+                let errorMessage = "";
+                for (let i = 0; i < errorMessages.length; i++) {
+                    errorMessage += errorMessages[i] + "\n";
+                }
+                alert(errorMessage);
+            }
         });
 }
 
