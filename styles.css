@@ -390,6 +390,18 @@ body{
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
+#questionScoring{
+    font-size: 16px;
+    color: black;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.scoreText{
+    text-align: center;
+
+}
+
 #questionNumber{
     margin: 50px auto 0 auto;
     font-size: 20px;
