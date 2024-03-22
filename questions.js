@@ -36,7 +36,7 @@ function getQuestion() {
             const canBeSkipped = jsonObject.canBeSkipped;
             const requiresLocation = jsonObject.requiresLocation;
             const numOfQuestions = jsonObject.numOfQuestions;
-            const currentQuestionIndex = jsonObject.currentQuestionIndex;
+            const currentQuestionIndex = jsonObject.currentQuestionIndex + 1;
             const correctScore = jsonObject.correctScore;
             const wrongScore = jsonObject.wrongScore;
             const skipScore = jsonObject.skipScore;
@@ -45,7 +45,7 @@ function getQuestion() {
             let questionDiv = document.getElementById('questionDiv');
             let questionNumber = document.getElementById('questionNumber');
 
-            questionNumber.innerHTML += "Question " + currentQuestionIndex + "/" + numOfQuestions;
+            questionNumber.innerHTML = "Question " + currentQuestionIndex + "/" + numOfQuestions;
 
             document.getElementById("loader").style.display = "none";
 
