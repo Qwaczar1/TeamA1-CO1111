@@ -36,5 +36,41 @@
             </nav>
         </div>
     </header>
+    <input type="number" step="1" id="numOfTreasureHuntsInput"/>
+    <input type="button" onclick="runTest()" value="Run Test"/>
+    <input type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
+    <script>
+        let testValues = [-1, 0, 1, 2, 10, null, ""];
+
+        async function runAutomatedTest(){
+            for (let i = 0; i <testValues.length; i++) {
+                console.log(await getTreasureHunts(testValues[i]));
+            }
+        }
+
+        function runTest(){
+            const numOfTreasureHuntsInput = document.getElementById("numOfTreasureHuntsInput");
+            const numOfTreasureHunts = numOfTreasureHuntsInput.value;
+            getTreasureHunts(numOfTreasureHunts).then(value => {
+                console.log(value);
+            })
+        }
+
+        async function getTreasureHunts(numOfTreasureHunts) {
+            // Fetch treasure hunts data
+            return await fetch(`https://codecyprus.org/th/api/list?num-of-ths=${numOfTreasureHunts}`)
+                .then(response => response.json())
+                .then(jsonObject => {
+                    const status = jsonObject.status;
+                    if (status === "OK") {
+                        let treasureHunts = jsonObject.treasureHunts;
+                        return treasureHunts.length;
+                    }
+                    else {
+                        return false;
+                    }
+                });
+        }
+    </script>
 </body>
 </html>
