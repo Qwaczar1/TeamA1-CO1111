@@ -5,6 +5,19 @@ let closeHelpBox = document.getElementById("closeHelpBox");
 let about = document.getElementById("about");
 let aboutBox = document.getElementById("aboutBox");
 let closeAboutBox = document.getElementById("closeAboutBox");
+let QRCodeLogo = document.getElementById("qrCodeLogo");
+let QRCodeBox = document.getElementById("QRCodeBox");
+let closeQRCodeBox = document.getElementById("closeQRCodeBox");
+
+// Display QR Code box when QR Code Logo is clicked
+QRCodeLogo.onclick = function() {
+    QRCodeBox.style.display = "block";
+}
+
+// Close QR Code box when close button is clicked
+closeQRCodeBox.onclick = function() {
+    QRCodeBox.style.display = "none";
+}
 
 // Display help box when 'Help' is clicked
 help.onclick = function() {

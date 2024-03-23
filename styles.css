@@ -40,6 +40,11 @@ body{
     justify-content: space-between;
 }
 
+#qrCodeLogo{
+    width: 60px;
+    height: 60px;
+}
+
 #header{
     background-color: darkgray;
     top: 0;
@@ -71,7 +76,6 @@ body{
     display: flex;
     column-gap: 37px;
     list-style-type: none;
-    cursor: pointer;
 }
 
 .navLink{
@@ -80,6 +84,7 @@ body{
     text-decoration: none;
     color: inherit;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .navLink:hover,
@@ -251,18 +256,36 @@ body{
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
-#closeHelpBox, #closeAboutBox{
+#closeHelpBox, #closeAboutBox, #closeQRCodeBox{
     font-size: 35px;
     top: 4px;
     right: 20px;
     position: absolute;
     font-weight: bold;
     color: black;
+    cursor: pointer;
 }
 
 #closeHelpBox:hover, #closeHelpBox:focus,
-#closeAboutBox:hover, #closeAboutBox:focus{
+#closeAboutBox:hover, #closeAboutBox:focus,
+#closeQRCodeBox:hover, #closeQRCodeBox:focus{
     color: #E8F0F7;
+}
+
+#camera{
+    margin-top: -150px;
+    padding: 100px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#preview{
+    margin-top: 10px;
+}
+
+.cameraSwitchButtons{
+    margin-top: 20px;
 }
 
 #nameBoxDiv{
@@ -303,7 +326,7 @@ body{
     cursor: pointer;
 }
 
-#submitButton, .testButtons{
+#submitButton, .testButtons, .cameraSwitchButtons{
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 4px;
@@ -315,7 +338,8 @@ body{
 .answerSubmit:hover, .answerSubmit:focus,
 #skipButton:hover, #skipButton:focus,
 .testingLink:hover, .testingLink:focus,
-.testButtons:hover, .testButtons:focus{
+.testButtons:hover, .testButtons:focus,
+.cameraSwitchButtons:hover, .cameraSwitchButtons:focus{
     background-color: #E8F0F7;
 }
 
