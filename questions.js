@@ -1,5 +1,6 @@
 const sessionID = getCookie("sessionID"); // Get session ID from cookie
 
+const _score = document.getElementById("score");
 const textInputElement = document.getElementById("textInput");
 const numericInputElement = document.getElementById("numericInput");
 const mcqInputElement = document.getElementById("mcqInput");
@@ -104,6 +105,7 @@ function answer(elementID) {
             const status = jsonObject.status;
             const correct = jsonObject.correct;
             const completed = jsonObject.completed;
+            const errorMessages = jsonObject.errorMessages;
             console.log(jsonObject);
             if (_questionType === "TEXT" || _questionType === "NUMERIC" || _questionType === "INTEGER") {
                 inputElement.value = "";
@@ -113,8 +115,8 @@ function answer(elementID) {
                    location.href = "leaderboard.html";
                }
                else {
+                   score();
                    alert(jsonObject.message);
-                   //TODO - Update the score.
                    if (correct) {
                        getQuestion();
                    }
@@ -122,9 +124,13 @@ function answer(elementID) {
                    }
                }
            }
-           // else {
-           //     //TODO - Handle and print errors...
-           // }
+           else {
+               let errorMessage = "";
+               for (let i = 0; i < errorMessages.length; i++) {
+                   errorMessage += errorMessages[i] + "\n";
+               }
+               alert(errorMessage);
+           }
         });
 }
 
@@ -156,8 +162,7 @@ function score() {
         .then(jsonObject =>{
             console.log('Testing');
             console.log(jsonObject);
-            let score = document.getElementById("score");
-            score.innerHTML += jsonObject.score;
+            _score.innerText = "Score: " + jsonObject.score;
         })
 }
 
@@ -177,8 +182,8 @@ function skip(){
                     location.href = "leaderboard.html";
                 }
                 else {
-                    alert('You skipped the question.')
-                    location.reload();
+                    score();
+                    alert('You skipped the question.');
                     getQuestion();
                 }
             }
