@@ -7,9 +7,6 @@ body{
     font-family: sans-serif;
     background-color: #E8F0F7;
     min-height: 100vh;
-}
-
-#indexBody{
     display: flex;
     flex-direction: column;
 }
@@ -301,7 +298,7 @@ body{
     cursor: pointer;
 }
 
-#submitButton{
+#submitButton, .testButtons{
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 4px;
@@ -312,11 +309,12 @@ body{
 #submitButton:hover, #submitButton:focus,
 .answerSubmit:hover, .answerSubmit:focus,
 #skipButton:hover, #skipButton:focus,
-.testingLink:hover, .testingLink:focus{
+.testingLink:hover, .testingLink:focus,
+.testButtons:hover, .testButtons:focus{
     background-color: #E8F0F7;
 }
 
-#usernameBox, .inputBox{
+#usernameBox, .inputBox, #numOfTreasureHuntsInput{
     padding: 5px 10px;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
@@ -443,6 +441,11 @@ body{
     text-align: center;
 }
 
+#testHeader{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 .testingLink{
     text-decoration: none;
     cursor: pointer;
@@ -455,4 +458,8 @@ body{
     margin-bottom: 40px;
     background-color: darkgray;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+}
+
+#testRunDiv{
+    margin: 80px auto;
 }

@@ -36,9 +36,12 @@
             </nav>
         </div>
     </header>
-    <input type="number" step="1" id="numOfTreasureHuntsInput"/>
-    <input type="button" onclick="runTest()" value="Run Test"/>
-    <input type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
+    <div id="testRunDiv">
+        <h2 id="testHeader">Unit Test - Treasure Hunts List</h2>
+        <input type="number" step="1" id="numOfTreasureHuntsInput"/>
+        <input class="testButtons" type="button" onclick="runTest()" value="Run Test"/>
+        <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
+    </div>
     <script>
         let testValues = [-1, 0, 1, 2, 10, null, ""];
 
@@ -58,7 +61,7 @@
 
         async function getTreasureHunts(numOfTreasureHunts) {
             // Fetch treasure hunts data
-            return await fetch(`https://codecyprus.org/th/api/list?num-of-ths=${numOfTreasureHunts}`)
+            return await fetch(`https://codecyprus.org/th/test-api/list?number-of-ths=${numOfTreasureHunts}`)
                 .then(response => response.json())
                 .then(jsonObject => {
                     const status = jsonObject.status;
