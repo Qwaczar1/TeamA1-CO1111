@@ -207,30 +207,33 @@ skipButton.addEventListener("click",function (event){
 const reopenBox = document.getElementById("reopenBox");
 
 // Function to display the modal dialog
-function showBox() {
-    reopenBox.style.display = "block";
-}
-
-// Check if the browser was previously closed
-window.onload = function() {
-    var reopened = localStorage.getItem('browserReopened');
-    if (reopened) {
-        showBox();
-        localStorage.removeItem('browserReopened');
-    }
-    else {
-        // Hide the modal if the browser wasn't reopened
-        hideBox();
-    }
-};
-
-// Listen for beforeunload event to detect when the browser is closing
-window.addEventListener('beforeunload', function(event) {
-    // Set a flag in local storage indicating the browser is being closed
-    localStorage.setItem('browserReopened', true);
-});
-
-// Function to display the modal dialog
 function hideBox() {
     reopenBox.style.display = "none";
+    console.log("Hiding box...");
+    localStorage.setItem('browserClosed', 'false');
 }
+
+// Function to display the modal dialog
+function showBox() {
+    reopenBox.style.display = "block";
+    console.log("Showing box...");
+}
+
+console.log("Checking if the browser was previously closed...");
+console.log(localStorage.getItem('browserClosed') === 'true');
+// Check if the browser was previously closed
+if (localStorage.getItem('browserClosed') === 'true') {
+    console.log("Browser was previously closed. Showing box...");
+    showBox();
+}
+else {
+    console.log("Browser was not previously closed.");
+}
+
+// Add an event listener to hide the box when the user closes it
+document.getElementById('box1').addEventListener('click', hideBox);
+document.getElementById('box2').addEventListener('click', hideBox);
+
+window.addEventListener('unload', function (event) {
+    localStorage.setItem('browserClosed', 'true');
+});
