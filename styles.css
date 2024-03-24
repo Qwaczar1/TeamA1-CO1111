@@ -354,7 +354,7 @@ body{
     width: 150px;
 }
 
-#scoreboardHeading{
+.scoreboardHeading{
     text-align: center;
     margin-bottom: 30px;
 }
