@@ -372,10 +372,10 @@ body{
     text-align: center;
 }
 
-#scoreboardTable {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 80%;
+#scoreboardTable{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 90%;
     margin: 0 auto 70px auto;
 }
 
