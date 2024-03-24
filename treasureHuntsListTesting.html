@@ -41,12 +41,16 @@
         <input type="number" step="1" id="numOfTreasureHuntsInput"/>
         <input class="testButtons" type="button" onclick="runTest()" value="Run Test"/>
         <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
+        <p id="testResults">Results are printed on the console.</p>
     </div>
     <script>
         let testValues = [-1, 0, 1, 2, 10, null, ""];
 
+        let testResults = document.getElementById("testResults");
+
         async function runAutomatedTest(){
             for (let i = 0; i <testValues.length; i++) {
+                // testResults.innerHTML = await getTreasureHunts(testValues[i]) + "<br>";
                 console.log(await getTreasureHunts(testValues[i]));
             }
         }
@@ -58,6 +62,7 @@
                 console.log(value);
             })
         }
+
 
         async function getTreasureHunts(numOfTreasureHunts) {
             // Fetch treasure hunts data

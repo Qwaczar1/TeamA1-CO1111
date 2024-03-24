@@ -492,3 +492,8 @@ body{
 #testRunDiv{
     margin: 80px auto;
 }
+
+#testResults{
+    margin-top: 25px;
+    text-align: center;
+}
