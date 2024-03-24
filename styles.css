@@ -360,6 +360,11 @@ body{
     margin-bottom: 30px;
 }
 
+#rankText{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 .tableHeader{
     background-color: darkgray;
 }

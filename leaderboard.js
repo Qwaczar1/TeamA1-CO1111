@@ -34,3 +34,18 @@ function handleLeaderboard(leaderboard) {
 
 let url = TH_API_URL + "leaderboard?sorted&limit=30&session=" + getCookie("sessionID");
 getLeaderBoard(url);
+
+// Parse URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+const completed = urlParams.get('completed');
+const rankText = document.getElementById('rankText');
+
+const _score = document.getElementById("score");
+
+if (completed === 'true') {
+    // Display content for completion
+    rankText.innerHTML = "Congratulations! You have completed the session.<br><br>Can you see your name in the top 30 players?";
+}
+else {
+    rankText.innerHTML = "You have not completed the session.";
+}

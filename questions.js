@@ -9,7 +9,6 @@ const booleanInputElement = document.getElementById("booleanInput");
 hideAllForms();
 
 let _questionType = "INTEGER";
-let _initialScore = 0;
 
 function hideAllForms() {
     textInputElement.style.display = "none";
@@ -71,6 +70,10 @@ function getQuestion() {
                 else if (questionType === "TEXT") {
                     textInputElement.style.display = "block";
                 }
+
+                if (completed) {
+                    location.href = "leaderboard.html?completed=true";
+                }
             }
             if (requiresLocation) {
                 if (navigator.geolocation) {
@@ -112,7 +115,7 @@ function answer(elementID) {
             }
            if (status === "OK") {
                if (completed) {
-                   location.href = "leaderboard.html";
+                   location.href = "leaderboard.html?completed=true";
                }
                else {
                    score();
@@ -160,9 +163,8 @@ function score() {
     fetch(`https://codecyprus.org/th/api/score?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject =>{
-            console.log('Testing');
-            console.log(jsonObject);
-            _score.innerText = "Score: " + jsonObject.score;
+            const score = jsonObject.score;
+            _score.innerText = "Score: " + score;
         })
 }
 
@@ -179,7 +181,7 @@ function skip(){
             const status = jsonObject.status;
             if (status === 'OK'){
                 if (completed) {
-                    location.href = "leaderboard.html";
+                    location.href = "leaderboard.html?completed=true";
                 }
                 else {
                     score();
