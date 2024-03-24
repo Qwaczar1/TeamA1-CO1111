@@ -7,6 +7,47 @@
     <title>Unit Test - Leaderboard</title>
 </head>
 <body>
-
+<h1>Testing the Leaderboard</h1>
+<table id="test-leaderboard">
+    <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Time</th>
+    </tr>
+</table>
 </body>
+<script>
+    const TH_API_URL = "https://codecyprus.org/th/test-api/";
+    function Leaderboard(url) {
+        fetch(url, { method: "GET" })
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+                TheLeaderboard(json);
+            });
+    }
+
+
+
+    Leaderboard(TH_API_URL + "leaderboard?sorted");
+
+    function TheLeaderboard(leaderboard) {
+        let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        let html = "";
+        let leaderboardArray = leaderboard['leaderboard'];
+        for(const entry of leaderboardArray) {
+            let date = new Date(entry['completionTime']);
+            let formattedDate = date.toLocaleDateString("en-UK", options);
+            html += "<tr>" +
+                "<td>" + entry['player'] + "</td>" +
+                "<td>" + entry['score'] + "</td>" +
+                "<td>" + entry['completionTime'] + "</td>" +
+                "</tr>";
+        }
+
+        document.getElementById("test-leaderboard").innerHTML += html;
+
+    }
+
+</script>
 </html>
