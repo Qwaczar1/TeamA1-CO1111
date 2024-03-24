@@ -52,7 +52,6 @@
             fetch(url, { method: "GET" })
                 .then(response => response.json())
                 .then(json => {
-                    console.log(json);
                     handleTestingLeaderboard(json);
                 });
         }
@@ -75,7 +74,8 @@
                     "</tr>";
                 count++;
             }
-            document.getElementById("testScoreboardTable").innerHTML += html;
+            let testScoreboardTable = document.getElementById('testScoreboardTable');
+            testScoreboardTable.innerHTML += html;
         }
     </script>
     <h2 class="scoreboardHeading">The Actual Leaderboard</h2>
