@@ -204,3 +204,33 @@ skipButton.addEventListener("click",function (event){
     skip();
 });
 
+const reopenBox = document.getElementById("reopenBox");
+
+// Function to display the modal dialog
+function showBox() {
+    reopenBox.style.display = "block";
+}
+
+// Check if the browser was previously closed
+window.onload = function() {
+    var reopened = localStorage.getItem('browserReopened');
+    if (reopened) {
+        showBox();
+        localStorage.removeItem('browserReopened');
+    }
+    else {
+        // Hide the modal if the browser wasn't reopened
+        hideBox();
+    }
+};
+
+// Listen for beforeunload event to detect when the browser is closing
+window.addEventListener('beforeunload', function(event) {
+    // Set a flag in local storage indicating the browser is being closed
+    localStorage.setItem('browserReopened', true);
+});
+
+// Function to display the modal dialog
+function hideBox() {
+    reopenBox.style.display = "none";
+}
