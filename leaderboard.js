@@ -28,8 +28,8 @@ function handleLeaderboard(leaderboard) {
             "</tr>";
         count++;
     }
-    let scoreboardTable = document.getElementById('scoreboardTable');
-    scoreboardTable.innerHTML += html;
+    let leaderboardTable = document.getElementById('leaderboardTable');
+    leaderboardTable.innerHTML += html;
 }
 
 let url = TH_API_URL + "leaderboard?sorted&limit=30&session=" + getCookie("sessionID");

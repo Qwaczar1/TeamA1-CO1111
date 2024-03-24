@@ -355,7 +355,7 @@ body{
     width: 150px;
 }
 
-.scoreboardHeading{
+.leaderboardHeading{
     text-align: center;
     margin-bottom: 30px;
 }
@@ -378,7 +378,7 @@ body{
     text-align: center;
 }
 
-#scoreboardTable, #testScoreboardTable{
+#leaderboardTable{
     table-layout: fixed;
     border-collapse: collapse;
     width: 90%;
