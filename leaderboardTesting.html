@@ -39,9 +39,10 @@
     <h2 class="scoreboardHeading">Testing the Leaderboard</h2>
     <table id="testScoreboardTable">
         <tr>
-            <th>Name</th>
-            <th>Score</th>
-            <th>Time</th>
+            <th class="tableHeader">Rank</th>
+            <th class="tableHeader">Player Name</th>
+            <th class="tableHeader">Score</th>
+            <th class="tableHeader">Time</th>
         </tr>
     </table>
     </body>
@@ -51,6 +52,7 @@
             fetch(url, { method: "GET" })
                 .then(response => response.json())
                 .then(json => {
+                    console.log(json);
                     handleTestingLeaderboard(json);
                 });
         }
@@ -60,18 +62,20 @@
         function handleTestingLeaderboard(leaderboard) {
             let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' };
             let html = "";
+            let count = 1;
             let leaderboardArray = leaderboard['leaderboard'];
             for(const entry of leaderboardArray) {
                 let date = new Date(entry['completionTime']);
                 let formattedDate = date.toLocaleDateString("en-UK", options);
                 html += "<tr>" +
-                    "<td>" + entry['player'] + "</td>" +
-                    "<td>" + entry['score'] + "</td>" +
-                    "<td>" + formattedDate + "</td>" +
+                    "<td class='tableData'>" + count + "</td>" +
+                    "<td class='tableData'>" + entry['player'] + "</td>" +
+                    "<td class='tableData'>" + entry['score'] + " Pts" + "</td>" +
+                    "<td class='tableData'>" + formattedDate + "</td>" +
                     "</tr>";
+                count++;
             }
-
-            document.getElementById("testLeaderboardTable").innerHTML += html;
+            document.getElementById("testScoreboardTable").innerHTML += html;
         }
     </script>
     <h2 class="scoreboardHeading">The Actual Leaderboard</h2>
