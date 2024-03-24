@@ -56,7 +56,7 @@
                 });
         }
 
-        getTestingLeaderboard(TH_API_URL + "leaderboard?sorted");
+        getTestingLeaderboard(TH_API_URL + "leaderboard?sorted&limit=30");
 
         function handleTestingLeaderboard(leaderboard) {
             let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' };
