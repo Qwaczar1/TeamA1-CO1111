@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive viewport settings -->
+    <script src="cookies.js"></script> <!-- External JavaScript file -->
     <title>Unit Test - Leaderboard</title>
 </head>
 <body>
@@ -37,7 +38,7 @@
         </div>
     </header>
     <h2 class="scoreboardHeading">Testing Leaderboard</h2>
-    <table id="testScoreboardTable">
+    <table id="scoreboardTable">
         <tr>
             <th class="tableHeader">Rank</th>
             <th class="tableHeader">Player Name</th>
@@ -47,18 +48,19 @@
     </table>
     </body>
     <script>
-        const TH_API_URL_TEST = "https://codecyprus.org/th/test-api/";
-        function getTestingLeaderboard(url) {
+        const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/"; // the API test url
+        const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
+        const sessionID = getCookie("sessionID"); // Get session ID from cookie
+
+        function getLeaderBoard(url) {
             fetch(url, { method: "GET" })
                 .then(response => response.json())
                 .then(json => {
-                    handleTestingLeaderboard(json);
+                    handleLeaderboard(json);
                 });
         }
 
-        getTestingLeaderboard(TH_API_URL_TEST + "leaderboard?sorted&size=30");
-
-        function handleTestingLeaderboard(leaderboard) {
+        function handleLeaderboard(leaderboard) {
             let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' };
             let html = "";
             let count = 1;
@@ -74,57 +76,23 @@
                     "</tr>";
                 count++;
             }
-            let testScoreboardTable = document.getElementById('testScoreboardTable');
+            let testScoreboardTable = document.getElementById('scoreboardTable');
             testScoreboardTable.innerHTML += html;
         }
-    </script>
-    <h2 class="scoreboardHeading">Actual Leaderboard</h2>
-    <!-- Table that will display the scores -->
-    <table id="scoreboardTable">
-        <!-- Row that contains the column headers -->
-        <tr>
-            <th class="tableHeader">Rank</th>
-            <th class="tableHeader">Player Name</th>
-            <th class="tableHeader">Score</th>
-            <th class="tableHeader">Time</th>
-        </tr>
-    </table>
-    <script src="cookies.js"></script> <!-- External JavaScript file -->
-    <script>
-        const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
-        const sessionID = getCookie("sessionID"); // Get session ID from cookie
 
-        function getLeaderBoard(url) {
-            // create and invoke the http request
-            fetch(url, { method: "GET" })
-                .then(response => response.json())
-                .then(json => {
-                    handleLeaderboard(json);
-                });
+        function isTest() {
+            let url = new URL(window.location.href);
+            return url.searchParams.get("test") != null;
         }
 
-        function handleLeaderboard(leaderboard) {
-            let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',second: '2-digit' };
-            let html = ""; // used to include HTML code for the table rows
-            let count = 1;
-            let leaderboardArray = leaderboard['leaderboard'];
-            for(const entry of leaderboardArray) {
-                let date = new Date(entry['completionTime']);
-                let formattedDate = date.toLocaleDateString("en-UK", options);
-
-                html += "<tr>" +
-                    "<td class='tableData'>" + count + "</td>" +
-                    "<td class='tableData'>" + entry['player'] + "</td>" +
-                    "<td class='tableData'>" + entry['score'] + " Pts" + "</td>" +
-                    "<td class='tableData'>" + formattedDate + "</td>" +
-                    "</tr>";
-                count++;
-            }
-            let scoreboardTable = document.getElementById('scoreboardTable');
-            scoreboardTable.innerHTML += html;
+        // check if test and use the actual API or the TEST API accordingly
+        if(isTest()) {
+            // form the test service url
+            let url = TH_TEST_API_URL + "leaderboard?size=30&sorted";
+            getLeaderBoard(url);
+        } else {
+            let url = TH_API_URL + "leaderboard?limit=30&sorted&session=" + sessionID; // form url
+            getLeaderBoard(url);
         }
-
-        let url = TH_API_URL + "leaderboard?sorted&limit=30&session=" + getCookie("sessionID");
-        getLeaderBoard(url);
     </script>
 </html>
