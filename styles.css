@@ -258,6 +258,18 @@ body{
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
+@media screen and (max-width: 650px){
+    .treasureHuntsButtons{
+        width: 390px;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .treasureHuntsButtons{
+        width: 100%;
+    }
+}
+
 .treasureHuntsButtons:hover,
 .treasureHuntsButtons:focus{
     background-color: #E8F0F7;
