@@ -47,9 +47,11 @@ function getQuestion() {
             let questionScoring = document.getElementById('questionScoring');
 
             questionNumber.innerHTML = "Question " + currentQuestionIndex + "/" + numOfQuestions;
-            questionScoring.innerHTML = "<p class='scoreText'>" + "If you answer correctly, you score " + correctScore + " points." + "</p>" +
-                "<p class='scoreText'>" + "If you answer wrongly, you lose " + wrongScore + " points." + "</p>" +
-                "<p class='scoreText'>" + "If you skip a question, you lose " + skipScore + " points." + "</p>";
+            questionScoring.innerHTML =
+                "<p class='scoreText'>" + "✅ Correct answer: +" + correctScore + " points." + "</p>" +
+                "<p class='scoreText'>" + "❌ Wrong answer: " + wrongScore + " points." + "</p>" +
+                "<p class='scoreText'>" + "⏩ Skip question: " + skipScore + " points." + "</p>";
+
 
             document.getElementById("loader").style.display = "none";
 
