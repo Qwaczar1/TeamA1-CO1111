@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive viewport settings -->
     <script src="instascan.min.js"></script> <!-- External JavaScript file -->
     <script src="cookies.js"></script> <!-- External JavaScript file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body id="appPage">
     <!-- Header section -->
@@ -14,7 +15,7 @@
         <div id="headerContent">
             <div id="align">
                 <div id="headerContainer1">
-                    <img src="media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo">
+                    <a href="index.html"><img src="media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo"></a>
                 </div>
                 <div id="headerContainer2">
                     <h4>Code Cyprus</h4>
@@ -36,7 +37,10 @@
                 </div>
             </div>
             <nav id="nav">
-                <ul id="navList">
+                <ul id="navList" class="closed">
+                    <a href="javascript:void(0);" class="icon" onclick="BurgerOpenClose()">
+                        <li class="fa fa-bars"></li>
+                    </a>
                     <!-- Home button -->
                     <li class="navItem">
                         <a class="navLink" href="index.html">HOME</a>
