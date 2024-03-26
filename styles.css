@@ -274,19 +274,20 @@ body{
 }
 
 #camera{
-    margin-top: -150px;
-    padding: 100px 0;
+    margin-top: -20px;
+    margin-bottom: -40px;
     background-color: black;
     color: white;
     text-align: center;
 }
 
 #preview{
-    margin-top: 10px;
+    width: 250px;
+    height: 250px;
 }
 
 .cameraSwitchButtons{
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #nameBoxDiv{
