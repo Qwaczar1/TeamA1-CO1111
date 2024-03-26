@@ -36,34 +36,42 @@
             </nav>
         </div>
     </header>
+    <!-- Test run section -->
     <div id="testRunDiv">
         <h2 id="testHeader">Unit Test - Treasure Hunts List</h2>
+        <!-- Input field for number of treasure hunts -->
         <input type="number" step="1" id="numOfTreasureHuntsInput"/>
+        <!-- Button to run the test -->
         <input class="testButtons" type="button" onclick="runTest()" value="Run Test"/>
+        <!-- Button to run automated test -->
         <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
         <p id="testResults">Results are printed on the console.</p>
     </div>
     <script>
-        let testValues = [-1, 0, 1, 2, 10, null, ""];
+        let testValues = [-1, 0, 1, 2, 10, null, ""]; // Array of test values
 
         let testResults = document.getElementById("testResults");
 
+        // Function to run automated test
         async function runAutomatedTest(){
             for (let i = 0; i <testValues.length; i++) {
-                // testResults.innerHTML = await getTreasureHunts(testValues[i]) + "<br>";
+                // Call getTreasureHunts function with current test value
                 console.log(await getTreasureHunts(testValues[i]));
             }
         }
 
+        // Function to run manual test
         function runTest(){
+            // Get number of treasure hunts from input field
             const numOfTreasureHuntsInput = document.getElementById("numOfTreasureHuntsInput");
             const numOfTreasureHunts = numOfTreasureHuntsInput.value;
+            // Call getTreasureHunts function with specified number of treasure hunts
             getTreasureHunts(numOfTreasureHunts).then(value => {
                 console.log(value);
             })
         }
 
-
+        // Function to fetch treasure hunts data from API
         async function getTreasureHunts(numOfTreasureHunts) {
             // Fetch treasure hunts data
             return await fetch(`https://codecyprus.org/th/test-api/list?number-of-ths=${numOfTreasureHunts}`)

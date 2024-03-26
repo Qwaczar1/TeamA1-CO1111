@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Treasure Hunt App</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive viewport settings -->
     <script src="instascan.min.js"></script> <!-- External JavaScript file -->
-    <script src="cookies.js"></script> <!-- Responsive viewport settings -->
+    <script src="cookies.js"></script> <!-- External JavaScript file -->
 </head>
 <body id="appPage">
     <!-- Header section -->
@@ -25,9 +25,11 @@
                     <div class="boxText">
                         <!-- Close button for QR code box -->
                         <div id="closeQRCodeBox">&times;</div>
+                        <!-- Instructions for QR code scanning -->
                         <p>Please open your camera.</p>
                         <video id="preview"></video>
                         <div id="camera"></div>
+                        <!-- Buttons to switch camera -->
                         <button class="cameraSwitchButtons" onclick="switchCamera('previous')">Previous Camera</button>
                         <button class="cameraSwitchButtons" onclick="switchCamera('next')">Next Camera</button>
                     </div>
@@ -80,12 +82,16 @@
             <a class="reopenLink" id="box2" href="index.html">Start Again</a>
         </div>
     </div>
+    <!-- Loader -->
     <div id="loader"></div>
+    <!-- Scoring -->
     <p id="questionScoring"></p>
-    <div id ='skipDiv'>
+    <div id ='skipAndScoreDiv'>
         <p id="score">Score: 0</p>
+        <!-- Skip button -->
         <input id="skipButton" type="button" value="Skip" />
     </div>
+    <!-- Question number -->
     <p id="questionNumber"></p>
     <main id="questionsDiv">
         <!-- Questions section -->
