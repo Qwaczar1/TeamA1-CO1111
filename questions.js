@@ -197,7 +197,6 @@ function skip(){
                 alert(errorMessage);
             }
         })
-
 }
 
 skipButton.addEventListener("click",function (event){

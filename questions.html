@@ -115,7 +115,7 @@
         </div>
         <!-- Integer input -->
         <div id="integerInput">
-            <input class="inputBox" id="answerInputInteger" type="number"/><br>
+            <input class="inputBox" id="answerInputInteger" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')"/><br>
             <input class="answerSubmit" type="button" value="Submit" onclick="answer('answerInputInteger')" />
         </div>
     </main>
