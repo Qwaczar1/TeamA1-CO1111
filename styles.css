@@ -97,7 +97,7 @@ body{
 #navList a {
     float: left;
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 5px 16px;
     text-decoration: none;
@@ -108,7 +108,7 @@ body{
     color: black;
 }
 #navList a.active {
-    color: white;
+    color: black;
 }
 #navList .icon {
     display: none;
@@ -134,7 +134,7 @@ body{
 
 .navLink:hover,
 .navLink:focus{
-    color: #E8F0F7;
+    color: rgba(130,130,130,0.51);
 }
 
 #memberNamesDiv{
@@ -215,13 +215,15 @@ body{
 }
 
 #twitterLogo{
-    width: 140px;
-    height: 90px;
+    height: 80px;
+    width: auto;
+    margin: 10px;
 }
 
 #tiktokLogo{
-    width: 110px;
-    height: 90px;
+    height: 80px;
+    width: auto;
+    margin: 10px;
 }
 
 .meeting{
