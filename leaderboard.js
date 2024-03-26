@@ -49,3 +49,8 @@ if (completed === 'true') {
 else {
     rankText.innerHTML = "You have not completed the session.";
 }
+
+// Function to refresh the page
+function refresh() {
+    window.location.reload();
+}

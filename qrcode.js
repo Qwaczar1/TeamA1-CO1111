@@ -42,3 +42,19 @@ function switchCamera(direction) {
         scanner.start(cameras[currentCameraIndex]);
     }
 }
+
+let QRCodeLogo = document.getElementById("qrCodeLogo");
+let QRCodeBox = document.getElementById("QRCodeBox");
+let closeQRCodeBox = document.getElementById("closeQRCodeBox");
+
+// Display QR Code box when QR Code Logo is clicked
+QRCodeLogo.onclick = function() {
+    QRCodeBox.style.display = "block";
+    scanner.start(cameras[currentCameraIndex]); // Start scanning when QR Code box is displayed
+}
+
+// Close QR Code box when close button is clicked
+closeQRCodeBox.onclick = function() {
+    QRCodeBox.style.display = "none";
+    scanner.stop(); // Stop scanning when QR Code box is closed
+}

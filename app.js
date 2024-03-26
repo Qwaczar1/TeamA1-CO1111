@@ -66,7 +66,6 @@ getChallenges();
 
 // Function to handle starting a treasure hunt
 function getStartParameters(treasureHuntName, id) {
-    alert("Starting treasure hunt -> " + "'" +treasureHuntName + "'");
     // Set the values of hidden input fields
     document.getElementById("appName").value = "Team-A1";
     document.getElementById("treasureHuntId").value = id;
@@ -76,6 +75,11 @@ function getStartParameters(treasureHuntName, id) {
 // Function to start a treasure hunt
 function startTreasureHunt() {
     let playerName = document.getElementById("usernameBox").value;
+
+    if (!playerName.match(/^[a-zA-Z0-9]+$/)) {
+        return alert("Please make sure that the name includes only alphanumeric characters.");
+    }
+
     // Fetch start treasure hunt API
     fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}`)
         .then(response => response.json())
@@ -101,5 +105,6 @@ function startTreasureHunt() {
 function refresh() {
     window.location.reload();
 }
+
 
 
