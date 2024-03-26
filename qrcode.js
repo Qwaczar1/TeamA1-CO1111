@@ -37,9 +37,11 @@ let closeQRCodeBox = document.getElementById("closeQRCodeBox");
 
 // Display QR Code box when QR Code Logo is clicked
 QRCodeLogo.onclick = function() {
+    loader.style.display = "block";
     Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
             scanner.start(cameras[0]);
+            loader.style.display = "none";
         }
         else {
             console.error('No cameras found.');
