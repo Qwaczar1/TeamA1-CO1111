@@ -38,16 +38,50 @@
     </header>
     <!-- Test run section -->
     <div id="testRunDiv">
-        <h2 id="testHeader">Unit Test - Questions</h2>
-        <!-- Input field for number of treasure hunts -->
-        <input type="number" step="1" id="question"/>
+        <h2 id="testHeader">Unit Test - Question Number</h2>
+        <!-- Input field for question number -->
+        <input type="number" step="1" id="typeOfQuestion"/>
         <!-- Button to run the test -->
         <input class="testButtons" type="button" onclick="runTest()" value="Run Test"/>
         <!-- Button to run automated test -->
         <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
     </div>
     <script>
+        let testValues = ['BOOLEAN', 'INTEGER', 'TEXT', 'MCQ', 'NULL', ""]; // Array of test values
 
+        // Function to run automated test
+        async function runAutomatedTest(){
+            for (let i = 0; i <testValues.length; i++) {
+                // Call getQuestionType function with current test value
+                console.log(await getQuestionType(testValues[i]));
+            }
+        }
+
+        // Function to run manual test
+        function runTest(){
+            // Get number of treasure hunts from input field
+            const typeOfQuestionInput = document.getElementById("typeOfQuestion");
+            const typeOfQuestionValue = typeOfQuestionInput.value;
+            // Call getTreasureHunts function with specified number of treasure hunts
+            getQuestionType(typeOfQuestionValue).then(value => {
+                console.log(value);
+            })
+        }
+
+        // Function to fetch treasure hunts data from API
+        async function getQuestionType(questionType) {
+            return fetch(`https://codecyprus.org/th/test-api/question?question-type=${questionType}`)
+                .then(response => response.json())
+                .then(jsonObject => {
+                    const status = jsonObject.status;
+                    if (status === "OK") {
+                        return jsonObject.questionType;
+                    }
+                    else {
+                        return false;
+                    }
+                });
+        }
     </script>
 </body>
 </html>
