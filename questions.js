@@ -91,6 +91,9 @@ function getQuestion() {
                 alert(errorMessage);
             }
         })
+
+    document.getElementById("loader").style.display = "block";
+
 }
 
 // Function to refresh the page
@@ -110,6 +113,9 @@ function answer(elementID) {
             const completed = jsonObject.completed;
             const errorMessages = jsonObject.errorMessages;
             console.log(jsonObject);
+
+            document.getElementById("loader").style.display = "none";
+
             if (_questionType === "TEXT" || _questionType === "NUMERIC" || _questionType === "INTEGER") {
                 inputElement.value = "";
             }
