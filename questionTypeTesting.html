@@ -40,7 +40,7 @@
     <div id="testRunDiv">
         <h2 id="testHeader">Unit Test - Question Number</h2>
         <!-- Input field for question number -->
-        <input type="number" step="1" id="typeOfQuestion"/>
+        <input type="text" id="typeOfQuestion"/>
         <!-- Button to run the test -->
         <input class="testButtons" type="button" onclick="runTest()" value="Run Test"/>
         <!-- Button to run automated test -->
@@ -69,13 +69,14 @@
         }
 
         // Function to fetch treasure hunts data from API
-        async function getQuestionType(questionType) {
-            return fetch(`https://codecyprus.org/th/test-api/question?question-type=${questionType}`)
+        async function getQuestionType(typeOfQuestion) {
+            return fetch(`https://codecyprus.org/th/test-api/question?question-type=${typeOfQuestion}`)
                 .then(response => response.json())
                 .then(jsonObject => {
                     const status = jsonObject.status;
+                    const questionType = jsonObject.questionType;
                     if (status === "OK") {
-                        return jsonObject.questionType;
+                        return questionType;
                     }
                     else {
                         return false;
