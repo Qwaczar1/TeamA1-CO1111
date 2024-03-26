@@ -48,9 +48,9 @@ function getQuestion() {
 
             questionNumber.innerHTML = "Question " + currentQuestionIndex + "/" + numOfQuestions;
             questionScoring.innerHTML =
-                "<p class='scoreText'>" + "✅ Correct answer: +" + correctScore + " points." + "</p>" +
-                "<p class='scoreText'>" + "❌ Wrong answer: " + wrongScore + " points." + "</p>" +
-                "<p class='scoreText'>" + "⏩ Skip question: " + skipScore + " points." + "</p>";
+                "<p class='scoreText'>" + "✅ Correct answer:  +" + correctScore + " points" +
+                "<p class='scoreText'>" + "❌ Wrong answer:  " + wrongScore + " points" +
+                "<p class='scoreText'>" + "⏩ Skip question:  " + skipScore + " points" + "</p>";
 
 
             document.getElementById("loader").style.display = "none";
