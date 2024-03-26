@@ -172,24 +172,24 @@ function score() {
 const skipButton = document.getElementById("skipButton");
 
 function skip(){
-    fetch (`https://codecyprus.org/th/api/skip?session=${sessionID}`)
+    fetch(`https://codecyprus.org/th/api/skip?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
             const completed = jsonObject.completed;
             const errorMessages = jsonObject.errorMessages;
             const scoreAdjustment = jsonObject.scoreAdjustment;
             const status = jsonObject.status;
-            if (status === 'OK'){
+            if (status === 'OK') {
                 if (completed) {
                     location.href = "leaderboard.html?completed=true";
+                } else {
+                    if (confirm("Are you sure you want to skip this question?")) {
+                        score();
+                        alert('You skipped the question.');
+                        getQuestion();
+                    }
                 }
-                else {
-                    score();
-                    alert('You skipped the question.');
-                    getQuestion();
-                }
-            }
-            else {
+            } else {
                 let errorMessage = "";
                 for (let i = 0; i < errorMessages.length; i++) {
                     errorMessage += errorMessages[i] + "\n";
@@ -197,6 +197,7 @@ function skip(){
                 alert(errorMessage);
             }
         })
+
 }
 
 skipButton.addEventListener("click",function (event){
