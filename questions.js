@@ -1,5 +1,6 @@
 const sessionID = getCookie("sessionID"); // Get session ID from cookie
 
+const loader = document.getElementById("loader");
 const _score = document.getElementById("score");
 const textInputElement = document.getElementById("textInput");
 const numericInputElement = document.getElementById("numericInput");
@@ -52,8 +53,7 @@ function getQuestion() {
                 "<p class='scoreText'>" + "❌ Wrong answer:  " + wrongScore + " points" +
                 "<p class='scoreText'>" + "⏩ Skip question:  " + skipScore + " points" + "</p>";
 
-
-            document.getElementById("loader").style.display = "none";
+            loader.style.display = "none";
 
             if (status === "OK") {
                 questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"media/Treasure Hunt Logo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
@@ -94,7 +94,7 @@ function getQuestion() {
             }
         })
 
-    document.getElementById("loader").style.display = "block";
+    loader.style.display = "block";
 
 }
 
@@ -116,11 +116,12 @@ function answer(elementID) {
             const errorMessages = jsonObject.errorMessages;
             console.log(jsonObject);
 
-            document.getElementById("loader").style.display = "none";
+            loader.style.display = "none";
 
             if (_questionType === "TEXT" || _questionType === "NUMERIC" || _questionType === "INTEGER") {
                 inputElement.value = "";
             }
+
            if (status === "OK") {
                if (completed) {
                    location.href = "leaderboard.html?completed=true";
@@ -129,9 +130,12 @@ function answer(elementID) {
                    score();
                    alert(jsonObject.message);
                    if (correct) {
+                       booleanInputElement.style.display = "none";
+                       integerInputElement.style.display = "none";
+                       numericInputElement.style.display = "none";
+                       mcqInputElement.style.display = "none";
+                       textInputElement.style.display = "none";
                        getQuestion();
-                   }
-                   else {
                    }
                }
            }
