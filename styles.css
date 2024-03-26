@@ -516,19 +516,21 @@ body{
     margin-top: 25px;
     text-align: center;
 }
+
 #heuristics{
-    max-width: 700px;
-    font-size: 20px;
-    padding: 50px;
-
-
+    margin: 0 auto 70px auto;
+    text-align: center;
+    width: 70%;
 }
-.heuristic-rule{
-    border: 2px solid #000;
+
+#heuristicsTitle{
+    margin-bottom: 35px;
+}
+
+.heuristicsRules{
+    border-top: 1px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 1px solid #000;
     padding: 20px;
-}
-#Heuristics-title{
-    font-size: 30px;
-    font-weight: bold;
-    margin-left: 150px;
 }
