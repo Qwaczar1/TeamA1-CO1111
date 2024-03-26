@@ -49,8 +49,6 @@
     </body>
     <script>
         const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/"; // the API test url
-        const TH_API_URL = "https://codecyprus.org/th/api/"; // the API base url
-        const sessionID = getCookie("sessionID"); // Get session ID from cookie
 
         function getLeaderBoard(url) {
             fetch(url, { method: "GET" })
@@ -90,9 +88,7 @@
             // form the test service url
             let url = TH_TEST_API_URL + "leaderboard?size=30&sorted";
             getLeaderBoard(url);
-        } else {
-            let url = TH_API_URL + "leaderboard?limit=30&sorted&session=" + sessionID; // form url
-            getLeaderBoard(url);
         }
+
     </script>
 </html>
