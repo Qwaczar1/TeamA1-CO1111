@@ -79,7 +79,10 @@ function getQuestion() {
             }
             if (requiresLocation) {
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(updateLocation);
+                    // Get location periodically (every 5 minutes)
+                    setInterval(() => {
+                        navigator.geolocation.getCurrentPosition(updateLocation);
+                    }, 5 * 60 * 1000); // 5 minutes in milliseconds
                 }
                 else {
                     alert("This browser does not support geolocation.")
@@ -114,7 +117,6 @@ function answer(elementID) {
             const correct = jsonObject.correct;
             const completed = jsonObject.completed;
             const errorMessages = jsonObject.errorMessages;
-            console.log(jsonObject);
 
             loader.style.display = "none";
 
@@ -221,25 +223,19 @@ const reopenBox = document.getElementById("reopenBox");
 // Function to display the modal dialog
 function hideBox() {
     reopenBox.style.display = "none";
-    console.log("Hiding box...");
     localStorage.setItem('browserClosed', 'false');
 }
 
 // Function to display the modal dialog
 function showBox() {
     reopenBox.style.display = "block";
-    console.log("Showing box...");
 }
 
-console.log("Checking if the browser was previously closed...");
-console.log(localStorage.getItem('browserClosed') === 'true');
 // Check if the browser was previously closed
 if (localStorage.getItem('browserClosed') === 'true') {
-    console.log("Browser was previously closed. Showing box...");
     showBox();
 }
 else {
-    console.log("Browser was not previously closed.");
 }
 
 // Add an event listener to hide the box when the user closes it
