@@ -46,6 +46,7 @@
             <th class="tableHeader">Time</th>
         </tr>
     </table>
+<!--    <input class="inputBox" id="answerInputNumeric" type="number"/><br>-->
     </body>
     <script>
         const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/"; // the API test url
@@ -86,7 +87,7 @@
         // check if test and use the actual API or the TEST API accordingly
         if(isTest()) {
             // form the test service url
-            let url = TH_TEST_API_URL + "leaderboard?size=30&sorted";
+            let url = TH_TEST_API_URL + `leaderboard?size=`;
             getLeaderBoard(url);
         }
 
