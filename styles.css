@@ -361,7 +361,7 @@ body{
     background-color: #E8F0F7;
 }
 
-#usernameBox, .inputBox, #numOfTreasureHuntsInput, #typeOfQuestion{
+#usernameBox, .inputBox, #numOfTreasureHuntsInput, #typeOfQuestion, #leaderboardSizeInput{
     padding: 5px 10px;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
@@ -528,7 +528,7 @@ body{
 }
 
 #testRunDiv{
-    margin: 80px auto;
+    margin: 20px auto 70px auto;
 }
 
 #testResults{
@@ -560,6 +560,11 @@ body{
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
+}
+
+#leaderboardControls{
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Media query for smaller viewport widths */

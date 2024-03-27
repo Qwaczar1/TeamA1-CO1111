@@ -38,6 +38,11 @@
         </div>
     </header>
     <h2 id="leaderboardHeading">Testing Leaderboard</h2>
+    <div id="leaderboardControls">
+        <label for="leaderboardSizeInput">Leaderboard Size:</label>
+        <input type="number" id="leaderboardSizeInput" min="1" step="1" value="10">
+        <button class="testButtons" onclick="updateLeaderboard()">Update Leaderboard</button>
+    </div>
     <table id="leaderboardTable">
         <tr>
             <th class="tableHeader">Rank</th>
@@ -45,8 +50,9 @@
             <th class="tableHeader">Score</th>
             <th class="tableHeader">Time</th>
         </tr>
+        <tbody id="leaderboardBody">
+        </tbody>
     </table>
-<!--    <input class="inputBox" id="answerInputNumeric" type="number"/><br>-->
     </body>
     <script>
         const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/"; // the API test url
@@ -75,8 +81,14 @@
                     "</tr>";
                 count++;
             }
-            let leaderboardTable = document.getElementById('leaderboardTable');
-            leaderboardTable.innerHTML += html;
+            let leaderboardTable = document.getElementById('leaderboardBody');
+            leaderboardTable.innerHTML = html;
+        }
+
+        function updateLeaderboard() {
+            let size = document.getElementById('leaderboardSizeInput').value;
+            let url = TH_TEST_API_URL + `leaderboard?size=${size}`;
+            getLeaderBoard(url);
         }
 
         function isTest() {
