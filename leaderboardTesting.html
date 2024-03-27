@@ -55,7 +55,7 @@
     </table>
     </body>
     <script>
-        const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/"; // the API test url
+        const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/leaderboard?sorted&"; // the API test url
 
         function getLeaderBoard(url) {
             fetch(url, { method: "GET" })
@@ -87,7 +87,7 @@
 
         function updateLeaderboard() {
             let size = document.getElementById('leaderboardSizeInput').value;
-            let url = TH_TEST_API_URL + `leaderboard?size=${size}`;
+            let url = TH_TEST_API_URL + `size=${size}`;
             getLeaderBoard(url);
         }
 
@@ -99,7 +99,7 @@
         // check if test and use the actual API or the TEST API accordingly
         if(isTest()) {
             // form the test service url
-            let url = TH_TEST_API_URL + `leaderboard?size=`;
+            let url = TH_TEST_API_URL + `size=`;
             getLeaderBoard(url);
         }
     </script>
