@@ -42,6 +42,7 @@
         <label for="leaderboardSizeInput">Leaderboard Size:</label>
         <input type="number" id="leaderboardSizeInput" min="1" step="1" value="10">
         <button class="testButtons" onclick="updateLeaderboard()">Update Leaderboard</button>
+        <button class="testButtons" onclick="updateAndSortLeaderboard()">Update and Sort Leaderboard</button>
     </div>
     <table id="leaderboardTable">
         <tr>
@@ -55,7 +56,7 @@
     </table>
     </body>
     <script>
-        const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/leaderboard?sorted&"; // the API test url
+        const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/leaderboard?"; // the API test url
 
         function getLeaderBoard(url) {
             fetch(url, { method: "GET" })
@@ -85,9 +86,18 @@
             leaderboardTable.innerHTML = html;
         }
 
+        // Function to update leaderboard size
         function updateLeaderboard() {
             let size = document.getElementById('leaderboardSizeInput').value;
             let url = TH_TEST_API_URL + `size=${size}`;
+            getLeaderBoard(url);
+        }
+
+        // Function to update and sort leaderboard
+        function updateAndSortLeaderboard() {
+            let size = document.getElementById('leaderboardSizeInput').value;
+            let sort = "&sorted";
+            let url = TH_TEST_API_URL + `size=${size}&${sort}`;
             getLeaderBoard(url);
         }
 
@@ -99,8 +109,7 @@
         // check if test and use the actual API or the TEST API accordingly
         if(isTest()) {
             // form the test service url
-            let url = TH_TEST_API_URL + `size=`;
-            getLeaderBoard(url);
+            getLeaderBoard(TH_TEST_API_URL);
         }
     </script>
 <script src="main.js"></script> <!-- External JavaScript file -->
