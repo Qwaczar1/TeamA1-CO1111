@@ -27,11 +27,11 @@ closeAboutBox.onclick = function() {
 }
 
 
-function BurgerOpenClose() {
-    var x = document.getElementById("navList");
-    if (x.className === "closed") {
-        x.className = "open";
-    } else {
-        x.className = "closed";
-    }
-}
+// function BurgerOpenClose() {
+//     var x = document.getElementById("navList");
+//     if (x.className === "closed") {
+//         x.className = "open";
+//     } else {
+//         x.className = "closed";
+//     }
+// }

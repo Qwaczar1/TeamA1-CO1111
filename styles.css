@@ -75,7 +75,9 @@ body{
 
 #navList{
     display: flex;
+    column-gap: 37px;
     list-style-type: none;
+    cursor: pointer;
 }
 
 .navLink{
@@ -84,57 +86,11 @@ body{
     text-decoration: none;
     color: inherit;
     font-weight: bold;
-    cursor: pointer;
-}
-
-/* Dynamic navigation menu code referenced from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_topnav */
-#navList {
-    overflow: hidden;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-#navList a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 5px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    border: none;
-}
-#navList a:hover {
-    color: black;
-}
-#navList a.active {
-    color: black;
-}
-#navList .icon {
-    display: none;
-}
-
-@media screen and (max-width: 565px) {
-    #navList.closed a {display: none;}
-    #navList.closed a.icon {
-        float: right;
-        display: block;
-    }
-}
-@media screen and (max-width: 565px) {
-    #navList.open .a:not(:last-child){
-        position: absolute;
-    }
-    #navList.open a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
 }
 
 .navLink:hover,
 .navLink:focus{
-    color: rgba(130,130,130,0.51);
+    color: #E8F0F7;
 }
 
 #memberNamesDiv{
