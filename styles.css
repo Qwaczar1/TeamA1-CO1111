@@ -549,3 +549,28 @@ body{
     border-bottom: 1px solid #000;
     padding: 20px;
 }
+.featuresTesting{
+
+        border-top: 1px solid #000;
+        border-left: 2px solid #000;
+        border-right: 2px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 20px;
+}
+#featuresTitle{
+    margin-bottom: 35px;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+#features,th,td{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto 70px auto;
+    border: 1px solid black;
+
+}
+
+
+
