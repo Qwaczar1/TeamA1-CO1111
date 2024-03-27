@@ -578,4 +578,8 @@ body{
     #aboutText{
         font-size: 13px;
     }
+
+    #footerContent{
+        font-size: 15px;
+    }
 }
