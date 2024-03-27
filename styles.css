@@ -575,7 +575,7 @@ body{
         font-size: 15px;
     }
 
-    #aboutText{
+    #aboutText, #helpText{
         font-size: 13px;
     }
 
