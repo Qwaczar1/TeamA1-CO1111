@@ -7,10 +7,12 @@ const numericInputElement = document.getElementById("numericInput");
 const mcqInputElement = document.getElementById("mcqInput");
 const integerInputElement = document.getElementById("integerInput");
 const booleanInputElement = document.getElementById("booleanInput");
-hideAllForms();
 
-let _questionType = "INTEGER";
+hideAllForms(); // Initially hide all input forms
 
+let _questionType = "INTEGER"; // Default question type
+
+// Function to hide all input forms
 function hideAllForms() {
     textInputElement.style.display = "none";
     numericInputElement.style.display = "none";
@@ -19,15 +21,14 @@ function hideAllForms() {
     booleanInputElement.style.display = "none";
 }
 
-// Function to fetch questions
+// Function to fetch questions from API
 function getQuestion() {
     // console.log(`Fetching question with sessionID: ${sessionID}`);
-    // Fetch questions API
     fetch(`https://codecyprus.org/th/api/question?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonObject => {
             // console.log('API response received:', jsonObject);
-            hideAllForms();
+            hideAllForms(); // Hide all input forms
             // Handle API response
             const errorMessages = jsonObject.errorMessages;
             const completed = jsonObject.completed;
@@ -43,6 +44,7 @@ function getQuestion() {
             const skipScore = jsonObject.skipScore;
             const status = jsonObject.status;
 
+            // Update UI with question details
             let questionDiv = document.getElementById('questionDiv');
             let questionNumber = document.getElementById('questionNumber');
             let questionScoring = document.getElementById('questionScoring');
@@ -56,6 +58,7 @@ function getQuestion() {
             loader.style.display = "none";
 
             if (status === "OK") {
+                // Display question text and appropriate input form based on question type
                 questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"media/Treasure Hunt Logo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
                 if (questionType === "BOOLEAN") {
                     booleanInputElement.style.display = "block";
@@ -73,21 +76,24 @@ function getQuestion() {
                     textInputElement.style.display = "block";
                 }
 
+                // Redirect to leaderboard if quiz completed
                 if (completed) {
                     location.href = "leaderboard.html?completed=true";
                 }
             }
+            // Handle requirements for location
             if (requiresLocation) {
                 if (navigator.geolocation) {
                     // Get location periodically (every 5 minutes)
                     setInterval(() => {
                         navigator.geolocation.getCurrentPosition(updateLocation);
-                    }, 5 * 60 * 1000); // 5 minutes in milliseconds
+                    }, 5 * 60 * 1000);
                 }
                 else {
                     alert("This browser does not support geolocation.")
                 }
             }
+            // Handle error messages
             else {
                 let errorMessage = "";
                 for (let i = 0; i < errorMessages.length; i++) {
@@ -106,6 +112,7 @@ function refresh() {
     window.location.reload();
 }
 
+// Function to handle answer submission
 function answer(elementID) {
     const inputElement = document.getElementById(elementID);
     const answerText = inputElement.value;
@@ -120,6 +127,7 @@ function answer(elementID) {
 
             loader.style.display = "none";
 
+            // Clear input value for certain types
             if (_questionType === "TEXT" || _questionType === "NUMERIC" || _questionType === "INTEGER") {
                 inputElement.value = "";
             }
@@ -132,6 +140,7 @@ function answer(elementID) {
                    score();
                    alert(jsonObject.message);
                    if (correct) {
+                       // Hide input form and fetch next question
                        booleanInputElement.style.display = "none";
                        integerInputElement.style.display = "none";
                        numericInputElement.style.display = "none";
@@ -141,6 +150,7 @@ function answer(elementID) {
                    }
                }
            }
+           // Handle error messages
            else {
                let errorMessage = "";
                for (let i = 0; i < errorMessages.length; i++) {
@@ -151,6 +161,7 @@ function answer(elementID) {
         });
 }
 
+// Function to update user's location
 function updateLocation(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
@@ -163,6 +174,7 @@ function updateLocation(position) {
             if (status === "OK") {
                 alert(message);
             }
+            // Handle error messages
             else {
                 let errorMessage = "";
                 for (let i = 0; i < errorMessages.length; i++) {
@@ -173,6 +185,7 @@ function updateLocation(position) {
         });
 }
 
+// Function to fetch and display user's score
 function score() {
     fetch(`https://codecyprus.org/th/api/score?session=${sessionID}`)
         .then(response => response.json())
@@ -185,6 +198,7 @@ function score() {
 
 const skipButton = document.getElementById("skipButton");
 
+// Function to handle skipping question
 function skip(){
     fetch(`https://codecyprus.org/th/api/skip?session=${sessionID}`)
         .then(response => response.json())
@@ -203,7 +217,9 @@ function skip(){
                         getQuestion();
                     }
                 }
-            } else {
+            }
+            // Handle error messages
+            else {
                 let errorMessage = "";
                 for (let i = 0; i < errorMessages.length; i++) {
                     errorMessage += errorMessages[i] + "\n";
@@ -213,6 +229,7 @@ function skip(){
         })
 }
 
+// Event listener for skip button click
 skipButton.addEventListener("click",function (event){
     event.preventDefault();
     skip();
@@ -220,13 +237,14 @@ skipButton.addEventListener("click",function (event){
 
 const reopenBox = document.getElementById("reopenBox");
 
-// Function to display the modal dialog
+// Function to hide the box
 function hideBox() {
     reopenBox.style.display = "none";
+    // Set browserClosed flag to false when the box is hidden
     localStorage.setItem('browserClosed', 'false');
 }
 
-// Function to display the modal dialog
+// Function to display the box
 function showBox() {
     reopenBox.style.display = "block";
 }
@@ -236,12 +254,14 @@ if (localStorage.getItem('browserClosed') === 'true') {
     showBox();
 }
 else {
+    hideBox();
 }
 
-// Add an event listener to hide the box when the user closes it
+// Add an event listener to hide the boxes when the user closes it
 document.getElementById('box1').addEventListener('click', hideBox);
 document.getElementById('box2').addEventListener('click', hideBox);
 
+// Event listener to set browserClosed flag to true when the browser is closed or refreshed
 window.addEventListener('unload', function (event) {
     localStorage.setItem('browserClosed', 'true');
 });
