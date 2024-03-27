@@ -582,4 +582,9 @@ body{
     #footerContent{
         font-size: 15px;
     }
+
+    #startButton{
+        font-size: 12px;
+        padding: 12px 45px;
+    }
 }
