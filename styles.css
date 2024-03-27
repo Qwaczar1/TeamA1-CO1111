@@ -395,11 +395,14 @@ body{
     text-align: center;
 }
 
-#leaderboardTable{
-    table-layout: fixed;
+#leaderboardTable, #userAcceptanceTable{
     border-collapse: collapse;
     width: 90%;
     margin: 0 auto 70px auto;
+}
+
+#leaderboardTable{
+    table-layout: fixed;
 }
 
 .inputBox{
