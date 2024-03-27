@@ -130,6 +130,7 @@ body{
 
 #startButtonDiv{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 #startButton{
@@ -249,7 +250,7 @@ body{
 .box{
     position: fixed;
     display: none;
-    padding-top: 120px;
+    padding-top: 100px;
     z-index: 1;
     top: 0;
     left: 0;
@@ -266,7 +267,7 @@ body{
     border: 1px solid grey;
     margin: auto;
     background-color: white;
-    padding: 90px;
+    padding: 70px;
     border-radius: 10px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
@@ -371,7 +372,7 @@ body{
     width: 150px;
 }
 
-.leaderboardHeading{
+#leaderboardHeading{
     text-align: center;
     margin-bottom: 30px;
 }
@@ -492,7 +493,7 @@ body{
     text-align: center;
 }
 
-#testHeader{
+#unitTestHeader{
     text-align: center;
     margin-bottom: 50px;
 }
@@ -549,28 +550,74 @@ body{
     border-bottom: 1px solid #000;
     padding: 20px;
 }
-.featuresTesting{
 
-        border-top: 1px solid #000;
-        border-left: 2px solid #000;
-        border-right: 2px solid #000;
-        border-bottom: 1px solid #000;
-        padding: 20px;
-}
-#featuresTitle{
-    margin-bottom: 35px;
+.twitter-timeline{
+    text-align: center;
+    color: black;
+    cursor: pointer;
     font-weight: bold;
-    font-size: 25px;
-
-}
-#features,th,td{
-    table-layout: fixed;
-    border-collapse: collapse;
-    width: 90%;
-    margin: 0 auto 70px auto;
-    border: 1px solid black;
-
+    text-decoration: none;
 }
 
+/* Media query for smaller viewport widths */
+@media screen and (max-width: 768px) {
+    .navLink{
+        font-size: 12px;
+    }
 
+    #greenHeaderLogo{
+        width: 70px;
+        height: 28px;
+        margin-right: 15px;
+    }
 
+    #headerContainer2 h4{
+        font-size: 15px;
+    }
+
+    #aboutText, #helpText{
+        font-size: 13px;
+    }
+
+    #footerContent{
+        font-size: 15px;
+    }
+
+    #startButton{
+        font-size: 12px;
+        padding: 12px 45px;
+    }
+
+    #treasureHuntsText{
+        font-size: 20px;
+    }
+
+    .treasureHuntsButtons{
+        font-size: 12px;
+    }
+
+    .treasureHuntName{
+        font-size: 16px;
+    }
+
+    #score{
+        font-size: 18px;
+    }
+
+    #skipButton{
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+
+    #questionNumber, .questionText{
+        font-size: 17px;
+    }
+
+    #leaderboardHeading, #heuristicsTitle, #unitTestHeader{
+        font-size: 20px;
+    }
+
+    .testingLink{
+        font-size: 15px;
+    }
+}
