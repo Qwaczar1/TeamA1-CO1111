@@ -25,3 +25,13 @@ about.onclick = function() {
 closeAboutBox.onclick = function() {
     aboutBox.style.display = "none";
 }
+
+
+function BurgerOpenClose() {
+    var x = document.getElementById("navList");
+    if (x.className === "closed") {
+        x.className = "open";
+    } else {
+        x.className = "closed";
+    }
+}

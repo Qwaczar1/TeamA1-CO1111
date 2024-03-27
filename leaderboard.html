@@ -13,14 +13,17 @@
         <div id="headerContent">
             <div id="align">
                 <div id="headerContainer1">
-                    <img src="media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo">
+                    <a href="index.html"><img src="media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo"></a>
                 </div>
                 <div id="headerContainer2">
                     <h4>Code Cyprus</h4>
                 </div>
             </div>
             <nav id="nav">
-                <ul id="navList">
+                <ul id="navList" class="closed">
+                    <a href="javascript:void(0);" class="icon" onclick="BurgerOpenClose()">
+                        <li class="fa fa-bars"></li>
+                    </a>
                     <!-- Home button -->
                     <li class="navItem">
                         <a class="navLink" href="index.html">HOME</a>
@@ -48,4 +51,5 @@
     </table>
 </body>
 <script src="leaderboard.js"></script> <!-- External JavaScript file -->
+<script src="main.js"></script> <!-- External JavaScript file -->
 </html>

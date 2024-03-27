@@ -75,7 +75,6 @@ body{
 
 #navList{
     display: flex;
-    column-gap: 37px;
     list-style-type: none;
 }
 
@@ -88,9 +87,54 @@ body{
     cursor: pointer;
 }
 
+/* Dynamic navigation menu code referenced from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_topnav */
+#navList {
+    overflow: hidden;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+#navList a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border: none;
+}
+#navList a:hover {
+    color: black;
+}
+#navList a.active {
+    color: black;
+}
+#navList .icon {
+    display: none;
+}
+
+@media screen and (max-width: 565px) {
+    #navList.closed a {display: none;}
+    #navList.closed a.icon {
+        float: right;
+        display: block;
+    }
+}
+@media screen and (max-width: 565px) {
+    #navList.open .a:not(:last-child){
+        position: absolute;
+    }
+    #navList.open a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
 .navLink:hover,
 .navLink:focus{
-    color: #E8F0F7;
+    color: rgba(130,130,130,0.51);
 }
 
 #memberNamesDiv{
@@ -171,13 +215,15 @@ body{
 }
 
 #twitterLogo{
-    width: 140px;
-    height: 90px;
+    height: 80px;
+    width: auto;
+    margin: 10px;
 }
 
 #tiktokLogo{
-    width: 110px;
-    height: 90px;
+    height: 80px;
+    width: auto;
+    margin: 10px;
 }
 
 .meeting{
@@ -210,6 +256,18 @@ body{
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and (max-width: 650px){
+    .treasureHuntsButtons{
+        width: 390px;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .treasureHuntsButtons{
+        width: 100%;
+    }
 }
 
 .treasureHuntsButtons:hover,
