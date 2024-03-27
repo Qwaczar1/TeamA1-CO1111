@@ -395,7 +395,7 @@ body{
     text-align: center;
 }
 
-#leaderboardTable, #userAcceptanceTable{
+#leaderboardTable, #userAcceptanceTable, #testResultsTable{
     border-collapse: collapse;
     width: 90%;
     margin: 0 auto 70px auto;
