@@ -372,7 +372,7 @@ body{
     width: 150px;
 }
 
-.leaderboardHeading{
+#leaderboardHeading{
     text-align: center;
     margin-bottom: 30px;
 }
@@ -493,7 +493,7 @@ body{
     text-align: center;
 }
 
-#testHeader{
+#unitTestHeader{
     text-align: center;
     margin-bottom: 50px;
 }
@@ -613,4 +613,11 @@ body{
         font-size: 17px;
     }
 
+    #leaderboardHeading, #heuristicsTitle, #unitTestHeader{
+        font-size: 20px;
+    }
+
+    .testingLink{
+        font-size: 15px;
+    }
 }
