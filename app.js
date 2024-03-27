@@ -1,18 +1,16 @@
-let treasureHuntID;
+let treasureHuntID; // Variable to store treasure hunt ID
 const sessionID = getCookie("sessionID"); // Get session ID from cookie
 let treasureHuntsElement = document.getElementById("treasureHuntsList");
 
-// Function to fetch treasure hunt challenges
+// Function to fetch treasure hunt challenges from API
 function getChallenges() {
     // Fetch treasure hunts data
     fetch("https://codecyprus.org/th/api/list")
         .then(response => response.json())
         .then(jsonObject => {
 
-            // Get references to name filling box elements
-            let nameBox = document.getElementById("nameBoxDiv");
-            let closeButton = document.getElementById("closeButton");
-
+            const nameBox = document.getElementById("nameBoxDiv");
+            const closeButton = document.getElementById("closeButton");
 
             // Loop through treasure hunts data
             for (let i = 0; i < jsonObject.treasureHunts.length; i++) {
@@ -44,7 +42,7 @@ function getChallenges() {
                     document.getElementById("treasureHunt"+i+"").setAttribute("disabled", true);
                 }
 
-                let buttons = document.querySelectorAll('.treasureHuntsButtons');
+                const buttons = document.querySelectorAll('.treasureHuntsButtons');
 
                 // Add click event listeners to buttons
                 buttons.forEach((button) => {
@@ -72,7 +70,7 @@ function getStartParameters(treasureHuntName, id) {
     treasureHuntID = id;
 }
 
-// Function to start a treasure hunt
+// Function to start a treasure hunt from API
 function startTreasureHunt() {
     let playerName = document.getElementById("usernameBox").value;
 
@@ -80,7 +78,6 @@ function startTreasureHunt() {
         return alert("Please make sure that the name includes only alphanumeric characters.");
     }
 
-    // Fetch start treasure hunt API
     fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app="Team-A1&treasure-hunt-id=${treasureHuntID}`)
         .then(response => response.json())
         .then(jsonObject => {
@@ -90,6 +87,7 @@ function startTreasureHunt() {
                 setCookie("sessionID", jsonObject.session, 365); // sets sessionID as a cookie
                 location.href = "questions.html";
             }
+            // Handle error messages
             else if (status === "ERROR") {
                 let errorMessage = "";
                 for (let i = 0; i < jsonObject.errorMessages.length; i++) {
@@ -99,7 +97,6 @@ function startTreasureHunt() {
             }
         });
 }
-
 
 // Function to refresh the page
 function refresh() {
