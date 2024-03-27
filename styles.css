@@ -587,4 +587,30 @@ body{
         font-size: 12px;
         padding: 12px 45px;
     }
+
+    #treasureHuntsText{
+        font-size: 20px;
+    }
+
+    .treasureHuntsButtons{
+        font-size: 12px;
+    }
+
+    .treasureHuntName{
+        font-size: 16px;
+    }
+
+    #score{
+        font-size: 18px;
+    }
+
+    #skipButton{
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+
+    #questionNumber, .questionText{
+        font-size: 17px;
+    }
+
 }
