@@ -1,6 +1,6 @@
 const TH_API_URL = "https://codecyprus.org/th/test-api/"; // the API base url
 
-// This function accesses the /leaderboard endpoint at the specified URL and handles the response
+// Function to fetch leaderboard data
 function getLeaderBoard(url) {
     // create and invoke the http request
     fetch(url, { method: "GET" })
@@ -14,7 +14,7 @@ function getLeaderBoard(url) {
 // Call the getLeaderBoard function with the URL for the leaderboard
 getLeaderBoard(TH_API_URL + "leaderboard?sorted");
 
-// This function handles the leaderboard data and generates HTML for displaying it
+// Function to handle and display leaderboard data
 function handleLeaderboard(leaderboard) {
     let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' };
     let html = ""; // used to include HTML code for the table rows
