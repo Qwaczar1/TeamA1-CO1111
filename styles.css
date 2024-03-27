@@ -130,6 +130,7 @@ body{
 
 #startButtonDiv{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 #startButton{
@@ -548,4 +549,12 @@ body{
     border-right: 2px solid #000;
     border-bottom: 1px solid #000;
     padding: 20px;
+}
+
+.twitter-timeline{
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
 }
