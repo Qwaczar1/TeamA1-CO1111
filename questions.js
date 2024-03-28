@@ -1,7 +1,7 @@
 const sessionID = getCookie("sessionID"); // Get session ID from cookie
 
 const loader = document.getElementById("loader");
-const _score = document.getElementById("score");
+let _score = document.getElementById("score");
 const textInputElement = document.getElementById("textInput");
 const numericInputElement = document.getElementById("numericInput");
 const mcqInputElement = document.getElementById("mcqInput");
@@ -78,7 +78,8 @@ function getQuestion() {
 
                 // Redirect to leaderboard if quiz completed
                 if (completed) {
-                    location.href = "leaderboard.html?completed=true";
+                    hideAllForms(); // Hide all input forms
+                    location.href = `leaderboard.html?completed=true&score=${_score}`;
                 }
             }
             // Handle requirements for location
@@ -133,18 +134,14 @@ function answer(elementID) {
 
            if (status === "OK") {
                if (completed) {
-                   location.href = "leaderboard.html?completed=true";
+                   hideAllForms(); // Hide all input forms
+                   location.href = `leaderboard.html?completed=true&score=${_score}`;
                }
                else {
                    score();
                    alert(jsonObject.message);
                    if (correct) {
-                       // Hide input form and fetch next question
-                       booleanInputElement.style.display = "none";
-                       integerInputElement.style.display = "none";
-                       numericInputElement.style.display = "none";
-                       mcqInputElement.style.display = "none";
-                       textInputElement.style.display = "none";
+                       hideAllForms(); // Hide all input forms
                        getQuestion();
                    }
                }
@@ -191,6 +188,7 @@ function score() {
         .then(jsonObject =>{
             const score = jsonObject.score;
             _score.innerText = "Score: " + score;
+            _score = score;
         })
 }
 
@@ -208,7 +206,8 @@ function skip(){
             const status = jsonObject.status;
             if (status === 'OK') {
                 if (completed) {
-                    location.href = "leaderboard.html?completed=true";
+                    hideAllForms(); // Hide all input forms
+                    location.href = `leaderboard.html?completed=true&score=${_score}`;
                 } else {
                     if (confirm("Are you sure you want to skip this question?")) {
                         score();
@@ -218,7 +217,7 @@ function skip(){
                 }
             }
             // Handle error messages
-            else {
+            else{
                 let errorMessage = "";
                 for (let i = 0; i < errorMessages.length; i++) {
                     errorMessage += errorMessages[i] + "\n";

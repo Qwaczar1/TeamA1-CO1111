@@ -377,9 +377,14 @@ body{
     margin-bottom: 30px;
 }
 
-#rankText{
+#rankText, #scoreText{
     text-align: center;
     margin-bottom: 25px;
+}
+
+#scoreText{
+    color: red;
+    font-weight: bold;
 }
 
 .tableHeader{

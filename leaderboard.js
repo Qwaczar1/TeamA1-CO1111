@@ -43,8 +43,8 @@ getLeaderBoard(url);
 const urlParams = new URLSearchParams(window.location.search);
 const completed = urlParams.get('completed');
 const rankText = document.getElementById('rankText');
-
-const _score = document.getElementById("score");
+const score = urlParams.get('score');
+const scoreText = document.getElementById('scoreText');
 
 // Display appropriate message based on session completion
 if (completed === 'true') {
@@ -54,6 +54,9 @@ if (completed === 'true') {
 else {
     rankText.innerHTML = "You have not completed the session.";
 }
+
+scoreText.innerHTML = "Your score is: " + score;
+
 
 // Function to refresh the page
 function refresh() {
