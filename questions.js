@@ -116,7 +116,6 @@ function refresh() {
 function answer(elementID) {
     const inputElement = document.getElementById(elementID);
     const answerText = inputElement.value;
-    //TODO - Validate answer
     fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answerText}`)
         .then(response => response.json())
         .then(jsonObject => {
