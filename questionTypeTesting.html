@@ -66,6 +66,8 @@
 
         // Function to run automated test
         async function runAutomatedTest(){
+            testCasesBody.innerHTML = "";
+
             for (let i = 0; i <testValues.length; i++) {
                 const input = testValues[i];
                 const expectedOutput = await getQuestionType(input);
