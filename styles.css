@@ -621,7 +621,7 @@ body{
     }
 
     #leaderboardHeading, #heuristicsTitle, #unitTestHeader, #userAcceptanceTitle{
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .testingLink{
