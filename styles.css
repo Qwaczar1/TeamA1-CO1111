@@ -390,18 +390,15 @@ body{
     border-right: 1px solid black;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
-    padding: 10px;
+    padding: 7px;
     text-align: center;
 }
 
 #leaderboardTable, #userAcceptanceTable{
     border-collapse: collapse;
+    table-layout: fixed;
     width: 90%;
     margin: 0 auto 70px auto;
-}
-
-#leaderboardTable{
-    table-layout: fixed;
 }
 
 .inputBox{
@@ -541,8 +538,12 @@ body{
     width: 70%;
 }
 
-#heuristicsTitle{
+#heuristicsTitle, #userAcceptanceTitle{
     margin-bottom: 35px;
+}
+
+#userAcceptanceTitle{
+    text-align: center;
 }
 
 .heuristicsRules{
@@ -619,7 +620,7 @@ body{
         font-size: 17px;
     }
 
-    #leaderboardHeading, #heuristicsTitle, #unitTestHeader{
+    #leaderboardHeading, #heuristicsTitle, #unitTestHeader, #userAcceptanceTitle{
         font-size: 20px;
     }
 
@@ -630,5 +631,13 @@ body{
     #qrCodeLogo{
         width: 40px;
         height: 40px;
+    }
+
+    .tableHeader{
+        font-size: 11px;
+    }
+
+    .tableData{
+        font-size: 10px;
     }
 }
