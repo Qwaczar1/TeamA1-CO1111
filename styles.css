@@ -640,4 +640,8 @@ body{
     .tableData{
         font-size: 10px;
     }
+
+    .treasureHuntsButtons{
+        width: 40%;
+    }
 }
