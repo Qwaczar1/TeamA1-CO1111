@@ -46,36 +46,46 @@
         <!-- Button to run automated test -->
         <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
     </div>
-    <h2 id="questionsHeading">Testing Question Type</h2>
     <table id="questionsTable">
+        <thead>
         <tr>
-            <th class="tableHeader">Rank</th>
-            <th class="tableHeader">Player Name</th>
-            <th class="tableHeader">Score</th>
-            <th class="tableHeader">Time</th>
+            <th class="tableHeader">Input</th>
+            <th class="tableHeader">Expected Output</th>
         </tr>
+        </thead>
+        <tbody id="testCasesBody">
+        <!-- Test cases will be populated here dynamically -->
+        </tbody>
     </table>
     <script>
         let _questionType = "INTEGER"; // Default question type
 
         let testValues = ['BOOLEAN', 'INTEGER', 'TEXT', 'MCQ', 'NULL', ""]; // Array of test values
 
+        const testCasesBody = document.getElementById("testCasesBody");
+
         // Function to run automated test
         async function runAutomatedTest(){
             for (let i = 0; i <testValues.length; i++) {
-                // Call getQuestionType function with current test value
-                console.log(await getQuestionType(testValues[i]));
+                const input = testValues[i];
+                const expectedOutput = await getQuestionType(input);
+
+                testCasesBody.innerHTML += "<tr>" + "<td class='tableData'>" + input + "</td>"
+                    + "<td class='tableData'>" + expectedOutput + "</td>" + "</tr>";
             }
         }
 
         // Function to run manual test
         function runTest(){
+            testCasesBody.innerHTML = "";
+
             // Get number of treasure hunts from input field
             const typeOfQuestionInput = document.getElementById("typeOfQuestion");
             const typeOfQuestionValue = typeOfQuestionInput.value;
             // Call getTreasureHunts function with specified number of treasure hunts
             getQuestionType(typeOfQuestionValue).then(value => {
-                console.log(value);
+                testCasesBody.innerHTML += "<tr>" + "<td class='tableData'>" + typeOfQuestionValue + "</td>"
+                    + "<td class='tableData'>" + value + "</td>" + "</tr>";
             })
         }
 

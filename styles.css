@@ -395,7 +395,7 @@ body{
     text-align: center;
 }
 
-#leaderboardTable, #userAcceptanceTable, #testResultsTable{
+#leaderboardTable, #userAcceptanceTable, #testResultsTable, #questionsTable{
     border-collapse: collapse;
     table-layout: fixed;
     width: 90%;
@@ -626,7 +626,8 @@ body{
         font-size: 17px;
     }
 
-    #leaderboardHeading, #heuristicsTitle, #unitTestHeader, #userAcceptanceTitle{
+    #leaderboardHeading, #heuristicsTitle,
+    #unitTestHeader, #userAcceptanceTitle{
         font-size: 16px;
     }
 
