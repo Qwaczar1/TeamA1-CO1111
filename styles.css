@@ -59,7 +59,7 @@ body{
 
 #greenHeaderLogo{
     width: 100px;
-    height: 40px;
+    height: auto;
     margin-right: 15px;
 }
 
@@ -262,7 +262,7 @@ body{
 
 .boxText{
     text-align: center;
-    width: 40%;
+    width: 450px;
     height: auto;
     border: 1px solid grey;
     margin: auto;
@@ -568,6 +568,38 @@ body{
 }
 
 /* Media query for smaller viewport widths */
+@media screen and (max-width: 700px){
+    .boxText{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 550px){
+
+    #nav{
+        padding-right: 7%;
+    }
+    #navList{
+        column-gap: 7%;
+    }
+}
+@media screen and (max-width: 500px){
+
+    #headerContainer1{
+        width: 45%;
+    }
+    #headerContainer2{
+        font-size: 4vw;
+    }
+    #greenHeaderLogo{
+        width: 100%;
+        height: auto;
+    }
+    .navLink{
+        font-size: 3vw;
+    }
+}
+/*
 @media screen and (max-width: 768px) {
     .navLink{
         font-size: 12px;
@@ -628,4 +660,4 @@ body{
     .testingLink{
         font-size: 15px;
     }
-}
+}*/
