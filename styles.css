@@ -360,7 +360,8 @@ body{
     background-color: #E8F0F7;
 }
 
-#usernameBox, .inputBox, #numOfTreasureHuntsInput, #typeOfQuestion{
+#usernameBox, .inputBox, #numOfTreasureHuntsInput,
+#typeOfQuestion, #leaderboardSizeInput{
     padding: 5px 10px;
     border-radius: 4px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
@@ -394,11 +395,16 @@ body{
     text-align: center;
 }
 
-#leaderboardTable, #userAcceptanceTable{
+#leaderboardTable, #userAcceptanceTable, #testResultsTable{
     border-collapse: collapse;
     table-layout: fixed;
     width: 90%;
     margin: 0 auto 70px auto;
+}
+
+#leaderboardControls{
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .inputBox{
@@ -524,7 +530,7 @@ body{
 }
 
 #testRunDiv{
-    margin: 80px auto;
+    margin: 20px auto 70px auto;
 }
 
 #testResults{

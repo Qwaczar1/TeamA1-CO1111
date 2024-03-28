@@ -46,28 +46,48 @@
         <!-- Button to run automated test -->
         <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
     </div>
+    <!-- Table to display test cases -->
+    <div>
+        <table id="testResultsTable">
+            <thead>
+            <tr>
+                <th class="tableHeader">Input</th>
+                <th class="tableHeader">Expected Output</th>
+            </tr>
+            </thead>
+            <tbody id="testCasesBody">
+            <!-- Test cases will be populated here dynamically -->
+            </tbody>
+        </table>
+    </div>
     <script>
         let testValues = [-1, 0, 1, 2, 10, null, ""]; // Array of test values
 
-        let testResults = document.getElementById("testResults");
+        const testCasesBody = document.getElementById("testCasesBody");
 
         // Function to run automated test
         async function runAutomatedTest(){
+            testCasesBody.innerHTML = "";
             for (let i = 0; i <testValues.length; i++) {
-                // Call getTreasureHunts function with current test value
-                console.log(await getTreasureHunts(testValues[i]));
+                const input = testValues[i];
+                const expectedOutput = await getTreasureHunts(input);
+
+                testCasesBody.innerHTML += "<tr>" + "<td class='tableData'>" + input + "</td>"
+                    + "<td class='tableData'>" + expectedOutput + "</td>" + "</tr>";
             }
         }
 
         // Function to run manual test
         function runTest(){
+            testCasesBody.innerHTML = "";
             // Get number of treasure hunts from input field
             const numOfTreasureHuntsInput = document.getElementById("numOfTreasureHuntsInput");
             const numOfTreasureHunts = numOfTreasureHuntsInput.value;
-            // Call getTreasureHunts function with specified number of treasure hunts
             getTreasureHunts(numOfTreasureHunts).then(value => {
-                console.log(value);
-            })
+
+                testCasesBody.innerHTML += "<tr>" + "<td class='tableData'>" + numOfTreasureHunts + "</td>"
+                    + "<td class='tableData'>" + value + "</td>" + "</tr>";
+            });
         }
 
         // Function to fetch treasure hunts data from API

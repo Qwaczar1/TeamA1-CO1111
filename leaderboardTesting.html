@@ -38,6 +38,11 @@
         </div>
     </header>
     <h2 id="leaderboardHeading">Testing Leaderboard</h2>
+    <div id="leaderboardControls">
+        <label for="leaderboardSizeInput">Leaderboard Size:</label>
+        <input type="number" id="leaderboardSizeInput" min="1" step="1" value="10">
+        <button class="testButtons" onclick="updateLeaderboard()">Update Leaderboard</button>
+        <button class="testButtons" onclick="updateAndSortLeaderboard()">Update and Sort Leaderboard</button>    </div>
     <table id="leaderboardTable">
         <tr>
             <th class="tableHeader">Rank</th>
@@ -45,11 +50,13 @@
             <th class="tableHeader">Score</th>
             <th class="tableHeader">Time</th>
         </tr>
+        <tbody id="leaderboardBody">
+        </tbody>
     </table>
 <!--    <input class="inputBox" id="answerInputNumeric" type="number"/><br>-->
     </body>
     <script>
-        const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/"; // the API test url
+        const TH_TEST_API_URL = "https://codecyprus.org/th/test-api/leaderboard?"; // the API test url
 
         function getLeaderBoard(url) {
             fetch(url, { method: "GET" })
@@ -75,8 +82,22 @@
                     "</tr>";
                 count++;
             }
-            let leaderboardTable = document.getElementById('leaderboardTable');
-            leaderboardTable.innerHTML += html;
+            let leaderboardBody = document.getElementById('leaderboardBody');
+            leaderboardBody.innerHTML = html;
+        }
+
+        function updateLeaderboard() {
+            let size = document.getElementById('leaderboardSizeInput').value;
+            let url = TH_TEST_API_URL + `size=${size}`;
+            getLeaderBoard(url);
+        }
+
+        // Function to update and sort leaderboard
+        function updateAndSortLeaderboard() {
+            let size = document.getElementById('leaderboardSizeInput').value;
+            let sort = "&sorted";
+            let url = TH_TEST_API_URL + `size=${size}&${sort}`;
+            getLeaderBoard(url);
         }
 
         function isTest() {
@@ -86,9 +107,7 @@
 
         // check if test and use the actual API or the TEST API accordingly
         if(isTest()) {
-            // form the test service url
-            let url = TH_TEST_API_URL + `leaderboard?size=`;
-            getLeaderBoard(url);
+            getLeaderBoard(TH_TEST_API_URL);
         }
     </script>
 </html>

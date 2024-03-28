@@ -38,15 +38,26 @@
     </header>
     <!-- Test run section -->
     <div id="testRunDiv">
-        <h2 id="unitTestHeader">Unit Test - Question Number</h2>
+        <h2 id="unitTestHeader">Unit Test - Question Type</h2>
         <!-- Input field for question number -->
-        <input type="text" id="typeOfQuestion"/>
+        <input type="text" id="typeOfQuestion" placeholder="Enter question type"/>
         <!-- Button to run the test -->
         <input class="testButtons" type="button" onclick="runTest()" value="Run Test"/>
         <!-- Button to run automated test -->
         <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
     </div>
+    <h2 id="questionsHeading">Testing Question Type</h2>
+    <table id="questionsTable">
+        <tr>
+            <th class="tableHeader">Rank</th>
+            <th class="tableHeader">Player Name</th>
+            <th class="tableHeader">Score</th>
+            <th class="tableHeader">Time</th>
+        </tr>
+    </table>
     <script>
+        let _questionType = "INTEGER"; // Default question type
+
         let testValues = ['BOOLEAN', 'INTEGER', 'TEXT', 'MCQ', 'NULL', ""]; // Array of test values
 
         // Function to run automated test
@@ -73,8 +84,9 @@
             return fetch(`https://codecyprus.org/th/test-api/question?question-type=${typeOfQuestion}`)
                 .then(response => response.json())
                 .then(jsonObject => {
-                    const status = jsonObject.status;
                     const questionType = jsonObject.questionType;
+                    _questionType = questionType;
+                    const status = jsonObject.status;
                     if (status === "OK") {
                         return questionType;
                     }
