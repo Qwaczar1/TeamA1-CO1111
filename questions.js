@@ -59,7 +59,7 @@ function getQuestion() {
 
             if (status === "OK") {
                 // Display question text and appropriate input form based on question type
-                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"../../../../OneDrive/Desktop/TeamA1-CO1111-main%20(1)/TeamA1-CO1111-main/media/Treasure%20Hunt%20Logo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
+                questionDiv.innerHTML = "<p class='questionText'>" + questionText + "</p>" + "<img src=\"media/TreasureHuntLogo.png\" id=\"redLogo\" alt=\"Treasure Hunt Logo\">";
                 if (questionType === "BOOLEAN") {
                     booleanInputElement.style.display = "block";
                 }

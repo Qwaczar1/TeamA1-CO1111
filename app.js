@@ -27,7 +27,7 @@ function getChallenges() {
                 const timeText = currentTimeStamp < treasureHuntStartTime ? "Going live in: " + goesLiveIn + " weeks" : "Ends in: " + EndsOn + " weeks";
 
                 // Display treasure hunt information
-                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='getStartParameters(\"" + nameOfTreasureHunt + "\", \"" + idOfTreasureHunt + "\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='../../../../OneDrive/Desktop/TeamA1-CO1111-main%20(1)/TeamA1-CO1111-main/media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
+                treasureHuntsElement.innerHTML += "<li class='treasureHunts'>" + "<a href=''><button onclick='getStartParameters(\"" + nameOfTreasureHunt + "\", \"" + idOfTreasureHunt + "\")' id='treasureHunt"+i+"' class='treasureHuntsButtons'>" + "<p class='treasureHuntName'>" + nameOfTreasureHunt + "<img src='media/start-button.png' class='startLogo' alt='Treasure Hunt Logo'>" + "</p>" + "<p class='timeText'>" + timeText + "</p>" + "</button></a>" + "</li>";
 
                 document.getElementById("loader").style.display = "none";
 
