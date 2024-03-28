@@ -12,7 +12,7 @@
         <div id="headerContent">
             <div id="align">
                 <div id="headerContainer1">
-                    <a href="index.html"><img src="media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo"></a>
+                    <a href="index.html"><img src="../../../../OneDrive/Desktop/TeamA1-CO1111-main%20(1)/TeamA1-CO1111-main/media/Banner2.png" id="greenHeaderLogo" alt="Treasure Hunt Logo"></a>
                 </div>
                 <div id="headerContainer2">
                     <h4>Code Cyprus</h4>
@@ -46,20 +46,6 @@
         <!-- Button to run automated test -->
         <input class="testButtons" type="button" onclick="runAutomatedTest()" value="Run Automated Test"/>
     </div>
-    <!-- Table to display test cases -->
-    <div>
-        <table id="testResultsTable">
-            <thead>
-            <tr>
-                <th class="tableHeader">Input</th>
-                <th class="tableHeader">Output</th>
-            </tr>
-            </thead>
-            <tbody id="testCasesBody">
-            <!-- Test cases will be populated here dynamically -->
-            </tbody>
-        </table>
-    </div>
     <script>
         let testValues = ['BOOLEAN', 'INTEGER', 'TEXT', 'MCQ', 'NULL', ""]; // Array of test values
 
@@ -68,10 +54,6 @@
             for (let i = 0; i <testValues.length; i++) {
                 // Call getQuestionType function with current test value
                 console.log(await getQuestionType(testValues[i]));
-                const input = testValues[i];
-                const output = await getQuestionType(input);
-
-                testCasesBody.innerHTML += "<tr>" + "<td class='tableData'>" + input + "</td>" + "<td class='tableData'>" + output + "</td>" + "</tr>";
             }
         }
 
@@ -83,8 +65,6 @@
             // Call getTreasureHunts function with specified number of treasure hunts
             getQuestionType(typeOfQuestionValue).then(value => {
                 console.log(value);
-                testCasesBody.innerHTML += "<tr>" + "<td class='tableData'>" + typeOfQuestionValue + "</td>" + "<td class='tableData'>" + value + "</td>" + "</tr>";
-
             })
         }
 
@@ -93,7 +73,6 @@
             return fetch(`https://codecyprus.org/th/test-api/question?question-type=${typeOfQuestion}`)
                 .then(response => response.json())
                 .then(jsonObject => {
-                    console.log(jsonObject);
                     const status = jsonObject.status;
                     const questionType = jsonObject.questionType;
                     if (status === "OK") {
