@@ -644,4 +644,8 @@ body{
     .treasureHuntsButtons{
         width: 40%;
     }
+
+    .reopenLink{
+        padding: 2px 5px;
+    }
 }
