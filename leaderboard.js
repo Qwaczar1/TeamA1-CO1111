@@ -55,8 +55,9 @@ else {
     rankText.innerHTML = "You have not completed the session.";
 }
 
-scoreText.innerHTML = "Your score is: " + score;
-
+if (score) {
+    scoreText.innerHTML = "Your score is: " + score;
+}
 
 // Function to refresh the page
 function refresh() {
