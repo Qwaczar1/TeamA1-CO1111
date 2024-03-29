@@ -488,6 +488,7 @@ body{
     cursor: pointer;
     border-radius: 4px;
     background-color: darkgray;
+    margin-bottom: 20px;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
