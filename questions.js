@@ -85,10 +85,7 @@ function getQuestion() {
             // Handle requirements for location
             if (requiresLocation) {
                 if (navigator.geolocation) {
-                    // Get location periodically (every 5 minutes)
-                    setInterval(() => {
-                        navigator.geolocation.getCurrentPosition(updateLocation);
-                    }, 5 * 60 * 1000);
+                    navigator.geolocation.getCurrentPosition(updateLocation);
                 }
                 else {
                     alert("This browser does not support geolocation.")

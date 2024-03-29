@@ -469,15 +469,17 @@ body{
 
 #answerInputBooleanTrue{
     margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 #answerInputBooleanFalse{
     margin-left: 10px;
+    margin-bottom: 20px;
 }
 
 #answerInputMCQA, #answerInputMCQB,
 #answerInputMCQC, #answerInputMCQD{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 7px 20px;
 }
 
