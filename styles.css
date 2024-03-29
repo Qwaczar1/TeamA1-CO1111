@@ -1,3 +1,5 @@
+/* General styling of all pages */
+
 *{
     margin: 0;
     padding: 0;
@@ -12,25 +14,7 @@ body{
     overflow-x: hidden;
 }
 
-#loader{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 120px;
-    height: 120px;
-    margin: -76px 0 0 -76px;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid darkgrey;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* Styling of header of all pages */
 
 #headerContent{
     font-size: 18px;
@@ -93,6 +77,30 @@ body{
     color: #E8F0F7;
 }
 
+/* Styling of loader */
+
+#loader{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid darkgrey;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Styling of footer */
+
 #memberNamesDiv{
     text-align: center;
 }
@@ -101,50 +109,6 @@ body{
     font-weight: bold;
     list-style: none;
     line-height: 1.5;
-}
-
-#main{
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-#welcomeMessageDiv{
-    margin: 0 auto;
-    line-height: 1.5;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-#welcomeMessagePar{
-    font-size: 16px;
-    text-align: center;
-}
-
-#greenLogo{
-    margin: 25px auto;
-    width: 170px;
-    height: auto;
-}
-
-#startButtonDiv{
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-#startButton{
-    font-weight: bold;
-    font-size: 15px;
-    padding: 12px 80px;
-    cursor: pointer;
-    background-color: darkgray;
-    border-radius: 4px;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
-}
-
-#startButton:hover,
-#startButton:focus{
-    background-color: #E8F0F7;
 }
 
 #footer{
@@ -182,8 +146,60 @@ body{
     margin: 10px;
 }
 
-.meeting{
-    margin: 10px;
+.twitter-timeline{
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Styling of landing page */
+
+#main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#welcomeMessageDiv{
+    margin: 0 auto;
+    line-height: 1.5;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#welcomeMessagePar{
+    font-size: 16px;
+    text-align: center;
+}
+
+#greenLogo{
+    margin: 25px auto;
+    width: 170px;
+    height: auto;
+}
+
+/* Styling of app page */
+
+#startButtonDiv{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#startButton{
+    font-weight: bold;
+    font-size: 15px;
+    padding: 12px 80px;
+    cursor: pointer;
+    background-color: darkgray;
+    border-radius: 4px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+}
+
+#startButton:hover,
+#startButton:focus{
+    background-color: #E8F0F7;
 }
 
 @media (max-width: 750px) {
@@ -246,6 +262,14 @@ body{
     height: 20px;
 }
 
+/* Styling of notes page */
+
+.meeting{
+    margin: 10px;
+}
+
+/* Styling of pop up boxes */
+
 .box{
     position: fixed;
     display: none;
@@ -287,23 +311,6 @@ body{
     color: #E8F0F7;
 }
 
-#camera{
-    margin-top: -20px;
-    margin-bottom: -40px;
-    background-color: black;
-    color: white;
-    text-align: center;
-}
-
-#preview{
-    width: 250px;
-    height: 250px;
-}
-
-.cameraSwitchButtons{
-    margin-top: 30px;
-}
-
 #nameBoxDiv{
     position: fixed;
     display: none;
@@ -342,6 +349,28 @@ body{
     cursor: pointer;
 }
 
+/* Styling of QR code scanner */
+
+#camera{
+    margin-top: -20px;
+    margin-bottom: -40px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#preview{
+    width: 250px;
+    height: 250px;
+}
+
+.cameraSwitchButtons{
+    margin-top: 30px;
+}
+
+
+/* Styling of buttons */
+
 #submitButton, .testButtons, .cameraSwitchButtons{
     padding: 5px 10px;
     cursor: pointer;
@@ -360,6 +389,8 @@ body{
     background-color: #E8F0F7;
 }
 
+/* Styling of inputs */
+
 #usernameBox, .inputBox, #numOfTreasureHuntsInput,
 #typeOfQuestion, #leaderboardSizeInput{
     padding: 5px 10px;
@@ -367,10 +398,7 @@ body{
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
 }
 
-#redLogo{
-    margin-top: 10px;
-    width: 150px;
-}
+/* Styling of tables for leaderboard and testing pages */
 
 #leaderboardHeading{
     text-align: center;
@@ -410,6 +438,13 @@ body{
 #leaderboardControls{
     text-align: center;
     margin-bottom: 20px;
+}
+
+/* Styling of questions page */
+
+#redLogo{
+    margin-top: 10px;
+    width: 150px;
 }
 
 .inputBox{
@@ -498,16 +533,6 @@ body{
     display: flex;
 }
 
-#testingLinksDiv{
-    margin: 100px auto;
-    text-align: center;
-}
-
-#unitTestHeader{
-    text-align: center;
-    margin-bottom: 50px;
-}
-
 .reopenLink{
     text-decoration: none;
     cursor: pointer;
@@ -518,6 +543,18 @@ body{
     background-color: darkgray;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
     padding: 5px 10px;
+}
+
+/* Styling of testing */
+
+#testingLinksDiv{
+    margin: 100px auto;
+    text-align: center;
+}
+
+#unitTestHeader{
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .testingLink{
@@ -565,15 +602,8 @@ body{
     padding: 20px;
 }
 
-.twitter-timeline{
-    text-align: center;
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-}
-
 /* Media query for smaller viewport widths */
+
 @media screen and (max-width: 768px) {
     .navLink{
         font-size: 10px;
